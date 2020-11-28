@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_marginTop="15dp"
-    android:layout_marginBottom="15dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="7dp"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp"
     android:layout_height="160dp"
@@ -51,7 +51,7 @@
                 android:fontFamily="@font/jua"
                 android:includeFontPadding="false"
                 android:layout_below="@id/Eng"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
                 android:text="content"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp" />
@@ -62,7 +62,7 @@
                 android:fontFamily="@font/jua"
                 android:includeFontPadding="false"
                 android:layout_below="@id/Kor"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:text="content"
                 android:textColor="@android:color/black"
                 android:textSize="13sp" />
