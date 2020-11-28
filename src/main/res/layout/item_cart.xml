@@ -8,13 +8,11 @@
     android:gravity="center_vertical"
     android:background="@drawable/boarder_result">
 
-    <?xml version="1.0" encoding="utf-8"?>
-
     <RelativeLayout
         android:id="@+id/linearItem"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:background="@drawable/boarder_result">
 
@@ -127,7 +125,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/linearItem2"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="16dp">
@@ -154,13 +152,6 @@
 
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:background="@drawable/button_gold"
-            android:layout_marginStart="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
     </RelativeLayout>
 
     <RelativeLayout
