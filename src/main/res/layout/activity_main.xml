@@ -37,6 +37,17 @@
 
 <!--    </FrameLayout>-->
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
@@ -45,19 +56,16 @@
         app:itemIconTint="@drawable/menu_select_color"
         app:itemTextColor="@drawable/menu_select_color"
         app:menu="@menu/menu_bottom"
-        tools:layout_editor_absoluteY="675dp">
+        tools:layout_editor_absoluteY="675dp"
+        >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="328dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

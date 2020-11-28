@@ -41,8 +41,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
+    private Toolbar toolbar;
     private AppBarConfiguration mAppBarConfiguration;
     private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰
     private FragmentManager fm;
@@ -97,10 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
 

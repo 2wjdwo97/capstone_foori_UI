@@ -11,15 +11,17 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">#D5D5D5</item>
         <item name="colorControlActivated">#FFE400</item>
     </style>
+
     <style name="spicy" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/spicy</item>
     </style>
+
     <style name="star" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/star</item>
     </style>
