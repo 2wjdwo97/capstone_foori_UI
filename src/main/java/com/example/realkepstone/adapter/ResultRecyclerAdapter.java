@@ -103,7 +103,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             super(itemView);
 
             order = itemView.findViewById(R.id.order);
-            textView1 = itemView.findViewById(R.id.Eng);
+            textView1 = itemView.findViewById(R.id.Title);
             textView2 = itemView.findViewById(R.id.Kor);
             imageView1 = itemView.findViewById(R.id.imageView1);
             star = itemView.findViewById(R.id.starpoint);

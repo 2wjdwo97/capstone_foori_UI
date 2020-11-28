@@ -194,30 +194,44 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/join"
-        android:layout_width="156dp"
-        android:layout_height="114dp"
-        android:adjustViewBounds="true"
-        android:background="#FFFFFF"
-        android:scaleType="centerInside"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/join" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.6">
+        <ImageButton
+            android:id="@+id/join"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_button"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/jua"
+            android:text="Submit"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="92dp"
         android:layout_height="95dp"
-        app:layout_constraintBottom_toBottomOf="@+id/join"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/bab" />
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="0.25"
+        android:background="@drawable/bab" />
 </androidx.constraintlayout.widget.ConstraintLayout>
