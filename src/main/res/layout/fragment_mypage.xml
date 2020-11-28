@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#D8D8D8"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="8">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/boarder"
+            android:paddingRight="5dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/review"
+                android:drawableEnd="@drawable/shift"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boarder"
+                android:fontFamily="@font/jua"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/review"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/boarder"
+            android:layout_width="match_parent"
+            android:paddingRight="5dp"
+
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tagchange"
+                android:drawableEnd="@drawable/shift"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boarder"
+                android:fontFamily="@font/jua"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/Editpref"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/boarder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingRight="5dp"
+
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/pwchange"
+                android:drawableEnd="@drawable/shift"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boarder"
+                android:fontFamily="@font/jua"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/ChangePw"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:text="@string/change"
+            android:textSize="20dp"
+            android:fontFamily="@font/jua"
+            android:gravity="center_vertical"
+            android:layout_height="0dp"
+            android:background="@drawable/boarder"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+
+            android:textSize="20dp"
+            android:fontFamily="@font/jua"
+            android:gravity="center_vertical"
+            android:layout_height="0dp"
+            android:background="#D8D8D8"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+
+            android:textSize="20dp"
+            android:fontFamily="@font/jua"
+            android:gravity="center_vertical"
+            android:layout_height="0dp"
+            android:background="#D8D8D8"
+            android:layout_weight="1"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/boarder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingRight="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/quit"
+                android:drawableEnd="@drawable/shift"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boarder"
+                android:fontFamily="@font/jua"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/DeleteAccount"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+
+            android:textSize="20dp"
+            android:fontFamily="@font/jua"
+            android:gravity="center_vertical"
+            android:layout_height="0dp"
+            android:background="#D8D8D8"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

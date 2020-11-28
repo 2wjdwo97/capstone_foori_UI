@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_front">
+
+    <fragment
+        android:id="@+id/nav_front"
+        android:name="com.example.realkepstone.front.FrontFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_front" >
+        <action
+            android:id="@+id/action_nav_front_to_nav_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_joinafter"
+        android:name="com.example.realkepstone.front.JoinAfterFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_joinafter" >
+        <action
+            android:id="@+id/action_nav_joinafter_to_nav_login"
+            app:destination="@id/nav_login" />
+        <action
+            android:id="@+id/action_nav_joinafter_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_joinafter_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_findid"
+        android:name="com.example.realkepstone.front.FindidFragment"
+        android:label="find"
+        tools:layout="@layout/fragment_findid" >
+        <action
+            android:id="@+id/action_nav_findid_to_nav_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_findpw"
+        android:name="com.example.realkepstone.front.FindpwFragment"
+        android:label="find"
+        tools:layout="@layout/fragment_findpw" >
+        <action
+            android:id="@+id/action_nav_findid_to_nav_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_join"
+        android:name="com.example.realkepstone.front.JoinFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_join" >
+        <action
+            android:id="@+id/action_nav_join_to_nav_joinafter"
+            app:destination="@id/nav_joinafter" />
+        <action
+            android:id="@+id/action_nav_join_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_join_to_nav_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.realkepstone.front.LoginFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_join"
+            app:destination="@id/nav_join" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_findid"
+            app:destination="@id/nav_findid" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_findpw"
+            app:destination="@id/nav_findpw" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_joinafter"
+            app:destination="@id/nav_joinafter" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.realkepstone.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_menugallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_result"
+            app:destination="@id/nav_result" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.realkepstone.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.realkepstone.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_result"
+        android:name="com.example.realkepstone.ui.ResultFragment"
+        android:label="result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_nav_result_to_nav_bag"
+            app:destination="@id/nav_bag" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_bag"
+        android:name="com.example.realkepstone.ui.BagFragment"
+        android:label="bag"
+        tools:layout="@layout/fragment_bag" />
+
+
+
+</navigation>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="#E5E5E5"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="#FFFFFF"
+                android:elevation="10dp"
+                android:outlineAmbientShadowColor="#000000"
+                android:outlineProvider="bounds"
+                android:outlineSpotShadowColor="#000000">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_rice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_fried"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_soup"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/button__rice"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button__rice" />
+
+                    <TextView
+                        android:id="@+id/txt_rice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button__rice"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="rice"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_soup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_grilled"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_noodle"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_rice"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/button_soup"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_soup" />
+
+                    <TextView
+                        android:id="@+id/txt_soup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_soup"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="soup"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_stir_fried"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_boiled"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_noodle"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/button_stir_fried"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_stir_fried" />
+
+                    <TextView
+                        android:id="@+id/txt_stir_fried"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_stir_fried"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="stir-fried"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_noodle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_bread"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_stir_fried"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_soup"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/button_noodle"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_noodle" />
+
+                    <TextView
+                        android:id="@+id/txt_noodle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_noodle"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="noodle"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_fried"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_steamed"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_grilled"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_rice">
+
+                    <ImageView
+                        android:id="@+id/button_fried"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/button_fried" />
+
+                    <TextView
+                        android:id="@+id/txt_fried"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_fried"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="fried"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_grilled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_baverage"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_bread"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_fried"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_soup">
+
+                    <ImageView
+                        android:id="@+id/button_grilled"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_grilled" />
+
+                    <TextView
+                        android:id="@+id/txt_grilled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_grilled"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="grilled"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_bread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_dummy"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_boiled"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_grilled"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_noodle">
+
+                    <ImageView
+                        android:id="@+id/button_bread"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_bread" />
+
+                    <TextView
+                        android:id="@+id/txt_bread"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_bread"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="bread"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_boiled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/relativeLayout_dummy2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_bread"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_stir_fried">
+
+                    <ImageView
+                        android:id="@+id/button_boiled_in_seasoning"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_boiled_in_seasoning" />
+
+                    <TextView
+                        android:id="@+id/txt_boiled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_boiled_in_seasoning"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/jua"
+                        android:text="boiled in\nseasoning"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_steamed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_baverage"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_fried">
+
+                    <ImageView
+                        android:id="@+id/button_steamed"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_steamed" />
+
+                    <TextView
+                        android:id="@+id/txt_steamed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_steamed"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="noodle"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_baverage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_dummy"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_steamed"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_grilled">
+
+                    <ImageView
+                        android:id="@+id/button_baverage"
+                        android:layout_width="58dp"
+                        android:layout_height="58dp"
+                        app:srcCompat="@drawable/button_baverage" />
+
+                    <TextView
+                        android:id="@+id/txt_baverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/button_baverage"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/jua"
+                        android:text="beverage"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_dummy"
+                    android:layout_width="58dp"
+                    android:layout_height="75dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout_dummy2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_baverage"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_bread"></RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_dummy2"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout_dummy"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout_boiled">
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="10dp"
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:orderInCategory="0"
+        android:icon="@drawable/home"
+        android:title="추천 메뉴"/>
+
+    <item
+        android:id="@+id/camera"
+        android:enabled="true"
+        android:orderInCategory="1"
+        android:icon="@drawable/camera"
+        android:title="사진 찍기"/>
+    <item
+        android:id="@+id/gallery"
+        android:orderInCategory="2"
+
+        android:enabled="true"
+        android:icon="@drawable/gallery2"
+        android:title="갤러리 불러오기"/>
+    <item
+        android:id="@+id/mypage"
+        android:enabled="true"
+        android:orderInCategory="3"
+
+        android:icon="@drawable/mypage2"
+        android:title="마이 페이지"/>
+    <item
+        android:orderInCategory="4"
+
+        android:id="@+id/review"
+        android:enabled="true"
+        android:icon="@drawable/pencil_pencil"
+        android:title="리뷰 작성"/>
+</menu>
