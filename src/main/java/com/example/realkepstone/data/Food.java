@@ -9,15 +9,16 @@ public class Food implements Serializable {
 
     private String des;
     private String allergy;
-    private String spicy;
+    private float spicy;
     private String ingre;
-    private int star;
+    private String tag;
+    private float star;
 
-    public int getStar() {
+    public float getStar() {
         return star;
     }
 
-    public void setStar(int star) {
+    public void setStar(float star) {
         this.star = star;
     }
 
@@ -86,11 +87,11 @@ public class Food implements Serializable {
         this.allergy = allergy;
     }
 
-    public String getSpicy() {
+    public float getSpicy() {
         return spicy;
     }
 
-    public void setSpicy(String spicy) {
+    public void setSpicy(float spicy) {
         this.spicy = spicy;
     }
 
@@ -110,9 +111,9 @@ public class Food implements Serializable {
         this.resId = resId;
     }
 
+    public void setTag(String tag) {this.tag = tag;}
 
-
-
+    public String getTag(){return tag;}
 
 
 }

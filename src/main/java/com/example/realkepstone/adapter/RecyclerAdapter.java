@@ -53,6 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
         private TextView textView1;
         private TextView textView2;
+        private TextView textView_Desc;
         private ImageView imageView;
 
         ItemViewHolder(View itemView) {
@@ -60,12 +61,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
             textView1 = itemView.findViewById(R.id.Kor);
             textView2 = itemView.findViewById(R.id.Eng);
+            textView_Desc = itemView.findViewById(R.id.Desc);
             imageView = itemView.findViewById(R.id.imageView);
         }
 
         void onBind(TodayData food) {
             textView1.setText(food.getFoodName());
-            textView2.setText(food.getFoodDsc());
+            textView2.setText(food.getTranslatedName());
+            textView_Desc.setText(food.getFoodDsc());
             Glide
                     .with(imageView.getContext())
                     .load(food.getFoodImgUrl())

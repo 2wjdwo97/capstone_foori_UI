@@ -135,21 +135,24 @@ public class ResultFragment extends Fragment {
 
         List <String> listKor = new ArrayList<String>();
         List <String> listEng = new ArrayList<String>();
-      //  List <String> listSpicy = new ArrayList<String>();
+        List <Float> listSpicy = new ArrayList<Float>();
         List <String> listIngre = new ArrayList<String>();
         List <String> listDes = new ArrayList<String>();
         List <String> listAller = new ArrayList<String>();
         List <String> listUrl = new ArrayList<String>();
-        List <Integer> listRecommend = new ArrayList<>();
-        List <Integer> listStar =new ArrayList<>();
+        List <String> listTag = new ArrayList<String>();
+        List <Integer> listRecommend = new ArrayList<Integer>();
+        List <Float> listStar =new ArrayList<Float>();
 
         for(int i=0; i<number; i++){
             listKor.add(foodAfter.getFoodKorName().get(i));
             listEng.add(foodAfter.getFoodEngName().get(i));
+            listSpicy.add(foodAfter.getSpicy().get(i));
             listIngre.add(foodAfter.getFoodIngredients().get(i).toString());
             listDes.add(foodAfter.getFoodDescription().get(i));
             listAller.add(foodAfter.getFoodAllergy().get(i).toString());
             listUrl.add(foodAfter.getFoodImgUrl().get(i));
+            listTag.add(foodAfter.getFood_tags().get(i).toString());
             listRecommend.add(foodAfter.getRecommendFood().get(i));
             listStar.add(foodAfter.getStar().get(i));
         }
@@ -162,6 +165,8 @@ public class ResultFragment extends Fragment {
             food.setDes(listDes.get(i));
             food.setUrl(listUrl.get(i));
             food.setRecommed(listRecommend.get(i));
+            food.setSpicy(listSpicy.get(i));
+            food.setTag(listTag.get(i));
             food.setAllergy(listAller.get(i));
             food.setStar(listStar.get(i));
             // 각 값이 들어간 data를 adapter에 추가합니다.
@@ -177,17 +182,11 @@ public class ResultFragment extends Fragment {
         int passSize=0;
         List <String> listKor = new ArrayList<String>();
         List <String> listEng = new ArrayList<String>();
-        //  List <String> listSpicy = new ArrayList<String>();
         List <String> listIngre = new ArrayList<String>();
         List <String> listDes = new ArrayList<String>();
         List <String> listAller = new ArrayList<String>();
         List <String> listUrl = new ArrayList<String>();
-        List <Integer> listStar = new ArrayList<Integer>();
-
-        Log.e("sibal", String.valueOf(adapter.listData.get(0).isSelect()));
-        Log.e("si2222bal", String.valueOf(adapter.listData.get(1).isSelect()));
-        Log.e("sib3333al", String.valueOf(adapter.listData.get(3).isSelect()));
-
+        List <Float> listStar = new ArrayList<Float>();
 
         for(int i=0; i<getSize; i++){
             if(adapter.listData.get(i).isSelect()){
@@ -197,9 +196,6 @@ public class ResultFragment extends Fragment {
                 listDes.add(adapter.listData.get(i).getDes());
                 listUrl.add(adapter.listData.get(i).getUrl());
                 listStar.add(adapter.listData.get(i).getStar());
-
-                Log.e("sibal", adapter.listData.get(i).getKor());
-
             }
         }
 

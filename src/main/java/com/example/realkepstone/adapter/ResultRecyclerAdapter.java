@@ -121,13 +121,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
 
             textView1.setText(data.getEng());
             textView2.setText(data.getKor());
-
-            if(data.getDes().equals("null")){
-                content.setText("");
-            }else{
-                content.setText(data.getDes());
-            }
-
+            content.setText(data.getDes());
 
             star.setText(String.valueOf(data.getStar()));
 

@@ -357,7 +357,7 @@
                 android:background="@drawable/boarder_main"
                 >
                 <TextView
-                    android:id="@+id/txt_today's"
+                    android:id="@+id/txt_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/jua"

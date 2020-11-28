@@ -4,41 +4,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#D8D8D8"
+    android:background="#F2F2F2"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="8">
+        android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/boarder"
-            android:paddingRight="5dp"
-
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:paddingHorizontal="20dp"
+            android:layout_height="65dp"
+            android:id="@+id/layout_review">
 
             <TextView
                 android:id="@+id/review"
                 android:drawableEnd="@drawable/shift"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/boarder"
                 android:fontFamily="@font/jua"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
                 android:text="@string/review"
-                android:textSize="20dp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -46,44 +37,36 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/boarder"
             android:layout_width="match_parent"
-            android:paddingRight="5dp"
-
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="65dp"
+            android:id="@+id/layout_edit"
+            android:paddingHorizontal="20dp"
+            android:layout_below="@id/layout_review">
 
             <TextView
                 android:id="@+id/tagchange"
                 android:drawableEnd="@drawable/shift"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="@drawable/boarder"
                 android:fontFamily="@font/jua"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
                 android:text="@string/Editpref"
-                android:textSize="20dp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/boarder"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:paddingRight="5dp"
-
-            android:layout_weight="1">
+            android:layout_height="65dp"
+            android:id="@+id/layout_changePW"
+            android:paddingHorizontal="22dp"
+            android:layout_below="@id/layout_edit">
 
             <TextView
                 android:id="@+id/pwchange"
@@ -95,99 +78,52 @@
                 android:background="@drawable/boarder"
                 android:fontFamily="@font/jua"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
                 android:text="@string/ChangePw"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                android:textSize="22sp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <TextView
-            android:id="@+id/language"
-            android:layout_width="match_parent"
-            android:paddingLeft="10dp"
-            android:text="@string/change"
-            android:textSize="20dp"
-            android:fontFamily="@font/jua"
-            android:gravity="center_vertical"
-            android:layout_height="0dp"
-            android:background="@drawable/boarder"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:paddingLeft="10dp"
-
-            android:textSize="20dp"
-            android:fontFamily="@font/jua"
-            android:gravity="center_vertical"
-            android:layout_height="0dp"
-            android:background="#D8D8D8"
-            android:layout_weight="1"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:paddingLeft="10dp"
-
-            android:textSize="20dp"
-            android:fontFamily="@font/jua"
-            android:gravity="center_vertical"
-            android:layout_height="0dp"
-            android:background="#D8D8D8"
-            android:layout_weight="1"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/boarder"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:paddingRight="5dp"
-            android:layout_weight="1">
+            android:layout_height="65dp"
+            android:id="@+id/layout_changeLang"
+            android:paddingHorizontal="20dp"
+            android:layout_below="@id/layout_changePW">
+            <TextView
+                android:id="@+id/language"
+                android:drawableEnd="@drawable/shift"
+                android:layout_width="match_parent"
+                android:text="@string/change"
+                android:textSize="22sp"
+                android:fontFamily="@font/jua"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:background="@drawable/boarder" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/boarder"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/layout_delete"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/layout_changeLang">
 
             <TextView
                 android:id="@+id/quit"
-                android:drawableEnd="@drawable/shift"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="@drawable/boarder"
                 android:fontFamily="@font/jua"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
                 android:text="@string/DeleteAccount"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                android:textColor="#D31F09"
+                android:textSize="22sp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:paddingLeft="10dp"
-
-            android:textSize="20dp"
-            android:fontFamily="@font/jua"
-            android:gravity="center_vertical"
-            android:layout_height="0dp"
-            android:background="#D8D8D8"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-
-
-
-
-
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

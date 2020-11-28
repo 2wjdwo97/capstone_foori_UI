@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/linearItem2"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,7 +110,7 @@
                 android:text="알러지"
                 android:layout_below="@id/korName"
                 android:textColor="#FF0000"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
         </RelativeLayout>
 
@@ -120,8 +120,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/linearItem2"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:id="@+id/content"
@@ -146,8 +146,8 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="26dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
         android:background="@drawable/button_gold"
         android:layout_marginStart="5dp"
         app:layout_constraintStart_toStartOf="parent"

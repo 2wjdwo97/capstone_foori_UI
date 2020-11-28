@@ -28,24 +28,36 @@ public class FoodAfter implements Serializable {
     @SerializedName("food_img_url")
     @Expose
     private List<String> foodImgUrl = null;
-    @SerializedName("user_number")
+    @SerializedName("food_spicy")
     @Expose
-    private Integer userNumber=0;
+    private List<Float> spicy = null;
+    @SerializedName("food_tag")
+    @Expose
+    private List<List<String>> food_tags = null;
     @SerializedName("food_star")
     @Expose
-    private List<Integer> star = null;
+    private List<Float> star = null;
 
-    public List<Integer> getStar() {
+
+    public List<Float> getStar() {
         return star;
     }
 
-    public void setStar(List<Integer> star) {
+    public void setStar(List<Float> star) {
         this.star = star;
     }
 
     @SerializedName("cookies")
     @Expose
     private List<String> cookies = null;
+
+    public List<List<String>> getFood_tags(){return food_tags;}
+
+    public void setFood_tags(List<List<String>> food_tags){ this.food_tags = food_tags;}
+
+    public List<Float> getSpicy(){return spicy;}
+
+    public void setSpicy(List<Float> spicy){this.spicy = spicy;}
 
     public List<String> getCookies() {
         return cookies;
@@ -109,14 +121,6 @@ public class FoodAfter implements Serializable {
 
     public void setFoodImgUrl(List<String> foodImgUrl) {
         this.foodImgUrl = foodImgUrl;
-    }
-
-    public Integer getUserNumber() {
-        return userNumber;
-    }
-
-    public void setUserNumber(Integer userNumber) {
-        this.userNumber = userNumber;
     }
 
 }
