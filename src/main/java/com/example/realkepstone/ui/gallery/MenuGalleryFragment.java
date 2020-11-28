@@ -149,7 +149,6 @@ public class MenuGalleryFragment extends Fragment {
                         Log.e("list" , response.body().getStar()+"star");
 
                         Log.e("list" , response.body().getRecommendFood()+"recommend");
-                        Log.e("list" , response.body().getUserNumber()+"usrNo");
                         Log.e("list" , response.body().getCookies()+"cookies");
 
 

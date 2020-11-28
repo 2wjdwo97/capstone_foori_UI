@@ -7,20 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.realkepstone.FrontActivity;
 import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.data.PasswordChangeData;
 import com.example.realkepstone.server.ApiInterface;
-import com.example.realkepstone.server.FindpwData;
 import com.example.realkepstone.server.HttpClient;
 
 import retrofit2.Call;
@@ -59,10 +56,9 @@ public class ChangePWFragment extends Fragment {
             }
         });
 
-
-
-
-
+        if (((MainActivity) getActivity()).getSupportActionBar() == null)
+            Log.d("null", "null");
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("change PW");
 
         return root;
     }
