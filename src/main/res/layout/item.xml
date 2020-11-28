@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/linearItem"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="170dp"
-    android:padding="10dp"
     android:gravity="center_vertical"
-    android:layout_marginBottom="8dp"
     android:background="@drawable/boarder_result">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/linearItem2"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/button_gold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/imageView1"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.2"></ImageView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -54,7 +44,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="5dp"
+            android:paddingTop="4dp"
             android:paddingHorizontal="10dp">
 
             <TextView
@@ -128,7 +118,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/linearItem2"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:id="@+id/content"
@@ -151,4 +144,12 @@
             android:textColor="@android:color/black"/>
 
     </RelativeLayout>
-</LinearLayout>
+
+    <ImageView
+        android:layout_width="26dp"
+        android:layout_height="35dp"
+        android:background="@drawable/button_gold"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+</RelativeLayout>
