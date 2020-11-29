@@ -29,7 +29,7 @@ import com.example.realkepstone.data.Food;
 import com.example.realkepstone.data.FoodAfter;
 
 import java.util.ArrayList;
-
+//
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.

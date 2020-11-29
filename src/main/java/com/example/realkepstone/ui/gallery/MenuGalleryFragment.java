@@ -1,5 +1,5 @@
 package com.example.realkepstone.ui.gallery;
-
+//
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
