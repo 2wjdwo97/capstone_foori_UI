@@ -77,28 +77,22 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView img_order;
+        private TextView txt_Amount;
+
+        private TextView txt_delete;
         private TextView txt_engName;
         private TextView txt_korName;
-        private ImageView img_food;
         private Food data;
         private int position;
-        private TextView txt_allergies;
-        private TextView txt_foodDsc;
-        private RelativeLayout layout_food;
-        private RelativeLayout layout_cart;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            img_order = itemView.findViewById(R.id.img_order);
+            txt_delete = itemView.findViewById(R.id.txt_Amount);
+
+            txt_delete = itemView.findViewById(R.id.txt_delete);
             txt_engName = itemView.findViewById(R.id.txt_engName);
             txt_korName = itemView.findViewById(R.id.txt_korName);
-            img_food = itemView.findViewById(R.id.img_food);
-            layout_food = itemView.findViewById(R.id.layout_food);
-            layout_cart = itemView.findViewById(R.id.layout_cart);
-            txt_foodDsc = itemView.findViewById(R.id.txt_foodDsc);
-            txt_allergies = itemView.findViewById(R.id.txt_allergies);
         }
 
         void onBind(Food data, int position) {
@@ -107,46 +101,29 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
 
             txt_engName.setText(data.getEng());
             txt_korName.setText(data.getKor());
-            txt_foodDsc.setText(data.getDes());
-            txt_allergies.setText(data.getAllergy());
 
+            txt_Amount.setText(data.getAmount());
 
-            Glide
+/*            Glide
                     .with(img_food.getContext())
                     .load(data.getUrl())
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(img_food);
-            Log.e("urlsex",data.getUrl());
 
-            changeVisibility(selectedItems.get(position));
+            Log.e("urlsex",data.getUrl());*/
+            //changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
-            layout_food.setOnClickListener(this);
-            img_order.setOnClickListener(this);
+            txt_delete.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.layout_food:
-                    if (selectedItems.get(position)) {
-                        // 펼쳐진 Item을 클릭 시
-                        selectedItems.delete(position);
-                    } else {
-                        // 직전의 클릭됐던 Item의 클릭상태를 지움
-                        selectedItems.delete(prePosition);
-                        // 클릭한 Item의 position을 저장
-                        selectedItems.put(position, true);
-                    }
-                    // 해당 포지션의 변화를 알림
-                    if (prePosition != -1) notifyItemChanged(prePosition);
-                    notifyItemChanged(position);
-                    // 클릭된 position 저장
-                    prePosition = position;
-                    break;
-                case R.id.img_order:
+
+                case R.id.txt_delete:
                     trash.add(data);
                     deleteItem(data);
                     selectedItems.delete(position);
@@ -161,10 +138,10 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
         }
 
 
-        /**
+ /*       *//**
          * 클릭된 Item의 상태 변경
          * @param isExpanded Item을 펼칠 것인지 여부
-         */
+         *//*
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
             int dpValue = 105;
@@ -189,6 +166,6 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
             });
             // Animation start
             va.start();
-        }
+        }*/
     }
 }

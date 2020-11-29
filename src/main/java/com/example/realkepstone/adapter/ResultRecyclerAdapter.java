@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -100,6 +101,11 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         private ImageView medal;
         private RelativeLayout linearItem;
 
+        CardView less;
+        CardView more;
+        TextView prnumber;
+
+
         ItemViewHolder(View itemView) {
             super(itemView);
 
@@ -114,7 +120,9 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             allergy = itemView.findViewById(R.id.Allergy);
             medal = itemView.findViewById(R.id.medal);
             linearItem2 = itemView.findViewById(R.id.linearItem2);
-
+            more=itemView.findViewById(R.id.more);
+            less=itemView.findViewById(R.id.less);
+            prnumber=itemView.findViewById(R.id.prnumber);
         }
 
         void onBind(Food data, int position) {
@@ -163,6 +171,8 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             textView2.setOnClickListener(this);
             //    imageView1.setOnClickListener(this);
             order.setOnClickListener(this);
+            less.setOnClickListener(this);
+            more.setOnClickListener(this);
 
         }
 
@@ -189,11 +199,17 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     // 클릭된 position 저장
                     prePosition = position;
                     break;
-                case R.id.Eng:
+                case R.id.less:
+                    if(data.getAmount()>0){
+                        data.setAmount(data.getAmount()-1);
+                    }
+                    prnumber.setText(String.valueOf(data.getAmount()));
+                    Log.d("ddddfdsf", String.valueOf(data.getAmount()));
                     break;
-                case R.id.Kor:
-                    break;
-                case R.id.imageView:
+                case R.id.more:
+                    data.setAmount(data.getAmount()+1);
+                    prnumber.setText(String.valueOf(data.getAmount()));
+
                     break;
                 case R.id.order:
                     if (data.isSelect()==false){

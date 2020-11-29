@@ -12,7 +12,17 @@ public class Food implements Serializable {
     private float spicy;
     private String ingre;
     private String tag;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     private float star;
+    private int amount=0;
 
     public float getStar() {
         return star;

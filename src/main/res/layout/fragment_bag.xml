@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Order"
+                android:text="Back"
                 android:textSize="25dp"
                 android:textColor="#FFFFFF"
                 android:layout_centerInParent="true"
@@ -72,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="Order"
                 android:textSize="25dp"
                 android:textColor="#FFFFFF"
                 android:layout_centerInParent="true"
