@@ -93,19 +93,31 @@
         app:layout_constraintVertical_bias="0.268"
         app:srcCompat="@drawable/bab" />
 
-    <ImageButton
-        android:id="@+id/send"
-        android:layout_width="156dp"
-        android:layout_height="114dp"
-        android:adjustViewBounds="true"
-        android:background="#FFFFFF"
-        android:scaleType="centerInside"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914"
-        app:srcCompat="@drawable/send" />
+        app:layout_constraintVertical_bias="0.914">
+        <ImageButton
+            android:id="@+id/send"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_default"
+            android:scaleType="centerInside" />
+        <TextView
+            android:id="@+id/txt_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/jua"
+            android:text="Submit"
+            android:textColor="#F7D182"
+            android:textSize="30sp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

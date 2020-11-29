@@ -60,6 +60,7 @@ public class HomeFragment extends Fragment {
     private ImageView h10;
     ApiInterface api;
 
+    private ImageView hidden;
 
     @Nullable
     @Override
@@ -85,6 +86,7 @@ public class HomeFragment extends Fragment {
         h10 = (ImageView) rootView.findViewById(R.id.button_baverage);
 
 
+        hidden = (ImageView) rootView.findViewById(R.id.hidden);
 
 
 
@@ -166,7 +168,13 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
+        hidden.setVisibility(View.VISIBLE);
+
+
+
         requestPost(user_no);
+
+
 
         return rootView;
     }
@@ -198,7 +206,14 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<List<TodayData>> call, Response<List<TodayData>> response) {
                 if(response.code()==200){
 
+                    if(response.body().size()==0){
+                        hidden.setBackgroundResource(R.drawable.german);
+                    }
+
+
                     for(int i=0; i<response.body().size(); i++){
+                        hidden.setVisibility(View.GONE);
+
                         adapter.addItem(response.body().get(i));
                         adapter.notifyDataSetChanged();
                     }

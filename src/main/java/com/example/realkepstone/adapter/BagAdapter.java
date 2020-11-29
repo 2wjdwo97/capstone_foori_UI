@@ -77,63 +77,60 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView order;
-        private TextView textView1;
-        private TextView textView2;
-        private ImageView imageView1;
+        private ImageView img_order;
+        private TextView txt_engName;
+        private TextView txt_korName;
+        private ImageView img_food;
         private Food data;
         private int position;
-        private TextView allergy;
-        private RelativeLayout linear;
-        private LinearLayout linearItem2;
-        private TextView content;
+        private TextView txt_allergies;
+        private TextView txt_foodDsc;
+        private RelativeLayout layout_food;
+        private RelativeLayout layout_cart;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            order = itemView.findViewById(R.id.order);
-            textView1 = itemView.findViewById(R.id.Eng);
-            textView2 = itemView.findViewById(R.id.Kor);
-            imageView1 = itemView.findViewById(R.id.imageView1);
-            linear=itemView.findViewById(R.id.Linear);
-            linearItem2=itemView.findViewById(R.id.linearItem2);
-            content = itemView.findViewById(R.id.content);
-            allergy = itemView.findViewById(R.id.Allergy);
-
+            img_order = itemView.findViewById(R.id.img_order);
+            txt_engName = itemView.findViewById(R.id.txt_engName);
+            txt_korName = itemView.findViewById(R.id.txt_korName);
+            img_food = itemView.findViewById(R.id.img_food);
+            layout_food = itemView.findViewById(R.id.layout_food);
+            layout_cart = itemView.findViewById(R.id.layout_cart);
+            txt_foodDsc = itemView.findViewById(R.id.txt_foodDsc);
+            txt_allergies = itemView.findViewById(R.id.txt_allergies);
         }
 
         void onBind(Food data, int position) {
             this.data = data;
             this.position = position;
 
-            textView1.setText(data.getEng());
-            textView2.setText(data.getKor());
-            content.setText(data.getDes());
-            allergy.setText(data.getAllergy());
+            txt_engName.setText(data.getEng());
+            txt_korName.setText(data.getKor());
+            txt_foodDsc.setText(data.getDes());
+            txt_allergies.setText(data.getAllergy());
 
 
             Glide
-                    .with(imageView1.getContext())
+                    .with(img_food.getContext())
                     .load(data.getUrl())
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
-                    .into(imageView1);
+                    .into(img_food);
             Log.e("urlsex",data.getUrl());
 
             changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
-            textView1.setOnClickListener(this);
-            textView2.setOnClickListener(this);
-            imageView1.setOnClickListener(this);
-            order.setOnClickListener(this);
+            layout_food.setOnClickListener(this);
+            img_order.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.linearItem:
+                case R.id.layout_food:
                     if (selectedItems.get(position)) {
                         // 펼쳐진 Item을 클릭 시
                         selectedItems.delete(position);
@@ -149,13 +146,7 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
                     // 클릭된 position 저장
                     prePosition = position;
                     break;
-                case R.id.Eng:
-                    break;
-                case R.id.Kor:
-                    break;
-                case R.id.imageView:
-                    break;
-                case R.id.order:
+                case R.id.img_order:
                     trash.add(data);
                     deleteItem(data);
                     selectedItems.delete(position);
@@ -190,10 +181,10 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
                     // value는 height 값
                     int value = (int) animation.getAnimatedValue();
                     // imageView의 높이 변경
-                    linear.getLayoutParams().height = value;
-                    linear.requestLayout();
+                    layout_cart.getLayoutParams().height = value;
+                    layout_cart.requestLayout();
                     // imageView가 실제로 사라지게하는 부분
-                    linear.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+                    layout_cart.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
                 }
             });
             // Animation start

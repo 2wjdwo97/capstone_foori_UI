@@ -98,6 +98,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         private LinearLayout linearItem2;
         private TextView content;
         private ImageView medal;
+        private RelativeLayout linearItem;
 
         ItemViewHolder(View itemView) {
             super(itemView);
@@ -112,6 +113,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             content = itemView.findViewById(R.id.content);
             allergy = itemView.findViewById(R.id.Allergy);
             medal = itemView.findViewById(R.id.medal);
+            linearItem2 = itemView.findViewById(R.id.linearItem2);
 
         }
 
@@ -126,7 +128,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             star.setText(String.valueOf(data.getStar()));
 
             allergy.setText(String.valueOf(data.getAllergy()));
-           // star.setText(data.get());
+            // star.setText(data.get());
 //            textView1.setText(data.getEng());
             if(data.getRecommed()==1){
                 Log.e("image", String.valueOf(data.getRecommed()));
@@ -156,9 +158,10 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
+            linearItem2.setOnClickListener(this);
             textView1.setOnClickListener(this);
             textView2.setOnClickListener(this);
-        //    imageView1.setOnClickListener(this);
+            //    imageView1.setOnClickListener(this);
             order.setOnClickListener(this);
 
         }
@@ -166,7 +169,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.linearItem:
+                case R.id.linearItem2:
                     if (selectedItems.get(position)) {
                         // 펼쳐진 Item을 클릭 시
                         changeColor();

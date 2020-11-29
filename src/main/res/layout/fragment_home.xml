@@ -10,7 +10,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:background="#E5E5E5"
+        android:background="#F0F0F0"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -365,11 +365,24 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginStart="8dp"
                     android:textSize="28sp" />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/recyclerView"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/hidden"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/france">
+                    </ImageView>
+
+                </RelativeLayout>
+
             </LinearLayout>
         </LinearLayout>
 

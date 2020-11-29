@@ -7,21 +7,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView3"
+    <RelativeLayout
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="502dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:spanCount="4"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"/>
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView3"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="502dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="4"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+        <ImageView
+            android:id="@+id/hidden"
+            android:layout_width="match_parent"
+            android:background="@drawable/france"
+            android:visibility="gone"
+            android:layout_height="502dp">
+
+        </ImageView>
+    </RelativeLayout>
+
+
 
 
 </RelativeLayout>

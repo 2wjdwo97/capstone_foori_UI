@@ -17,7 +17,10 @@ import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
 
 import android.content.Context;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +67,8 @@ public class ReviewFragment extends Fragment {
     ArrayList<String> Url;
     ArrayList<String> Eng;
 
+    ImageView hidden;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_review, container, false);
@@ -73,6 +78,7 @@ public class ReviewFragment extends Fragment {
         Kor= new ArrayList<String>();
         Eng= new ArrayList<String>();
         Url= new ArrayList<String>();
+        hidden = (ImageView) rootView.findViewById(R.id.hidden);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView3);
 
@@ -84,7 +90,11 @@ public class ReviewFragment extends Fragment {
 
         adapter = new ReviewAdapter();
         recyclerView.setAdapter(adapter);
+        hidden.setVisibility(View.VISIBLE);
 
+        Animation a = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
+        a.setDuration(1000);
+        hidden.startAnimation(a);
 
         requestPost(user_no);
 
@@ -102,7 +112,17 @@ public class ReviewFragment extends Fragment {
             @Override
             public void onResponse(Call<List<RevResData>> call, Response<List<RevResData>> response) {
                 if(response.code()==200){
+
+                    if(response.body().size()==0){
+                        Log.e("loginusedfdsfsdfrno", "sex");
+                        hidden.setBackgroundResource(R.drawable.german);
+                        hidden.clearAnimation();
+
+                    }
                     for(int i = 0; i<response.body().size(); i++){
+
+
+
                         Kor.add(response.body().get(i).getFoodName());
                         Eng.add(response.body().get(i).getTranslatedName());
                         Url.add(response.body().get(i).getFoodImgUrl());
@@ -134,14 +154,21 @@ public class ReviewFragment extends Fragment {
         List <String> listKor = new ArrayList<String>();
         List <String> listEng = new ArrayList<String>();
         List <String> listUrl = new ArrayList<String>();
+        hidden.setVisibility(View.GONE);
 
         int size=Kor.size();
+
+        if(size==0){
+            hidden.setVisibility(View.VISIBLE);
+
+        }
+
 
         for(int i=0; i<size; i++){
             listKor.add(Kor.get(i));
             //   listEng.add(Eng.get(i));
             listUrl.add(Url.get(i));
-            listUrl.add(Eng.get(i));
+            listEng.add(Eng.get(i));
 
         }
         for (int i = 0; i < size; i++) {
