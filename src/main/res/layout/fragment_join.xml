@@ -221,7 +221,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
 
-
+<!--제발~~-->
     </RelativeLayout>
 
     <ImageView
