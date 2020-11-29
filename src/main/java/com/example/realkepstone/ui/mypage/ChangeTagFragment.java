@@ -421,19 +421,6 @@ public class ChangeTagFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(view.isSelected()){
-                    allergy.remove((Integer)14);
-                    view.setSelected(false);
-                }
-                else{
-                    allergy.add((Integer)14);
-                    view.setSelected(true);
-                }
-            }
-        });
-        allergy15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(view.isSelected()){
                     allergy.remove((Integer)15);
                     view.setSelected(false);
                 }
@@ -443,7 +430,7 @@ public class ChangeTagFragment extends Fragment {
                 }
             }
         });
-        allergy16.setOnClickListener(new View.OnClickListener() {
+        allergy15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(view.isSelected()){
@@ -456,7 +443,7 @@ public class ChangeTagFragment extends Fragment {
                 }
             }
         });
-        allergy17.setOnClickListener(new View.OnClickListener() {
+        allergy16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(view.isSelected()){
@@ -465,6 +452,19 @@ public class ChangeTagFragment extends Fragment {
                 }
                 else{
                     allergy.add((Integer)17);
+                    view.setSelected(true);
+                }
+            }
+        });
+        allergy17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)18);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)18);
                     view.setSelected(true);
                 }
             }
@@ -1286,12 +1286,30 @@ public class ChangeTagFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int country_no=0;
-                String country=spinner.getSelectedItem().toString();
-                if(country=="America"){
+                int country_no = 11;
+                String country = spinner.getSelectedItem().toString();
+                if(country.equals("Canada")){
                     country_no=1;
-                }else{
+                }else if(country.equals("China")){
                     country_no=2;
+                }else if(country.equals("France")){
+                    country_no=3;
+                }else if(country.equals("Germany")){
+                    country_no=4;
+                }else if(country.equals("Italy")){
+                    country_no=5;
+                }else if(country.equals("Japan")){
+                    country_no=6;
+                }else if(country.equals("Spain")){
+                    country_no=7;
+                }else if(country.equals("Taiwan")){
+                    country_no=8;
+                }else if(country.equals("America")){
+                    country_no=9;
+                }else if(country.equals("Vietnam")){
+                    country_no=10;
+                }else if(country.equals("Korea")){
+                    country_no=11;
                 }
                 requestPost(user_no, spicy, country_no, foodClass, Tag, allergy);
                 Log.d("user_no", String.valueOf(user_no));

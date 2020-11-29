@@ -102,6 +102,7 @@ public class JoinFragment extends Fragment {
                         digit = false; //output의 값을 false로 바꿈
                     }
                 }
+
                 if(spicy_text.getText().toString().length()==0){
                     digit=false;
                 }
@@ -111,12 +112,32 @@ public class JoinFragment extends Fragment {
                 else{
                     userSpicy=Integer.parseInt(spicy_text.getText().toString());
                 }
-                int country_no;
-                String country=spinner.getSelectedItem().toString();
-                if(country=="America"){
+
+                int country_no = 11;
+
+                String country = spinner.getSelectedItem().toString();
+                if(country.equals("Canada")){
                     country_no=1;
-                }else{
+                }else if(country.equals("China")){
                     country_no=2;
+                }else if(country.equals("France")){
+                    country_no=3;
+                }else if(country.equals("Germany")){
+                    country_no=4;
+                }else if(country.equals("Italy")){
+                    country_no=5;
+                }else if(country.equals("Japan")){
+                    country_no=6;
+                }else if(country.equals("Spain")){
+                    country_no=7;
+                }else if(country.equals("Taiwan")){
+                    country_no=8;
+                }else if(country.equals("America")){
+                    country_no=9;
+                }else if(country.equals("Vietnam")){
+                    country_no=10;
+                }else if(country.equals("Korea")){
+                    country_no=11;
                 }
 
                 requestPost(id, user_pw, pw_confirm, userEmail, userName, userBirth, userSpicy, country_no);
