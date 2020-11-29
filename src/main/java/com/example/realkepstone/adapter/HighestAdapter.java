@@ -57,6 +57,7 @@ public class HighestAdapter extends RecyclerView.Adapter<HighestAdapter.ItemView
         private TextView star;
         private TextView content;
         private TextView tag;
+        private TextView KorName;
         private TextView alllergy;
         private ImageView imageView;
 
@@ -64,6 +65,7 @@ public class HighestAdapter extends RecyclerView.Adapter<HighestAdapter.ItemView
             super(itemView);
 
             Title = itemView.findViewById(R.id.Title);
+            KorName = itemView.findViewById(R.id.korName);
             star = itemView.findViewById(R.id.starpoint);
             content = itemView.findViewById(R.id.content);
             tag = itemView.findViewById(R.id.tag);
@@ -72,7 +74,9 @@ public class HighestAdapter extends RecyclerView.Adapter<HighestAdapter.ItemView
         }
 
         void onBind(HomeData data) {
-            Title.setText(data.getFoodName()+" ("+data.getTranslated_name()+")");
+            Title.setText(data.getTranslated_name());
+            KorName.setText(data.getFoodName());
+            content.setText(data.getFoodDsc());
             star.setText(String.valueOf(data.getFoodStar()));
             tag.setText(String.valueOf(data.getTag()));
 

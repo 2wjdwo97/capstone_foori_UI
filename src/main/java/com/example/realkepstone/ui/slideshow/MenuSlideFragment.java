@@ -24,10 +24,12 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
+import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
@@ -60,10 +62,15 @@ public class MenuSlideFragment extends Fragment {
     private Boolean isPermission = true;
     private File tempFile; // 보낼 사진 File의 껍데기, 앨범 또는 카메라에서 가져온 이미지를 저장할 변수.
     ApiInterface apiInterface;
-
+    String token;
+    private SharedViewModel model;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menuslide, container, false);
+        model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        token=model.getToken();
+        Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -81,7 +88,7 @@ public class MenuSlideFragment extends Fragment {
             @Override public void onClick( View v ) {
                 if(isPermission)
                     takePhoto();
-                else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.navigation_drawer_close), Toast.LENGTH_SHORT).show();
+                else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
             }
         }); // 사진 가져오기 버튼에 리스너 추가
 
@@ -92,7 +99,7 @@ public class MenuSlideFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         /* 카메라를 켰다 사진을 안찍거나, 앨범에 가서 사진을 안 골라 온 경우의 예외 처리 */
         if (resultCode != Activity.RESULT_OK) {
-            makeText(getContext(), R.string.cancel, Toast.LENGTH_SHORT).show();
+            makeText(getContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
             if (tempFile != null) {
                 if (tempFile.exists()) {
                     if (tempFile.delete()) {
@@ -112,7 +119,7 @@ public class MenuSlideFragment extends Fragment {
         RequestBody name = RequestBody.create(MediaType.parse("image/jpeg"), "file");
 
 //            Log.d("THIS", data.getData().getPath());
-        retrofit2.Call<FoodAfter> req = apiInterface.postImage(body, name);
+        retrofit2.Call<FoodAfter> req = apiInterface.postImage(token, body, name);
         req.enqueue(new Callback<FoodAfter>() {
             @Override
             public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
@@ -145,7 +152,7 @@ public class MenuSlideFragment extends Fragment {
             public void onFailure(Call<FoodAfter> call, Throwable t) {
                 t.printStackTrace();
                 Log.d("TedPark", "ㄹ");
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
             }
         });
@@ -164,7 +171,7 @@ public class MenuSlideFragment extends Fragment {
             }
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                makeText(getActivity().getApplicationContext(), R.string.cancel, Toast.LENGTH_LONG).show(); // 권한 요청 실패
+                makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패
             }
         };
         TedPermission.with(getContext())
@@ -178,15 +185,15 @@ public class MenuSlideFragment extends Fragment {
         try {
             tempFile = createImageFile();
         } catch (IOException e) {
-            makeText(getActivity().getApplicationContext(), R.string.cancel, Toast.LENGTH_LONG).show(); // 권한 요청 실패
+            makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패
             e.printStackTrace();
         }
         if (tempFile != null) { /** tempFile 의 Uri 경로를 intent에 추가해 줘야 함. * 카메라에서 찍은 사진이 저장될 주소임. * tempFile 을 전역변수로 해서 사용하기 때문에 이 tempFile 에 카메라에서 촬영한 이미지를 넣어 줄것임. */ //
-        // Android 버전에 맞춰서 작업 함.
+            // Android 버전에 맞춰서 작업 함.
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            Uri photoUri = FileProvider.getUriForFile(getContext(), "com.example.realkepstone", tempFile);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-            startActivityForResult(intent, PICK_FROM_CAMERA);
+                Uri photoUri = FileProvider.getUriForFile(getContext(), "com.example.realkepstone", tempFile);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                startActivityForResult(intent, PICK_FROM_CAMERA);
             }
             else {
                 Uri photoUri = Uri.fromFile(tempFile);

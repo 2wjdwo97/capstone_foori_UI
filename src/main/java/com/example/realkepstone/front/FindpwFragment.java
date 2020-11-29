@@ -18,6 +18,7 @@ import com.example.realkepstone.server.FindIdData;
 import com.example.realkepstone.server.FindpwData;
 import com.example.realkepstone.server.HttpClient;
 
+//import cz.msebera.android.httpclient.client.HttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,24 +69,24 @@ public class FindpwFragment extends Fragment {
             @Override
             public void onResponse(Call<FindpwData> call, Response<FindpwData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.pwsend, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.pwsend), Toast.LENGTH_LONG).show();
                     FrontActivity activity = (FrontActivity) getActivity();
                     activity.fromfindId();
 
                 }else if(response.code()==401){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.notexist, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.notexist), Toast.LENGTH_LONG).show();
                 }
                 else if(response.code()==402){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.confirmfail, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.confirmfail), Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.incorrect, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<FindpwData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

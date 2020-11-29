@@ -15,7 +15,7 @@ import com.example.realkepstone.data.Food;
 import com.example.realkepstone.data.TodayData;
 
 import java.util.ArrayList;
-
+//
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.

@@ -77,85 +77,45 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView order;
-        private TextView textView1;
-        private TextView textView2;
-        private ImageView imageView1;
+        private TextView txt_delete;
+        private TextView txt_engName;
+        private TextView txt_korName;
         private Food data;
         private int position;
-        private TextView allergy;
-        private RelativeLayout linear;
-        private LinearLayout linearItem2;
-        private TextView content;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            order = itemView.findViewById(R.id.order);
-            textView1 = itemView.findViewById(R.id.Eng);
-            textView2 = itemView.findViewById(R.id.Kor);
-            imageView1 = itemView.findViewById(R.id.imageView1);
-            linear=itemView.findViewById(R.id.Linear);
-            linearItem2=itemView.findViewById(R.id.linearItem2);
-            content = itemView.findViewById(R.id.content);
-            allergy = itemView.findViewById(R.id.Allergy);
-
+            txt_delete = itemView.findViewById(R.id.txt_delete);
+            txt_engName = itemView.findViewById(R.id.txt_engName);
+            txt_korName = itemView.findViewById(R.id.txt_korName);
         }
 
         void onBind(Food data, int position) {
             this.data = data;
             this.position = position;
 
-            textView1.setText(data.getEng());
-            textView2.setText(data.getKor());
-            content.setText(data.getDes());
-            allergy.setText(data.getAllergy());
+            txt_engName.setText(data.getEng());
+            txt_korName.setText(data.getKor());
 
-
-            Glide
-                    .with(imageView1.getContext())
+/*            Glide
+                    .with(img_food.getContext())
                     .load(data.getUrl())
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
-                    .into(imageView1);
-            Log.e("urlsex",data.getUrl());
-
-            changeVisibility(selectedItems.get(position));
+                    .into(img_food);
+            Log.e("urlsex",data.getUrl());*/
+            //changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
-            textView1.setOnClickListener(this);
-            textView2.setOnClickListener(this);
-            imageView1.setOnClickListener(this);
-            order.setOnClickListener(this);
+            txt_delete.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.linearItem:
-                    if (selectedItems.get(position)) {
-                        // 펼쳐진 Item을 클릭 시
-                        selectedItems.delete(position);
-                    } else {
-                        // 직전의 클릭됐던 Item의 클릭상태를 지움
-                        selectedItems.delete(prePosition);
-                        // 클릭한 Item의 position을 저장
-                        selectedItems.put(position, true);
-                    }
-                    // 해당 포지션의 변화를 알림
-                    if (prePosition != -1) notifyItemChanged(prePosition);
-                    notifyItemChanged(position);
-                    // 클릭된 position 저장
-                    prePosition = position;
-                    break;
-                case R.id.Eng:
-                    break;
-                case R.id.Kor:
-                    break;
-                case R.id.imageView:
-                    break;
-                case R.id.order:
+                case R.id.txt_delete:
                     trash.add(data);
                     deleteItem(data);
                     selectedItems.delete(position);
@@ -170,13 +130,13 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
         }
 
 
-        /**
+ /*       *//**
          * 클릭된 Item의 상태 변경
          * @param isExpanded Item을 펼칠 것인지 여부
-         */
+         *//*
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
-            int dpValue = 150;
+            int dpValue = 105;
             float d = context.getResources().getDisplayMetrics().density;
             int height = (int) (dpValue * d);
 
@@ -190,14 +150,14 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
                     // value는 height 값
                     int value = (int) animation.getAnimatedValue();
                     // imageView의 높이 변경
-                    linear.getLayoutParams().height = value;
-                    linear.requestLayout();
+                    layout_cart.getLayoutParams().height = value;
+                    layout_cart.requestLayout();
                     // imageView가 실제로 사라지게하는 부분
-                    linear.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+                    layout_cart.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
                 }
             });
             // Animation start
             va.start();
-        }
+        }*/
     }
 }

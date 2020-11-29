@@ -1,5 +1,5 @@
 package com.example.realkepstone.ui.gallery;
-
+//
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
@@ -19,9 +19,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
+import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
@@ -59,7 +61,8 @@ public class MenuGalleryFragment extends Fragment {
     Context context;
     ApiInterface apiInterface;
     private Boolean isPermission = true;
-
+    String token;
+    private SharedViewModel model;
     /* @Override
      public void onCreate(@Nullable Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -74,6 +77,12 @@ public class MenuGalleryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menugallery, container, false);
+
+        model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        token=model.getToken();
+        Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(token));
+
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).connectTimeout(1000, TimeUnit.MINUTES)
@@ -98,7 +107,7 @@ public class MenuGalleryFragment extends Fragment {
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE);
                 }
-                else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.navigation_drawer_close), Toast.LENGTH_SHORT).show();
+                else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
 
 
             }
@@ -134,7 +143,8 @@ public class MenuGalleryFragment extends Fragment {
             RequestBody name = RequestBody.create(MediaType.parse("image/jpeg"), "file");
 
 //            Log.d("THIS", data.getData().getPath());
-            retrofit2.Call<FoodAfter> req = apiInterface.postImage(body, name);
+            retrofit2.Call<FoodAfter> req = apiInterface.postImage(token, body, name);
+            Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(token));
             req.enqueue(new Callback<FoodAfter>() {
                 @Override
                 public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
@@ -186,7 +196,7 @@ public class MenuGalleryFragment extends Fragment {
                 public void onFailure(Call<FoodAfter> call, Throwable t) {
                     t.printStackTrace();
                     Log.d("TedPark", "ㄹ");
-                    Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -201,7 +211,7 @@ public class MenuGalleryFragment extends Fragment {
             }
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                makeText(getActivity().getApplicationContext(), R.string.cancel, Toast.LENGTH_LONG).show(); // 권한 요청 실패
+                makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패
             }
         };
         TedPermission.with(getContext())

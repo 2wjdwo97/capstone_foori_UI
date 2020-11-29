@@ -112,6 +112,12 @@ public class JoinAfterFragment extends Fragment {
     ImageView allergy9 = null;
     ImageView allergy10 = null;
     ImageView allergy11 = null;
+    ImageView allergy12 = null;
+    ImageView allergy13 = null;
+    ImageView allergy14 = null;
+    ImageView allergy15 = null;
+    ImageView allergy16 = null;
+    ImageView allergy17 = null;
 
 
     ArrayList<Integer> foodClass = null;
@@ -210,6 +216,12 @@ public class JoinAfterFragment extends Fragment {
         allergy9 = (ImageView) root.findViewById(R.id.allergy9);
         allergy10 = (ImageView) root.findViewById(R.id.allergy10);
         allergy11 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy12 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy13 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy14 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy15 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy16 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy17 = (ImageView) root.findViewById(R.id.allergy11);
 
 
 
@@ -359,6 +371,89 @@ public class JoinAfterFragment extends Fragment {
             }
         });
 
+        allergy12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)12);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)12);
+                    view.setSelected(true);
+                }
+            }
+        });
+
+        allergy13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)13);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)13);
+                    view.setSelected(true);
+                }
+            }
+        });
+
+        allergy14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)15);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)15);
+                    view.setSelected(true);
+                }
+            }
+        });
+
+        allergy15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)16);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)16);
+                    view.setSelected(true);
+                }
+            }
+        });
+
+        allergy16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)17);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)17);
+                    view.setSelected(true);
+                }
+            }
+        });
+
+        allergy17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view.isSelected()){
+                    allergy.remove((Integer)18);
+                    view.setSelected(false);
+                }
+                else{
+                    allergy.add((Integer)18);
+                    view.setSelected(true);
+                }
+            }
+        });
 
         class1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1220,7 +1315,7 @@ public class JoinAfterFragment extends Fragment {
             @Override
             public void onResponse(Call<TagData> call, Response<TagData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.success, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.success), Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     intent.putExtra("user_no",user_no);
@@ -1228,7 +1323,7 @@ public class JoinAfterFragment extends Fragment {
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
                     Log.d("TedPark", String.valueOf(response.code()));
                     Log.d("Message", "code..."+userNo);
                     Log.d("Message", "foodclass..."+foodClassNo);
@@ -1244,7 +1339,7 @@ public class JoinAfterFragment extends Fragment {
             @Override
             public void onFailure(Call<TagData> call, Throwable t) {
                 Log.d("TedPark", "실패"+String.valueOf(t));
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

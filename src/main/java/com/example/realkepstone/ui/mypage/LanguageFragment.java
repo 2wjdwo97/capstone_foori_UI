@@ -3,8 +3,11 @@ package com.example.realkepstone.ui.mypage;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.realkepstone.FrontActivity;
@@ -22,15 +26,15 @@ import java.util.Locale;
 
 public class LanguageFragment extends Fragment {
 
-    ImageButton america;
-    ImageButton france;
+    CardView america;
+    CardView france;
     ImageButton spain;
-    ImageButton italy;
-    ImageButton china;
-    ImageButton taiwan;
-    ImageButton japan;
+    CardView italy;
+    CardView china;
+    CardView taiwan;
+    CardView japan;
     ImageButton vietnam;
-    ImageButton germany;
+    CardView germany;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -38,13 +42,14 @@ public class LanguageFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_language, container, false);
         america=root.findViewById(R.id.America);
         france=root.findViewById(R.id.France);
-        spain=root.findViewById(R.id.Spain);
-        italy=root.findViewById(R.id.italy);
-        china=root.findViewById(R.id.china);
-        taiwan=root.findViewById(R.id.taiwan);
-        japan=root.findViewById(R.id.japan);
-        vietnam=root.findViewById(R.id.vietnam);
-        germany=root.findViewById(R.id.german);
+        italy=root.findViewById(R.id.Italy);
+        china=root.findViewById(R.id.China);
+        japan=root.findViewById(R.id.Japan);
+        germany=root.findViewById(R.id.German);
+
+
+
+
 
         america.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,17 +101,6 @@ public class LanguageFragment extends Fragment {
 
             }
         });
-        taiwan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Locale zh = Locale.TAIWAN;
-                Configuration config = new Configuration( );
-                config.locale = zh;
-                getResources( ).updateConfiguration( config, getResources( ).getDisplayMetrics( ) );
-
-
-            }
-        });
 
         japan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,11 +116,11 @@ public class LanguageFragment extends Fragment {
         germany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Locale gem = Locale.GERMAN;
+                Locale de = Locale.GERMAN;
                 Configuration config = new Configuration( );
-                config.locale = gem;
+                config.locale = de;
                 getResources( ).updateConfiguration( config, getResources( ).getDisplayMetrics( ) );
-
+                Log.e("language","German");
             }
         });
 

@@ -104,7 +104,7 @@ public class HighestFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<HomeData>> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(),getResources().getString( R.string.network), Toast.LENGTH_LONG).show();
                 Log.e("myrevies", "fail");
 
                 if (mProgressDialog.isShowing())

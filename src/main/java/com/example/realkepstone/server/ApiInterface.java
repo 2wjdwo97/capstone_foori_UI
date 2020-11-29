@@ -21,6 +21,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -30,11 +31,11 @@ public interface ApiInterface {
 
     // base_url + "api/login" 으로 POST 통신
     @POST("users/login/")
-    Call<ResLoginData> requestPostLogin(@Body ReqLoginData reqLoginData );   // @Body : request 파라미터
+    Call<ResLoginData> requestPostLogin( @Body ReqLoginData reqLoginData );   // @Body : request 파라미터
 
     @Multipart
     @POST("imageupload/")
-    Call<FoodAfter> postImage(@Part MultipartBody.Part image, @Part("name") RequestBody name);
+    Call<FoodAfter> postImage(@Header("Access-Token") String Header, @Part MultipartBody.Part image, @Part("name") RequestBody name);
 
     @POST("users/signup/")
     Call<JoinData> requestJoin(@Body JoinData joinData );   // @Body : request 파라미터

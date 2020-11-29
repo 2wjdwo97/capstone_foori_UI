@@ -115,13 +115,13 @@ public class ReviewFragment extends Fragment {
                     Log.e("loginusedfdsfsdfrno", String.valueOf(user_no));
 
                     Log.e("reviewwewerwerwe",String.valueOf(response.code()));
-                    Toast.makeText(getContext().getApplicationContext(), R.string.error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.error), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<RevResData>> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
 
             }
@@ -139,7 +139,7 @@ public class ReviewFragment extends Fragment {
 
         for(int i=0; i<size; i++){
             listKor.add(Kor.get(i));
-         //   listEng.add(Eng.get(i));
+            //   listEng.add(Eng.get(i));
             listUrl.add(Url.get(i));
             listUrl.add(Eng.get(i));
 
@@ -148,7 +148,7 @@ public class ReviewFragment extends Fragment {
             // 각 List의 값들을 data 객체에 set 해줍니다.
             Food food = new Food();
             food.setKor(listKor.get(i));
-           // food.setEng(listEng.get(i));
+            // food.setEng(listEng.get(i));
             food.setUrl(listUrl.get(i));
             food.setSelect(true);
             // 각 값이 들어간 data를 adapter에 추가합니다.

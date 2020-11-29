@@ -1,5 +1,5 @@
 package com.example.realkepstone.data;
-
+//
 import java.io.Serializable;
 
 public class Food implements Serializable {

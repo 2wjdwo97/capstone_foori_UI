@@ -101,13 +101,13 @@ public class ReviewsFragment extends Fragment {
                     }
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.incorrect, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<MyReviewData>> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(),getResources().getString( R.string.network), Toast.LENGTH_LONG).show();
 
 
             }

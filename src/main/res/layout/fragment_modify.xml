@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-
+<!---->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -15,8 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.6">
+
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
@@ -60,20 +61,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <ImageButton
-        android:id="@+id/submit"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:adjustViewBounds="true"
-        android:background="#FFFFFF"
-        android:scaleType="centerInside"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@drawable/send" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.6">
+        <ImageButton
+            android:id="@+id/submit"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_default"
+            android:scaleType="centerInside" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Submit"
+            android:fontFamily="@font/jua"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"/>
+    </RelativeLayout>
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -84,8 +98,953 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.208">
-
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class1"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="밥류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class2"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="김밥/초밥류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class3"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="죽/스프류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class4"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="면/만두류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class5"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="떡류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class6"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="빵류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class7"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="버거류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class8"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="피자류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class9"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="치킨류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class10"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="샌드위치류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class11"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="한과류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class12"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="음료/차류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class13"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="국/탕류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class14"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:text="냉국류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class15"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:text="찌개/전골류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class16"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="찜류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class17"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="구이류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class18"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="볶음류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class19"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="조림류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class20"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="튀김류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class21"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="김치"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class22"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="샐러드"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class23"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="나물/숙채류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class24"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="생채/무침류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/class25"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="건포류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class26"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="전/적/부침류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class27"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="젓갈류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class28"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="회류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:layout_marginStart="14dp"
+                android:gravity="left|center">
+
+                <Button
+                    android:id="@+id/class29"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="장아찌/절임류"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/class30"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="기타"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:fontFamily="@font/jua"
+
+                    android:layout_height="50dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:textColor="#000000"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/brown" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/tag1"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="혼밥용"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag2"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="쓴"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag3"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="싱거운"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag4"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="버터맛의"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/tag5"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="텁텁한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag6"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="쫄깃한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag7"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="담백한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag8"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="바삭한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/tag9"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="마른, 퍽퍽한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag10"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="술 안주"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag11"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="발효된"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag12"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="풍미있는"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/tag13"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="신선한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag14"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="과일 맛의"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag15"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="마늘 맛의"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag16"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="해장용"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/tag17"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="건강한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag18"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="든든한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag19"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="고기 맛이 강한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag20"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="야식"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tag21"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="순한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag22"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="촉촉한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag23"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="기름진"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag24"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="시원한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tag25"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="짠"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag26"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="간식"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag27"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="신"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag28"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="매운"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tag29"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="끈적한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag30"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="속이 꽉 찬"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag31"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="달달한"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+
+                <Button
+                    android:id="@+id/tag32"
+                    android:layout_width="80dp"
+
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/imgbtn_states"
+                    android:fontFamily="@font/jua"
+                    android:text="물이 많은"
+                    android:textColor="#000000"
+                    app:srcCompat="@drawable/brown" />
+            </LinearLayout>
+        </LinearLayout>
+<!--        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -879,7 +1838,7 @@
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
-        </LinearLayout>
+        </LinearLayout>-->
     </ScrollView>
 
     <TextView
@@ -914,68 +1873,58 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="300dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/allergy1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                android:text="hi"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
                 android:background="@drawable/selector_egg"
-                />
+                android:text="hi" />
 
             <ImageView
                 android:id="@+id/allergy2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                android:background="@drawable/selector_milk"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/selector_milk" />
 
             <ImageView
                 android:id="@+id/allergy3"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                android:background="@drawable/selector_maemil"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/selector_maemil" />
 
             <ImageView
                 android:id="@+id/allergy4"
-                android:layout_width="70dp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                android:layout_height="70dp"
-                android:background="@drawable/selector_peanut"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/selector_peanut" />
 
             <ImageView
                 android:id="@+id/allergy5"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                app:srcCompat="@drawable/selector_bean"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_bean" />
 
         </LinearLayout>
 
@@ -983,117 +1932,109 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/allergy6"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                app:srcCompat="@drawable/selector_wheat"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_wheat" />
 
             <ImageView
                 android:id="@+id/allergy7"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_fish"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_fish" />
 
             <ImageView
                 android:id="@+id/allergy8"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_crab"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp"
-                />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_crab" />
 
             <ImageView
                 android:id="@+id/allergy9"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_shrimp"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_shrimp" />
 
             <ImageView
                 android:id="@+id/allergy10"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_pork"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_pork" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/allergy11"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_peach"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_peach" />
 
             <ImageView
                 android:id="@+id/allergy12"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_tomato"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_tomato" />
+
             <ImageView
                 android:id="@+id/allergy13"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_wallnut"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_wallnut" />
+
             <ImageView
                 android:id="@+id/allergy14"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_chicken"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_chicken" />
+
             <ImageView
                 android:id="@+id/allergy15"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_beef"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_beef" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/allergy16"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_squid"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_squid" />
+
             <ImageView
                 android:id="@+id/allergy17"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:srcCompat="@drawable/selector_shell"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginVertical="1dp" />
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_marginHorizontal="5dp"
+                app:srcCompat="@drawable/selector_shell" />
         </LinearLayout>
 
     </LinearLayout>
