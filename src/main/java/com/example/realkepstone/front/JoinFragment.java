@@ -148,19 +148,19 @@ public class JoinFragment extends Fragment {
             public void onResponse(Call<JoinData> call, Response<JoinData> response) {
 
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.joinsucess, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.joinsucess), Toast.LENGTH_LONG).show();
 
 
                     FrontActivity activity = (FrontActivity) getActivity();
                     activity.jointoLogin();
                 }else if(response.code()==401){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.duplicate, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.duplicate), Toast.LENGTH_LONG).show();
                 }
                 else if(response.code()==402){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.confirmfail, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.confirmfail), Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.incorrect, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
                     Log.d("error", String.valueOf(response.body()));
                     Log.d("error", String.valueOf(response.code()));
                 }
@@ -168,7 +168,7 @@ public class JoinFragment extends Fragment {
 
             @Override
             public void onFailure(Call<JoinData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

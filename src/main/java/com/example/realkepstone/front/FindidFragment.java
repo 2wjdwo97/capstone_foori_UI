@@ -63,21 +63,21 @@ public class FindidFragment extends Fragment {
             @Override
             public void onResponse(Call<FindIdData> call, Response<FindIdData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.findid, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.findid), Toast.LENGTH_LONG).show();
                     FrontActivity activity = (FrontActivity) getActivity();
                     activity.fromfindId();
 
                 }else if(response.code()==401){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.noid, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.noid), Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.incorrect, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<FindIdData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

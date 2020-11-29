@@ -72,14 +72,14 @@ public class OrderFragment extends Fragment {
             public void onResponse(Call<OrderData> call, Response<OrderData> response) {
                 if (response.code() == 200) {
                 } else {
-                    Toast.makeText(getContext().getApplicationContext(), R.string.success, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.success), Toast.LENGTH_LONG).show();
                     Log.e("order", String.valueOf(response.code()));
                 }
             }
 
             @Override
             public void onFailure(Call<OrderData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
 
             }

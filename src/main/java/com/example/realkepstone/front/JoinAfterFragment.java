@@ -1220,7 +1220,7 @@ public class JoinAfterFragment extends Fragment {
             @Override
             public void onResponse(Call<TagData> call, Response<TagData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.success, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.success), Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     intent.putExtra("user_no",user_no);
@@ -1228,7 +1228,7 @@ public class JoinAfterFragment extends Fragment {
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
                     Log.d("TedPark", String.valueOf(response.code()));
                     Log.d("Message", "code..."+userNo);
                     Log.d("Message", "foodclass..."+foodClassNo);
@@ -1244,7 +1244,7 @@ public class JoinAfterFragment extends Fragment {
             @Override
             public void onFailure(Call<TagData> call, Throwable t) {
                 Log.d("TedPark", "실패"+String.valueOf(t));
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

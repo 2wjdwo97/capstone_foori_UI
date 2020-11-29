@@ -120,7 +120,7 @@ public class LoginFragment extends Fragment {
 
                 FrontActivity activity = (FrontActivity) getActivity();
 
-              //  activity.requestPostLogin(userID,userPW);
+                //  activity.requestPostLogin(userID,userPW);
                 String id, pw;
                 id = mEmailView.getText().toString();
                 pw= mPasswordView.getText().toString();
@@ -148,15 +148,17 @@ public class LoginFragment extends Fragment {
             public void onResponse(Call<ResLoginData> call, Response<ResLoginData> response) {
                 if(response.code()==200){
                     int user_no=response.body().getUser_no();
-
-
+                    String token=response.body().getAccess_token();
                     Bundle bundle = new Bundle();
                     bundle.putInt("user_no", user_no);
+                    bundle.putString("token", token);
+
                     Log.d("loginuserno", String.valueOf(user_no));
+                    Log.d("loginuserno", token);
 
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     intent.putExtra("user_no",user_no);
-
+                    intent.putExtra("token", token);
                     startActivity(intent);
                 }
                 else if(response.code()==201){
@@ -173,23 +175,22 @@ public class LoginFragment extends Fragment {
 
 
                 }
-
-
                 else if(response.code()==401){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.noid, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(),getResources().getString(R.string.noid), Toast.LENGTH_LONG).show();
                 }
                 else if(response.code()==402){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.incorrectpw, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrectpw), Toast.LENGTH_LONG).show();
 
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.wrong, Toast.LENGTH_LONG).show();
+                    Log.e("ddddddddddedd", String.valueOf(response.code()));
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.wrong), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResLoginData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
 
             }

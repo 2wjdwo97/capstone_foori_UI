@@ -97,7 +97,7 @@ public class MostFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<HomeData>> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
                 if (mProgressDialog.isShowing())
                     mProgressDialog.dismiss();
                 Log.e("myrevies", "failure");

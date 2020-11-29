@@ -14,10 +14,18 @@ public class SharedViewModel extends ViewModel {
     public void setFood_name(String food_name) {
         this.food_name = food_name;
     }
-
+    public String token;
     public String food_name;
     public void setUser_no(int user_no) {
         this.user_no = user_no;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     private int user_no;
@@ -33,4 +41,3 @@ public class SharedViewModel extends ViewModel {
     private String language;
 
 }
-

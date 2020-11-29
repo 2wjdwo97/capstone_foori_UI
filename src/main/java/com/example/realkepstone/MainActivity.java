@@ -82,11 +82,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent = new Intent(this.getIntent());
         int user_no  = intent.getIntExtra("user_no", 0);
-
+        String token = intent.getStringExtra("token");
         SharedViewModel model = new ViewModelProvider(this).get(SharedViewModel.class);
 
         model.setUser_no(user_no);
+        model.setToken(token);
         Log.d("세팅", String.valueOf(model.getUser_no()));
+        Log.d("세팅", String.valueOf(model.getToken()));
 
 
         FoodAfter foodafter = new FoodAfter();

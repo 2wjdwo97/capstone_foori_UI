@@ -65,7 +65,7 @@ public class QuitFragment extends Fragment {
             public void onResponse(Call<ReqLoginData> call, Response<ReqLoginData> response) {
                 if(response.code()==200){
                     Log.e("quit", String.valueOf(response.code()));
-                    Toast.makeText(getContext().getApplicationContext(), R.string.quit, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.quit), Toast.LENGTH_LONG).show();
                     MainActivity activity = (MainActivity) getActivity();
                     activity.finish();
 
@@ -73,18 +73,18 @@ public class QuitFragment extends Fragment {
                 else if(response.code()==401){
                     Log.e("quit", String.valueOf(response.code()));
 
-                    Toast.makeText(getContext().getApplicationContext(), R.string.noid, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.noid), Toast.LENGTH_LONG).show();
                 }
                 else{
                     Log.e("quit", String.valueOf(response.code()));
 
-                    Toast.makeText(getContext().getApplicationContext(), R.string.error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.error), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ReqLoginData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
 
             }

@@ -7,7 +7,6 @@
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical"
     android:background="#FFFFFF">
-<!---->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

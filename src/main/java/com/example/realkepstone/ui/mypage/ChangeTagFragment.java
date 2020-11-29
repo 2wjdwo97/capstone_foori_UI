@@ -1321,12 +1321,12 @@ public class ChangeTagFragment extends Fragment {
             @Override
             public void onResponse(Call<ChangeTagData> call, Response<ChangeTagData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.modifysuccess, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.modifysuccess), Toast.LENGTH_LONG).show();
                     Log.d("hoooo", String.valueOf(response.code()));
 
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
                     Log.d("hoooo", String.valueOf(response.code()));
 
 
@@ -1338,7 +1338,7 @@ public class ChangeTagFragment extends Fragment {
             @Override
             public void onFailure(Call<ChangeTagData> call, Throwable t) {
                 Log.d("TedPark", "실패"+String.valueOf(t));
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

@@ -75,16 +75,16 @@ public class ChangePWFragment extends Fragment {
             @Override
             public void onResponse(Call<PasswordChangeData> call, Response<PasswordChangeData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), R.string.successchange, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.successchange), Toast.LENGTH_LONG).show();
                     Log.e("sex", String.valueOf(response.code()));
                 }else if(response.code()==401){
                     Log.e("sex", String.valueOf(response.code()));
-                    Toast.makeText(getContext().getApplicationContext(), R.string.incorrect, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
 
                 }
                 else if(response.code()==402){
                     Log.e("sex", String.valueOf(response.code()));
-                    Toast.makeText(getContext().getApplicationContext(), R.string.confirmfail, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.confirmfail), Toast.LENGTH_LONG).show();
                 }
                 else{
                 }
@@ -92,7 +92,7 @@ public class ChangePWFragment extends Fragment {
 
             @Override
             public void onFailure(Call<PasswordChangeData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }

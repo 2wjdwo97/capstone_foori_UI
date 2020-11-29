@@ -1,5 +1,5 @@
 package com.example.realkepstone.adapter;
-//
+
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.Log;

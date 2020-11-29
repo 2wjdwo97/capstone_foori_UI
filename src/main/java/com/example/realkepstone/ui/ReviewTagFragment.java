@@ -616,14 +616,14 @@ public class ReviewTagFragment extends Fragment {
                     fragmentTransaction.commit();
 
                 } else {
-                    Toast.makeText(getContext().getApplicationContext(), R.string.error, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext().getApplicationContext(),getResources().getString( R.string.error), Toast.LENGTH_LONG).show();
                     Log.e("reviewsave", String.valueOf(response.code()));
                 }
             }
 
             @Override
             public void onFailure(Call<ReviewSaveData> call, Throwable t) {
-                Toast.makeText(getContext().getApplicationContext(), R.string.network, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
 
 
             }
