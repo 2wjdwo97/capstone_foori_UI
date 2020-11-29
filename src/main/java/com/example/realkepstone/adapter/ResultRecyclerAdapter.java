@@ -94,10 +94,11 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         private Food data;
         private int position;
         private TextView allergy;
-        private RelativeLayout linear;
-        private LinearLayout linearItem2;
         private TextView content;
         private ImageView medal;
+        private RelativeLayout linear;
+        private RelativeLayout linearItem;
+        private LinearLayout linearItem2;
 
         ItemViewHolder(View itemView) {
             super(itemView);
@@ -107,11 +108,12 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             textView2 = itemView.findViewById(R.id.Kor);
             imageView1 = itemView.findViewById(R.id.imageView1);
             star = itemView.findViewById(R.id.starpoint);
-            linear=itemView.findViewById(R.id.Linear);
-            linearItem2=itemView.findViewById(R.id.linearItem2);
             content = itemView.findViewById(R.id.content);
             allergy = itemView.findViewById(R.id.Allergy);
             medal = itemView.findViewById(R.id.medal);
+            linear=itemView.findViewById(R.id.Linear);
+            linearItem = itemView.findViewById(R.id.linearItem);
+            linearItem2=itemView.findViewById(R.id.linearItem2);
 
         }
 
@@ -156,9 +158,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
-            textView1.setOnClickListener(this);
-            textView2.setOnClickListener(this);
-        //    imageView1.setOnClickListener(this);
+            linearItem.setOnClickListener(this);
             order.setOnClickListener(this);
 
         }
@@ -186,12 +186,6 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     // 클릭된 position 저장
                     prePosition = position;
                     break;
-                case R.id.Eng:
-                    break;
-                case R.id.Kor:
-                    break;
-                case R.id.imageView:
-                    break;
                 case R.id.order:
                     if (data.isSelect()==false){
                         data.setSelect(true);
@@ -206,18 +200,15 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     break;
             }
         }
-        /**
-         * 클릭된 Item의 상태 변경
-         * @param isExpanded Item을 펼칠 것인지 여부
-         */
+
         private void changeColor(){
             if (data.isSelect()==true){
                 linear.setBackgroundColor(Color.parseColor("#dac896"));
-                linearItem2.setBackgroundColor(Color.parseColor("#dac896"));
+                linearItem.setBackgroundColor(Color.parseColor("#dac896"));
             }
             else {
                 linear.setBackgroundColor(Color.WHITE);
-                linearItem2.setBackgroundColor(Color.WHITE);
+                linearItem.setBackgroundColor(Color.WHITE);
             }
         }
 
