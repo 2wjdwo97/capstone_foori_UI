@@ -82,19 +82,17 @@ public class HomeFragment extends Fragment {
         h9 = (ImageView) rootView.findViewById(R.id.button_steamed);
         h10 = (ImageView) rootView.findViewById(R.id.button_baverage);
 
-
-
-
-
         h1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Rice");
                 change(1);
             }
         });
         h2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Soup");
                 change(2);
 
             }
@@ -102,6 +100,7 @@ public class HomeFragment extends Fragment {
         h3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Noodle");
                 change(3);
 
             }
@@ -109,6 +108,7 @@ public class HomeFragment extends Fragment {
         h4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Stir-Fried");
                 change(4);
 
             }
@@ -116,6 +116,7 @@ public class HomeFragment extends Fragment {
         h5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Fried");
                 change(5);
 
             }
@@ -123,6 +124,7 @@ public class HomeFragment extends Fragment {
         h6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Grilled");
                 change(6);
 
             }
@@ -130,6 +132,7 @@ public class HomeFragment extends Fragment {
         h7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Bread");
                 change(7);
 
             }
@@ -137,6 +140,7 @@ public class HomeFragment extends Fragment {
         h8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Boiled in Seasoning");
                 change(8);
 
             }
@@ -144,6 +148,7 @@ public class HomeFragment extends Fragment {
         h9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Steamed");
                 change(9);
 
             }
@@ -151,6 +156,7 @@ public class HomeFragment extends Fragment {
         h10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity.getSupportActionBar().setTitle("Beverage");
                 change(10);
 
             }
@@ -170,6 +176,9 @@ public class HomeFragment extends Fragment {
     }
 
     public void change(int button_no) {
+        MainActivity activity = (MainActivity) getActivity();
+        activity.getImgToolbar().setImageResource(0);
+
         RightFragment fragment = new RightFragment();
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

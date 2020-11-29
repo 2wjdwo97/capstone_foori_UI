@@ -1,5 +1,7 @@
 package com.example.realkepstone;
 
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -7,21 +9,15 @@ import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.ui.BagFragment;
 import com.example.realkepstone.ui.OrderFragment;
 import com.example.realkepstone.ui.ResultFragment;
@@ -41,11 +37,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ImageView img_toolbar;
     private Toolbar toolbar;
-    private AppBarConfiguration mAppBarConfiguration;
-    private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰
+    private BottomNavigationView bottomNavigationView;
+
     private FragmentManager fm;
     private FragmentTransaction ft;
+
     private HomeFragment frag1;
     private SlideshowFragment frag2;
     private GalleryFragment frag3;
@@ -60,11 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private QuitFragment frag12;
     private ReviewsFragment frag13;
     private LanguageFragment frag14;
-    Bundle mBundle; //main bundle
-    private ViewPager viewPager;
-    MenuItem previousMenuItem;
-    FoodAfter foodafter;
-    int user_no;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -80,30 +73,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = new Intent(this.getIntent());
+
         int user_no  = intent.getIntExtra("user_no", 0);
-
         SharedViewModel model = new ViewModelProvider(this).get(SharedViewModel.class);
-
         model.setUser_no(user_no);
-        Log.d("세팅", String.valueOf(model.getUser_no()));
-
-
-        FoodAfter foodafter = new FoodAfter();
+        Log.d("get_user_no_from_server", String.valueOf(model.getUser_no()));
 
         if (savedInstanceState != null) {
             //Restore the fragment's instance
             frag5 = (ResultFragment) getSupportFragmentManager().getFragment(savedInstanceState, "Result");
         }
 
-
         toolbar = (Toolbar)findViewById(R.id.toolbar2);
+        bottomNavigationView = findViewById(R.id.bottomNavi);
         setSupportActionBar(toolbar);
 
-
-
-        bottomNavigationView = findViewById(R.id.bottomNavi);
-
-        //     viewPager = findViewById(R.id.viewPager);
+        img_toolbar = findViewById(R.id.img_toolbar);
+        img_toolbar.setImageResource(R.drawable.title);
 
         frag1=new HomeFragment();
         frag2=new SlideshowFragment();
@@ -119,64 +105,6 @@ public class MainActivity extends AppCompatActivity {
         frag12=new QuitFragment();
         frag13=new ReviewsFragment();
         frag14=new LanguageFragment();
-
-
-
-        /*
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        viewPager.setCurrentItem(0);
-                        break;
-                    case R.id.camera:
-                        viewPager.setCurrentItem(1);
-                        break;
-                    case R.id.gallery:
-                        viewPager.setCurrentItem(2);
-                        break;
-                    case R.id.mypage:
-                        viewPager.setCurrentItem(3);
-                        break;
-                    case R.id.review:
-                        viewPager.setCurrentItem(4);
-                        break;
-                }
-                return true;
-            }
-
-        });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == 0) {
-                    bottomNavigationView.setSelectedItemId(R.id.home);
-                } else if (position == 1) {
-                    bottomNavigationView.setSelectedItemId(R.id.camera);
-                } else if (position == 2) {
-                    bottomNavigationView.setSelectedItemId(R.id.gallery);
-                }else if (position == 3) {
-                    bottomNavigationView.setSelectedItemId(R.id.mypage);
-                }
-                else if (position == 4) {
-                    bottomNavigationView.setSelectedItemId(R.id.review);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-*/
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId())
@@ -199,21 +127,8 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
-
-
-
-
-
-
         setFrag(0); // 첫 프래그먼트 화면 지정
-
-
-
-
-
     }
-
-
 
     // 프레그먼트 교체
     public void setFrag(int n)
@@ -223,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
         switch (n)
         {
             case 0:
-
                 ft.replace(R.id.Main_Frame,frag1,"not");
                 ft.commit();
                 break;
@@ -336,4 +250,18 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ // toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public ImageView getImgToolbar(){
+         return this.img_toolbar;
+    }
 }
