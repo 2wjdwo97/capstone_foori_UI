@@ -36,8 +36,8 @@ public class LoginFragment extends Fragment {
     ImageButton login = null;
     ImageButton join = null;
     ImageButton without = null;
-    ImageButton findid = null;
-    ImageButton findpw = null;
+    TextView findid = null;
+    TextView findpw = null;
     FrontActivity frontActivity;
 
     private static String TAG = "MainActivity";
@@ -81,8 +81,8 @@ public class LoginFragment extends Fragment {
         login = (ImageButton) root.findViewById(R.id.login);
         join = (ImageButton) root.findViewById(R.id.join);
         without = (ImageButton) root.findViewById(R.id.without);
-        findid = (ImageButton) root.findViewById(R.id.findId);
-        findpw = (ImageButton) root.findViewById(R.id.findPw);
+        findid = (TextView) root.findViewById(R.id.findId);
+        findpw = (TextView) root.findViewById(R.id.findPw);
 
         join.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +166,6 @@ public class LoginFragment extends Fragment {
                     int user_no=response.body().getUser_no();
 
                     Log.d("loginuserno", String.valueOf(user_no));
-                    Log.d("sex!", String.valueOf(response.code()));
 
                     Bundle bundle = new Bundle();
                     bundle.putInt("user_no", user_no);
