@@ -27,8 +27,10 @@ import com.example.realkepstone.data.MyReview;
 import com.example.realkepstone.data.MyReviewData;
 import com.example.realkepstone.data.RevReqData;
 import com.example.realkepstone.data.TodayData;
+import com.example.realkepstone.data.TodayReqData;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
+import com.example.realkepstone.server.JoinData;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -164,7 +166,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
-        requestPost();
+        requestPost(user_no);
 
         return rootView;
     }
@@ -184,8 +186,10 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void requestPost() {
-        Call<List<TodayData>> call = api.requestToday();
+    public void requestPost(int user_no) {
+        TodayReqData todayReqData = new TodayReqData(user_no);
+
+        Call<List<TodayData>> call = api.requestToday(todayReqData);
 
         // 비동기로 백그라운드 쓰레드로 동작
         call.enqueue( new Callback<List<TodayData>>() {

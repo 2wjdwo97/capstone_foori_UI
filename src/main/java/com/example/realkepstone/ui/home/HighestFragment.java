@@ -12,12 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
+import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.adapter.HighestAdapter;
 import com.example.realkepstone.adapter.MyReviewAdapter;
 import com.example.realkepstone.adapter.RecyclerAdapter;
@@ -37,7 +39,8 @@ import retrofit2.Response;
 
 public class HighestFragment extends Fragment {
 
-
+    int user_no;
+    private SharedViewModel model;
     private int button_no;
     ApiInterface api;
     private HighestAdapter adapter;
@@ -49,7 +52,9 @@ public class HighestFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_highest, container, false);
         api = HttpClient.getRetrofit().create( ApiInterface.class );
         adapter = new HighestAdapter();
+        model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
+        user_no=model.getUser_no();
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
 
         recyclerView.setHasFixedSize(true);
@@ -61,14 +66,14 @@ public class HighestFragment extends Fragment {
         button_no = (getArguments().getInt("json"));
         Log.e("button_no", String.valueOf(button_no));
 
-        requestPost(button_no);
+        requestPost(user_no,button_no);
 
 
         return root;
     }
 
-    void requestPost(int button_no){
-        ButtonData buttonData = new ButtonData(button_no);
+    void requestPost(int user_no, int button_no){
+        ButtonData buttonData = new ButtonData(user_no,button_no);
         Call<List<HomeData>> call = api.requestMost( buttonData );
         // Set up progress before call
 
