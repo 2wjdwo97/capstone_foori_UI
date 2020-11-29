@@ -1,5 +1,6 @@
 package com.example.realkepstone.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.realkepstone.FoodListActivity;
 import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
@@ -69,7 +71,7 @@ public class HomeFragment extends Fragment {
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         user_no=model.getUser_no();
-        Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(user_no));
+        Log.d("log_user_no", String.valueOf(user_no));
 
         h1 = (ImageView) rootView.findViewById(R.id.button__rice);
         h2 = (ImageView) rootView.findViewById(R.id.button_soup);
@@ -85,8 +87,11 @@ public class HomeFragment extends Fragment {
         h1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Rice");
-                change(1);
+                Intent intent = new Intent((MainActivity) getActivity(), FoodListActivity.class);
+                intent.putExtra("title", "Rice");
+                startActivity(intent);
+//                activity.getSupportActionBar().setTitle("Rice");
+//                change(1);
             }
         });
         h2.setOnClickListener(new View.OnClickListener() {
