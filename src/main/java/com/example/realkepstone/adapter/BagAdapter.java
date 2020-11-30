@@ -126,9 +126,11 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
             switch (v.getId()) {
 
                 case R.id.txt_delete:
+                    Log.e("trash","gadrgaedgdsgfadvsdvsdvsdavadsvsdvsfadsfasdfsadf");
+
                     data.setAmount(0);
                     trash.add(data);
-
+                    Log.e("trash","gadrgaedgdsgfadsfadsfasdfsadf");
                     deleteItem(data);
                     selectedItems.delete(position);
                     if (prePosition != -1) notifyItemChanged(prePosition);
