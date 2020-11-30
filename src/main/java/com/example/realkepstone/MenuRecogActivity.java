@@ -51,9 +51,6 @@ public class MenuRecogActivity extends AppCompatActivity {
         adapter = new ResultRecyclerAdapter();
         recyclerView.setAdapter(adapter);
 
-        bag = (ImageView) findViewById(R.id.bag);
-        id = (TextView) findViewById(R.id.id);
-
         OrderList = new ArrayList<>();
         getData(res_result);
     }
@@ -128,15 +125,18 @@ public class MenuRecogActivity extends AppCompatActivity {
         List<String> listAller = new ArrayList<String>();
         List<String> listUrl = new ArrayList<String>();
         List<Float> listStar = new ArrayList<Float>();
+        List<Integer> listAmount= new ArrayList<>();
 
         for (int i = 0; i < getSize; i++) {
-            if (adapter.listData.get(i).isSelect()) {
+            if (adapter.listData.get(i).getAmount()>0) {
                 passSize++;
                 listKor.add(adapter.listData.get(i).getKor());
                 listEng.add(adapter.listData.get(i).getEng());
                 listDes.add(adapter.listData.get(i).getDes());
                 listUrl.add(adapter.listData.get(i).getUrl());
                 listStar.add(adapter.listData.get(i).getStar());
+                listAmount.add(adapter.listData.get(i).getAmount());
+
             }
         }
 
@@ -148,6 +148,7 @@ public class MenuRecogActivity extends AppCompatActivity {
             food.setDes(listDes.get(i));
             food.setUrl(listUrl.get(i));
             food.setStar(listStar.get(i));
+            food.setAmount(listAmount.get(i));
 
             // 각 값이 들어간 data를 adapter에 추가합니다.
             OrderList.add(food);

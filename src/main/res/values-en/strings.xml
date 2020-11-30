@@ -214,7 +214,7 @@
     <string name="confirm">Confirm</string>
     <string name="submit">Submit</string>
     <string name="findpwtitle">Find PW</string>
-    <string name="today">Today's special</string>
+    <string name="today">Today\'s special</string>
     <string name="country">Country</string>
     <string name="checkPreference">Check Your Preference.</string>
     <string name="checkAllergy">Check Allergy</string>
