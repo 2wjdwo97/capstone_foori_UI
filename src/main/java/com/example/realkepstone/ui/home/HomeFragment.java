@@ -22,19 +22,13 @@ import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.adapter.RecyclerAdapter;
-import com.example.realkepstone.data.ButtonData;
 import com.example.realkepstone.data.Food;
-import com.example.realkepstone.data.HomeData;
-import com.example.realkepstone.data.MyReview;
-import com.example.realkepstone.data.MyReviewData;
-import com.example.realkepstone.data.RevReqData;
 import com.example.realkepstone.data.TodayData;
+import com.example.realkepstone.data.TodayReqData;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -43,9 +37,11 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
+    private MainActivity activity;
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
     private ArrayList<Food> list = new ArrayList<>();
+
     int user_no;
     private SharedViewModel model;
     private ImageView h1;
@@ -60,17 +56,18 @@ public class HomeFragment extends Fragment {
     private ImageView h10;
     ApiInterface api;
 
+    private ImageView hidden;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_home, container, false);
-        MainActivity activity = (MainActivity) getActivity();
-        api = HttpClient.getRetrofit().create( ApiInterface.class );
+        activity = (MainActivity) getActivity();
 
+        api = HttpClient.getRetrofit().create( ApiInterface.class );
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
-        user_no=model.getUser_no();
+        user_no = model.getUser_no();
         Log.d("log_user_no", String.valueOf(user_no));
 
         h1 = (ImageView) rootView.findViewById(R.id.button__rice);
@@ -84,122 +81,98 @@ public class HomeFragment extends Fragment {
         h9 = (ImageView) rootView.findViewById(R.id.button_steamed);
         h10 = (ImageView) rootView.findViewById(R.id.button_baverage);
 
+        hidden = (ImageView) rootView.findViewById(R.id.hidden);
+
         h1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent((MainActivity) getActivity(), FoodListActivity.class);
-                intent.putExtra("title", "Rice");
-                startActivity(intent);
-//                activity.getSupportActionBar().setTitle("Rice");
-//                change(1);
+                change("Rice", 1);
             }
         });
         h2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Soup");
-                change(2);
-
+                change("Soup", 2);
             }
         });
         h3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Noodle");
-                change(3);
-
+                change("Noodle", 3);
             }
         });
         h4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Stir-Fried");
-                change(4);
+                change("Stir-Fried", 4);
 
             }
         });
         h5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Fried");
-                change(5);
-
+                change("Fried", 5);
             }
         });
         h6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Grilled");
-                change(6);
-
+                change("Grilled", 6);
             }
         });
         h7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Bread");
-                change(7);
-
+                change("Bread", 7);
             }
         });
         h8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Boiled in Seasoning");
-                change(8);
-
+                change("Boiled in Seasoning", 8);
             }
         });
         h9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Steamed");
-                change(9);
-
+                change("Steamed", 9);
             }
         });
         h10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.getSupportActionBar().setTitle("Beverage");
-                change(10);
-
+                change("Beverage", 10);
             }
         });
 
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-
         recyclerView.setHasFixedSize(true);
         adapter = new RecyclerAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
 
-        requestPost();
+        hidden.setVisibility(View.VISIBLE);
+        requestPost(user_no);
 
         return rootView;
     }
 
-    public void change(int button_no) {
-        MainActivity activity = (MainActivity) getActivity();
-        activity.getImgToolbar().setImageResource(0);
-
-        RightFragment fragment = new RightFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        Bundle bundle=new Bundle();
-        bundle.putInt("json", button_no);
-        fragment.setArguments(bundle); //data being send to SecondFragment
-        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_right);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.replace(R.id.Main_Frame, fragment);
-        fragmentTransaction.commit();
+    public void change(String title, int button_no) {
+        Intent intent = new Intent((MainActivity) getActivity(), FoodListActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("title", title);
+        bundle.putInt("user_no", user_no);
+        bundle.putInt("button_no", button_no);
+        intent.putExtra("json", bundle);
+        startActivity(intent);
+        activity.overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
     }
 
 
-    public void requestPost() {
-        Call<List<TodayData>> call = api.requestToday();
+    public void requestPost(int user_no) {
+        TodayReqData todayReqData = new TodayReqData(user_no);
+
+        Call<List<TodayData>> call = api.requestToday(todayReqData);
 
         // 비동기로 백그라운드 쓰레드로 동작
         call.enqueue( new Callback<List<TodayData>>() {
@@ -208,12 +181,16 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<List<TodayData>> call, Response<List<TodayData>> response) {
                 if(response.code()==200){
 
+                    if(response.body().size()==0){
+                        hidden.setBackgroundResource(R.drawable.german);
+                    }
+
                     for(int i=0; i<response.body().size(); i++){
+                        hidden.setVisibility(View.GONE);
+
                         adapter.addItem(response.body().get(i));
                         adapter.notifyDataSetChanged();
                     }
-
-
                 }
                 else{
                     Log.e("homeerror", String.valueOf(response.code()));
@@ -224,10 +201,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<List<TodayData>> call, Throwable t) {
                 Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
-
-
             }
         } );
     }
-
 }

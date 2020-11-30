@@ -216,12 +216,12 @@ public class JoinAfterFragment extends Fragment {
         allergy9 = (ImageView) root.findViewById(R.id.allergy9);
         allergy10 = (ImageView) root.findViewById(R.id.allergy10);
         allergy11 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy12 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy13 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy14 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy15 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy16 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy17 = (ImageView) root.findViewById(R.id.allergy11);
+        allergy12 = (ImageView) root.findViewById(R.id.allergy12);
+        allergy13 = (ImageView) root.findViewById(R.id.allergy13);
+        allergy14 = (ImageView) root.findViewById(R.id.allergy14);
+        allergy15 = (ImageView) root.findViewById(R.id.allergy15);
+        allergy16 = (ImageView) root.findViewById(R.id.allergy16);
+        allergy17 = (ImageView) root.findViewById(R.id.allergy17);
 
 
 

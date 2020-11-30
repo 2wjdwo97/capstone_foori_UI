@@ -131,13 +131,18 @@ public class BagFragment extends Fragment {
         List <String> listEng = new ArrayList<String>();
         List <String> listUrl = new ArrayList<>();
         List <String> listDes = new ArrayList<>();
+        List <Integer> listAmount = new ArrayList<>();
+
         int size=OrderList.size();
 
         for(int i=0; i<size; i++){
-            listKor.add(OrderList.get(i).getKor());
-            listEng.add(OrderList.get(i).getEng());
-            listDes.add(OrderList.get(i).getDes());
-            listUrl.add(OrderList.get(i).getUrl());
+            if(listAmount.get(i)>0) {
+                listKor.add(OrderList.get(i).getKor());
+                listEng.add(OrderList.get(i).getEng());
+                listDes.add(OrderList.get(i).getDes());
+                listAmount.add(OrderList.get(i).getAmount());
+                listUrl.add(OrderList.get(i).getUrl());
+            }
         }
         for (int i = 0; i < size; i++) {
         // 각 List의 값들을 data 객체에 set 해줍니다.
@@ -146,6 +151,7 @@ public class BagFragment extends Fragment {
         food.setEng(listEng.get(i));
         food.setUrl(listUrl.get(i));
         food.setDes(listDes.get(i));
+        food.setAmount(listAmount.get(i));
 
         food.setSelect(true);
         // 각 값이 들어간 data를 adapter에 추가합니다.

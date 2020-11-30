@@ -67,6 +67,7 @@
     <string name="a31">Klebrig</string>
     <string name="a32">Voll</string>
 
+
     <string name="b1">Reis</string>
     <string name="b2">Kimbap / Sushi</string>
     <string name="b3">Brei / Suppe</string>
@@ -133,7 +134,7 @@
     <string name="confirmfail">Das Passwort stimmt nicht mit der erneuten Eingabe des Passworts überein.</string>
     <string name="success">Erfolgreich eingereicht.</string>
     <string name="joinsucess">Erfolg bei der Registrierung der Mitgliedschaft. Sie können sich nach der Authentifizierung mit der registrierten E-Mail anmelden.</string>
-    <string name="duplicate">Doppelte ID oder E-Mail.</string>
+    <string name="duplicate">Doppelte ID odesr E-Mail.</string>
     <string name="notexistid">ID existiert nicht.</string>
     <string name="incorrectpw">Ihr Konto ist inaktiv oder Ihr Passwort ist falsch.</string>
     <string name="wrong">Falscher Benutzername oder falsches Kennwort.</string>

@@ -3,25 +3,25 @@ package com.example.realkepstone.data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ButtonData {
+public class LanguageData{
 
 
-    public ButtonData(Integer user_no,Integer buttonNo) {
-        this.buttonNo = buttonNo;
+    public LanguageData(Integer user_no,String lang) {
+        this.lang = lang;
         this.user_no = user_no;
     }
 
-    @SerializedName("button_no")
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    @SerializedName("lang_code")
     @Expose
-    private Integer buttonNo;
-
-    public Integer getButtonNo() {
-        return buttonNo;
-    }
-
-    public void setButtonNo(Integer buttonNo) {
-        this.buttonNo = buttonNo;
-    }
+    private String lang;
 
     public Integer getUser_no() {
         return user_no;

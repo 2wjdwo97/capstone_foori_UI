@@ -10,11 +10,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.realkepstone.R;
+import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.adapter.HighestAdapter;
 import com.example.realkepstone.data.ButtonData;
 import com.example.realkepstone.data.HomeData;
@@ -34,33 +36,36 @@ public class MostFragment extends Fragment {
     ApiInterface api;
     private HighestAdapter adapter;
     private RecyclerView recyclerView;
-
+    int user_no;
+    private SharedViewModel model;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_most, container, false);
+
         api = HttpClient.getRetrofit().create( ApiInterface.class );
         adapter = new HighestAdapter();
+        model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-
         recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
-        Bundle bundle=getArguments();
-        assert getArguments() != null;
-        button_no = (getArguments().getInt("json"));
-        Log.e("button_no", String.valueOf(button_no));
 
-        requestPost(button_no);
+        Bundle bundle = getArguments();
+        assert bundle != null;
+        user_no = bundle.getInt("user_no");
+        button_no = bundle.getInt("button_no");
+//        Log.d("mostFrg_user_no", String.valueOf(user_no));
+//        Log.d("mostFrg_button_no", String.valueOf(button_no));
 
+        requestPost(user_no,button_no);
 
         return root;
     }
 
-    void requestPost(int button_no){
-        ButtonData buttonData = new ButtonData(button_no);
+    void requestPost(int user_no,int button_no){
+        ButtonData buttonData = new ButtonData(user_no,button_no);
         Call<List<HomeData>> call = api.requestHome( buttonData );
         ProgressDialog mProgressDialog = new ProgressDialog(getContext());
         mProgressDialog.setIndeterminate(true);

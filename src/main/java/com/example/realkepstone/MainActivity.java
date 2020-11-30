@@ -266,6 +266,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.exit_to_right, R.anim.exit_to_right);
+    }
+
     public ImageView getImgToolbar(){
          return this.img_toolbar;
     }

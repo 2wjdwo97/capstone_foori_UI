@@ -77,6 +77,8 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private TextView txt_Amount;
+
         private TextView txt_delete;
         private TextView txt_engName;
         private TextView txt_korName;
@@ -85,6 +87,8 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
 
         ItemViewHolder(View itemView) {
             super(itemView);
+
+            txt_delete = itemView.findViewById(R.id.txt_Amount);
 
             txt_delete = itemView.findViewById(R.id.txt_delete);
             txt_engName = itemView.findViewById(R.id.txt_engName);
@@ -98,12 +102,15 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
             txt_engName.setText(data.getEng());
             txt_korName.setText(data.getKor());
 
+            txt_Amount.setText(data.getAmount());
+
 /*            Glide
                     .with(img_food.getContext())
                     .load(data.getUrl())
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(img_food);
+
             Log.e("urlsex",data.getUrl());*/
             //changeVisibility(selectedItems.get(position));
 
@@ -115,6 +122,7 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+
                 case R.id.txt_delete:
                     trash.add(data);
                     deleteItem(data);

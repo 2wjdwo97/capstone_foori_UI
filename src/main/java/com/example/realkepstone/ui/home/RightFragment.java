@@ -33,8 +33,8 @@ public class RightFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_rightview, container, false);
 
-        highest=root.findViewById(R.id.highest);
-        most=root.findViewById(R.id.most);
+        highest = root.findViewById(R.id.highest);
+        most = root.findViewById(R.id.most);
 
         Bundle bundle = getArguments();
         assert getArguments() != null;
