@@ -189,11 +189,11 @@ public class HomeFragment extends Fragment {
 
 
                     if(response.body().size()==0){
-                        Log.e("loginusedfdsfsdfrno", "sex");
+                        Log.e("homefrag", "body_size=0");
                         hidden.setBackgroundResource(R.drawable.no_data);
                         hidden.clearAnimation();
                     }else{
-                        Log.e("loginusedfdsfsdfrno", "sex!E@!RAFA");
+                        Log.e("homefrag", "body_size>0");
                         hidden.clearAnimation();
 
                         hidden.setVisibility(View.GONE);

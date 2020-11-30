@@ -55,7 +55,7 @@ public class BagFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_bag, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_bag, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView3);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -70,9 +70,9 @@ public class BagFragment extends Fragment {
         List<String> listKor = new ArrayList<String>();
         List<String> listEng = new ArrayList<String>();
 
-        Bundle bundle=getArguments();
+        Bundle bundle = getArguments();
         OrderList = (ArrayList<Food>) getArguments().getSerializable("bag");
-        int bagSize= getArguments().getInt("bagSize");
+        int bagSize = getArguments().getInt("bagSize");
         data = (ArrayList<Food>) getArguments().getSerializable("data");
 
         Log.e("orderlist", String.valueOf(OrderList.size()));
@@ -84,17 +84,17 @@ public class BagFragment extends Fragment {
             public void onClick(View view) {
                 MainActivity activity = (MainActivity) getActivity();
 
-                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-                ResultFragment mfragment=new ResultFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                ResultFragment mfragment = new ResultFragment();
 
-                Bundle bundle=new Bundle();
+                Bundle bundle = new Bundle();
                 //  bundle.putSerializable("json", response.body());
 
                 bundle.putSerializable("data", data);
                 bundle.putSerializable("trash", adapter.trash);
 
                 mfragment.setArguments(bundle); //data being send to SecondFragment
-                transaction.replace(R.id.Main_Frame, mfragment,"not");
+                transaction.replace(R.id.Main_Frame, mfragment, "not");
                 transaction.commit();
 
             }
@@ -102,18 +102,18 @@ public class BagFragment extends Fragment {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mHandler.postDelayed(new Runnable()  {
+                mHandler.postDelayed(new Runnable() {
                     public void run() {
-                      //  createNotification();
+                        //  createNotification();
                     }
                 }, 5000); // 0.5초후
 
                 MainActivity activity = (MainActivity) getActivity();
 
-                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-                OrderFragment mfragment=new OrderFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                OrderFragment mfragment = new OrderFragment();
 
-                Bundle bundle=new Bundle();
+                Bundle bundle = new Bundle();
                 //  bundle.putSerializable("json", response.body());
                 bundle.putSerializable("bag", adapter.listData);
                 mfragment.setArguments(bundle); //data being send to SecondFragment
@@ -126,16 +126,16 @@ public class BagFragment extends Fragment {
     }
 
     private void getData(ArrayList<Food> OrderList) {
-    // 임의의 데이터입니다.
-        List <String> listKor = new ArrayList<String>();
-        List <String> listEng = new ArrayList<String>();
-        List <String> listUrl = new ArrayList<>();
-        List <String> listDes = new ArrayList<>();
-        List <Integer> listAmount = new ArrayList<>();
+        // 임의의 데이터입니다.
+        List<String> listKor = new ArrayList<String>();
+        List<String> listEng = new ArrayList<String>();
+        List<String> listUrl = new ArrayList<>();
+        List<String> listDes = new ArrayList<>();
+        List<Integer> listAmount = new ArrayList<>();
 
-        int size=OrderList.size();
+        int size = OrderList.size();
 
-        for(int i=0; i< size; i++){
+        for (int i = 0; i < size; i++) {
 
             listKor.add(OrderList.get(i).getKor());
             listEng.add(OrderList.get(i).getEng());
@@ -145,26 +145,26 @@ public class BagFragment extends Fragment {
 
         }
         for (int i = 0; i < size; i++) {
-        // 각 List의 값들을 data 객체에 set 해줍니다.
-        Food food = new Food();
-        food.setKor(listKor.get(i));
-        food.setEng(listEng.get(i));
-        food.setUrl(listUrl.get(i));
-        food.setDes(listDes.get(i));
-        food.setAmount(listAmount.get(i));
+            // 각 List의 값들을 data 객체에 set 해줍니다.
+            Food food = new Food();
+            food.setKor(listKor.get(i));
+            food.setEng(listEng.get(i));
+            food.setUrl(listUrl.get(i));
+            food.setDes(listDes.get(i));
+            food.setAmount(listAmount.get(i));
 
-        food.setSelect(true);
-        // 각 값이 들어간 data를 adapter에 추가합니다.
-        adapter.addItem(food);
-    }
+            food.setSelect(true);
+            // 각 값이 들어간 data를 adapter에 추가합니다.
+            adapter.addItem(food);
+        }
 
-    // adapter의 값이 변경되었다는 것을 알려줍니다.
-    adapter.notifyDataSetChanged();
+        // adapter의 값이 변경되었다는 것을 알려줍니다.
+        adapter.notifyDataSetChanged();
     }
 
     private void createNotification() {
 
-        Intent intent = new Intent(getContext().getApplicationContext(),FrontActivity.class);
+        Intent intent = new Intent(getContext().getApplicationContext(), FrontActivity.class);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "default");
         PendingIntent pendnoti = PendingIntent.getActivity(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -174,7 +174,7 @@ public class BagFragment extends Fragment {
         builder.setContentTitle("How was your dinner?");
         builder.setContentText("We need your preference~");
         builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
-        builder.setWhen(Calendar.getInstance().getTimeInMillis()+60000);
+        builder.setWhen(Calendar.getInstance().getTimeInMillis() + 60000);
 
         builder.setColor(Color.RED);
         // 사용자가 탭을 클릭하면 자동 제거
@@ -192,6 +192,7 @@ public class BagFragment extends Fragment {
 
 
     }
+
     private void removeNotification() {
         // Notification 제거
         NotificationManagerCompat.from(getActivity()).cancel(1);

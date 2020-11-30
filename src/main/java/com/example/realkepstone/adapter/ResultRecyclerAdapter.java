@@ -140,19 +140,13 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             // star.setText(data.get());
 //            textView1.setText(data.getEng());
             if(data.getRecommed()==1){
-                Log.e("image", String.valueOf(data.getRecommed()));
                 medal.setImageResource(R.drawable.button_gold);
             }else if(data.getRecommed()==2){
-                Log.e("image", String.valueOf(data.getRecommed()));
-
                 medal.setImageResource(R.drawable.button_silver);
             }else if(data.getRecommed()==3){
-                Log.e("image", String.valueOf(data.getRecommed()));
-
                 medal.setImageResource(R.drawable.button_cop);
             }else{
                 Log.e("image", String.valueOf(data.getRecommed()));
-
             }
 
 

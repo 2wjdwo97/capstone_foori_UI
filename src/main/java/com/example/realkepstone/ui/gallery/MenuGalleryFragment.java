@@ -148,14 +148,6 @@ public class MenuGalleryFragment extends Fragment {
 
                         response.body(); // have your all data
                         Log.e("list" , response.body().getFoodKorName()+"Kor");
-                        Log.e("list" , response.body().getFoodEngName()+"Eng");
-                        Log.e("list" , response.body().getFoodAllergy()+"allergy");
-                        Log.e("list" , response.body().getFoodDescription()+"dest");
-                        Log.e("list" , response.body().getFoodImgUrl()+"url");
-                        Log.e("list" , response.body().getFoodIngredients()+"ingre");
-                        Log.e("list" , response.body().getStar()+"star");
-
-                        Log.e("list" , response.body().getRecommendFood()+"recommend");
                         Log.e("list" , response.body().getCookies()+"cookies");
 
 

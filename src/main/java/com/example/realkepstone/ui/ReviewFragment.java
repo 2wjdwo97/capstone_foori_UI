@@ -119,28 +119,23 @@ public class    ReviewFragment extends Fragment {
                         hidden.setBackgroundResource(R.drawable.no_data);
 
                     }else{
-                        Log.e("loginusedfdsfsdfrno", "sex!E@!RAFA");
+                        Log.e("review_frag", "size>0");
                         hidden.clearAnimation();
 
                         hidden.setVisibility(View.GONE);
                     }
 
-                    for(int i = 0; i<response.body().size(); i++){
-
-
-
+                    for(int i = 0; i<response.body().size(); i++) {
                         Kor.add(response.body().get(i).getFoodName());
                         Eng.add(response.body().get(i).getTranslatedName());
                         Url.add(response.body().get(i).getFoodImgUrl());
-
                     }
                     getData(Kor);
 
                 }
                 else{
-                    Log.e("loginusedfdsfsdfrno", String.valueOf(user_no));
-
-                    Log.e("reviewwewerwerwe",String.valueOf(response.code()));
+                    Log.e("review_frag_not200", String.valueOf(user_no));
+                    Log.e("review_frag_not200",String.valueOf(response.code()));
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.error), Toast.LENGTH_LONG).show();
                 }
             }

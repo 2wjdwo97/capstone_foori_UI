@@ -2,26 +2,29 @@ package com.example.realkepstone;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.realkepstone.adapter.ResultRecyclerAdapter;
 import com.example.realkepstone.data.Food;
 import com.example.realkepstone.data.FoodAfter;
-import com.example.realkepstone.ui.BagFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuRecogActivity extends AppCompatActivity {
+
+//    ArrayList<Food> data = new ArrayList<>();
+//    ArrayList<Food> OrderBack = new ArrayList<>();
+    ArrayList<Food> OrderList;
 
     private ImageView bag;
     private TextView id;
@@ -51,32 +54,8 @@ public class MenuRecogActivity extends AppCompatActivity {
         bag = (ImageView) findViewById(R.id.bag);
         id = (TextView) findViewById(R.id.id);
 
-        ArrayList<Food> data = new ArrayList<>();
-        ArrayList<Food> OrderList = new ArrayList<>();
-        ArrayList<Food> OrderBack = new ArrayList<>();
-
+        OrderList = new ArrayList<>();
         getData(res_result);
-
-        bag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int passSize;
-                Log.e("result", String.valueOf(OrderList.size()));
-                passSize = passData(OrderList);
-
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                BagFragment mfragment = new BagFragment();
-
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("bag", OrderList);
-                bundle.putInt("bagsize", passSize);
-                bundle.putSerializable("data", adapter.listData);
-
-                mfragment.setArguments(bundle); //data being send to SecondFragment
-                transaction.replace(R.id.recycler_menu_recog, mfragment, "not");
-                transaction.commit();
-            }
-        });
     }
 
     // Fires when a configuration change occurs and fragment needs to save state
@@ -175,5 +154,41 @@ public class MenuRecogActivity extends AppCompatActivity {
         }
 
         return passSize;
+    }
+
+    // Toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.btn_cart, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            // 뒤로가기 버튼
+            case android.R.id.home:{
+                finish();
+                overridePendingTransition(R.anim.exit_to_right, R.anim.exit_to_right);
+                return true;
+            }
+            // 장바구니 버튼
+            case R.id.btn_bag:{
+                int passSize;
+                Log.e("result", String.valueOf(OrderList.size()));
+                passSize = passData(OrderList);
+
+                Intent intent = new Intent(this, CartActivity.class);
+
+                intent.putExtra("bag", OrderList);
+                intent.putExtra("bagsize", passSize);
+                intent.putExtra("data", adapter.listData);
+                startActivity(intent);
+                overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
+
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
