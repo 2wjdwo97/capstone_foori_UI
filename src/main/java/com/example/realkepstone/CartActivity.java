@@ -2,6 +2,7 @@ package com.example.realkepstone;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import com.example.realkepstone.adapter.BagAdapter;
@@ -47,7 +49,7 @@ public class CartActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_cart);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-        order = (ImageButton) findViewById(R.id.btn_cart_order);
+        order = (ImageButton) findViewById(R.id.txt_order);
 
         Intent intent = getIntent();
         OrderList = null;
@@ -66,16 +68,19 @@ public class CartActivity extends AppCompatActivity {
                 }, 5000); // 0.5초후
 
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                OrderFragment mfragment = new OrderFragment();
-
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("bag", OrderList);
-                mfragment.setArguments(bundle); //data being send to SecondFragment
-                transaction.replace(R.id.frame_cart, mfragment);
-                transaction.commit();
+                changeFragment(new OrderFragment());
             }
         });
+    }
+
+    private void changeFragment(Fragment fr){
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("bag", OrderList);
+
+        FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+        fr.setArguments(bundle); //data being send to SecondFragment
+        transaction1.replace(R.id.frame_cart, fr);
+        transaction1.commit();
     }
 
     private void getData(ArrayList<Food> OrderList) {

@@ -1,16 +1,21 @@
 package com.example.realkepstone.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.data.Food;
@@ -31,6 +36,7 @@ public class OrderFragment extends Fragment {
 
     ArrayList<Food> OrderList;
     ArrayList<String> FoodName;
+    ImageButton btn_goToHome;
     ApiInterface api;
     int user_no;
     private SharedViewModel model;
@@ -38,6 +44,8 @@ public class OrderFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_order, container, false);
+
+
         api = HttpClient.getRetrofit().create( ApiInterface.class );
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         user_no=model.getUser_no();
@@ -55,6 +63,15 @@ public class OrderFragment extends Fragment {
         Log.d("fdg", String.valueOf(user_no));
         Log.d("fdg", FoodName.get(0));
 
+        btn_goToHome = (ImageButton) root.findViewById(R.id.btn_goToHome);
+        btn_goToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
 
         requestPost(user_no, FoodName);
 

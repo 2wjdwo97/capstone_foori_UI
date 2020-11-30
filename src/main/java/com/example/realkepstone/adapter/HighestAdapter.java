@@ -77,7 +77,6 @@ public class HighestAdapter extends RecyclerView.Adapter<HighestAdapter.ItemView
             KorName.setText(data.getFoodName());
             content.setText(data.getFoodDsc());
             star.setText(String.valueOf(data.getFoodStar()));
-            tag.setText(String.valueOf(data.getTag()));
 
             alllergy.setText(String.valueOf(data.getAllergy()));
 
