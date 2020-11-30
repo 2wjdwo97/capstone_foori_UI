@@ -48,6 +48,7 @@ public class MenuGalleryFragment extends Fragment {
     public static final int PICK_IMAGE = 100;
     private final int GET_GALLERY_IMAGE = 200;
 
+    private int user_no;
     private MainActivity activity;
     private SharedViewModel model;
     private ImageView imageview;
@@ -60,6 +61,7 @@ public class MenuGalleryFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_menugallery, container, false);
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         token = model.getToken();
+        user_no = model.getUser_no();
         Log.d("MenuGallergyFrag_token", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -128,6 +130,7 @@ public class MenuGalleryFragment extends Fragment {
                     if (response.code() == 201) {
                         imageview.clearAnimation();
                         change(response.body());
+                        imageview.setImageResource(R.drawable.gallery);
 
 //                        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
 //                        ResultFragment mfragment = new ResultFragment();
@@ -164,6 +167,7 @@ public class MenuGalleryFragment extends Fragment {
     public void change(FoodAfter res_body) {
         Intent intent = new Intent(activity, MenuRecogActivity.class);
         intent.putExtra("json", res_body);
+        intent.putExtra("user_no", user_no);
         startActivity(intent);
         activity.overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
     }
@@ -177,6 +181,8 @@ public class MenuGalleryFragment extends Fragment {
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
                 makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패
+                imageview.clearAnimation();
+                imageview.setImageResource(R.drawable.camera);
             }
         };
         TedPermission.with(getContext())

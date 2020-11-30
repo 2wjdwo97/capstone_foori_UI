@@ -99,7 +99,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         private LinearLayout linearItem2;
         private TextView content;
         private ImageView medal;
-        private RelativeLayout linearItem;
+        private RelativeLayout relative;
 
         CardView less;
         CardView more;
@@ -114,7 +114,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             imageView1 = itemView.findViewById(R.id.imageView1);
             star = itemView.findViewById(R.id.starpoint);
             linear=itemView.findViewById(R.id.Linear);
-            linearItem2=itemView.findViewById(R.id.linearItem2);
+            relative=itemView.findViewById(R.id.relative);
             content = itemView.findViewById(R.id.content);
             allergy = itemView.findViewById(R.id.Allergy);
             medal = itemView.findViewById(R.id.medal);
@@ -221,16 +221,16 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         }
         /**
          * 클릭된 Item의 상태 변경
-         * @param isExpanded Item을 펼칠 것인지 여부
+         * @paramisExpandedItem을 펼칠 것인지 여부
          */
         private void changeColor(){
             if (data.isSelect()==true){
-                linear.setBackgroundColor(Color.parseColor("#dac896"));
-                linearItem2.setBackgroundColor(Color.parseColor("#dac896"));
+                linear.setBackgroundColor(Color.parseColor("#FFE08C"));
+                relative.setBackgroundColor(Color.parseColor("#FFE08C"));
             }
             else {
-                linear.setBackgroundColor(Color.WHITE);
-                linearItem2.setBackgroundColor(Color.WHITE);
+                linear.setBackgroundColor(Color.parseColor("#F2F2F2"));
+                relative.setBackgroundColor(Color.WHITE);
             }
         }
 

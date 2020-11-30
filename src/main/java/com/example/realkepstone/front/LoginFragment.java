@@ -152,6 +152,8 @@ public class LoginFragment extends Fragment {
                     intent.putExtra("user_no",user_no);
                     intent.putExtra("token", token);
                     startActivity(intent);
+
+                    resetTextField();
                 }
                 else if(response.code()==201){
 
@@ -164,22 +166,21 @@ public class LoginFragment extends Fragment {
                     FrontActivity activity = (FrontActivity) getActivity();
                     activity.joinfragmentChange(bundle);
 
-                    EditText mIdView = (EditText) root.findViewById(R.id.id);
-                    mIdView.setText("");
-                    EditText mPasswordView = (EditText) root.findViewById(R.id.pw);
-                    mPasswordView.setText("");
+                    resetTextField();
 
                 }
                 else if(response.code()==401){
                     Toast.makeText(getContext().getApplicationContext(),getResources().getString(R.string.noid), Toast.LENGTH_LONG).show();
+                    resetTextField();
                 }
                 else if(response.code()==403){
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrectpw), Toast.LENGTH_LONG).show();
-
+                    resetTextField();
                 }
                 else{
                     Log.e("ddddddddddedd", String.valueOf(response.code()));
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.wrong), Toast.LENGTH_LONG).show();
+                    resetTextField();
                 }
             }
 
@@ -192,6 +193,10 @@ public class LoginFragment extends Fragment {
         } );
     }
 
-
-
+    private void resetTextField(){
+        EditText mIdView = (EditText) root.findViewById(R.id.id);
+        mIdView.setText("");
+        EditText mPasswordView = (EditText) root.findViewById(R.id.pw);
+        mPasswordView.setText("");
+    }
 }

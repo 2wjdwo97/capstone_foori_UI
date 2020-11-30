@@ -26,6 +26,7 @@ public class MenuRecogActivity extends AppCompatActivity {
 //    ArrayList<Food> OrderBack = new ArrayList<>();
     ArrayList<Food> OrderList;
 
+    private int user_no;
     private ImageView bag;
     private TextView id;
     private RecyclerView recyclerView;
@@ -37,15 +38,12 @@ public class MenuRecogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recog);
 
         Intent intent = getIntent();
-
+        user_no = intent.getIntExtra("user_no", 0);
         OrderList = new ArrayList<>();
 
         FoodAfter foodAfter = null;
         ArrayList<Food> data = new ArrayList<>();
         ArrayList<Food> OrderBack = new ArrayList<>();
-
-
-
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.tb_menu_recog);
         setSupportActionBar(toolbar);
@@ -209,7 +207,7 @@ public class MenuRecogActivity extends AppCompatActivity {
 
                 finish();
                 Intent intent = new Intent(this, CartActivity.class);
-
+                intent.putExtra("user_no", user_no);
                 intent.putExtra("bag", OrderList);
                 intent.putExtra("data", adapter.listData);
                 startActivity(intent);

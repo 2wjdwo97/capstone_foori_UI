@@ -38,30 +38,29 @@ public class OrderFragment extends Fragment {
     ArrayList<String> FoodName;
     ImageButton btn_goToHome;
     ApiInterface api;
-    int user_no;
+    private int user_no;
     private SharedViewModel model;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_order, container, false);
 
-
         api = HttpClient.getRetrofit().create( ApiInterface.class );
-        model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-        user_no=model.getUser_no();
-        Log.d("fdg", String.valueOf(user_no));
-
         FoodName=new ArrayList<String>();
 
         Bundle bundle=getArguments();
-        OrderList = (ArrayList<Food>) getArguments().getSerializable("bag");
+        OrderList = (ArrayList<Food>) bundle.getSerializable("bag");
+        user_no = bundle.getInt("user_no");
+                Log.d("fdg", String.valueOf(user_no));
 
         for(int i=0; i<OrderList.size(); i++){
             FoodName.add(OrderList.get(i).getKor());
         }
-        Log.d("fdg", String.valueOf(FoodName.size()));
-        Log.d("fdg", String.valueOf(user_no));
-        Log.d("fdg", FoodName.get(0));
+        Log.e("fdg", String.valueOf(FoodName.size()));
+        Log.e("fdg", String.valueOf(user_no));
+        Log.e("fdg", FoodName.get(0));
+
+        requestPost(user_no, FoodName);
 
         btn_goToHome = (ImageButton) root.findViewById(R.id.btn_goToHome);
         btn_goToHome.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +72,6 @@ public class OrderFragment extends Fragment {
             }
         });
 
-        requestPost(user_no, FoodName);
 
         return root;
 
@@ -90,7 +88,7 @@ public class OrderFragment extends Fragment {
                 if (response.code() == 200) {
                 } else {
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.success), Toast.LENGTH_LONG).show();
-                    Log.e("order", String.valueOf(response.code()));
+                    Log.e("먹은 음식 테이블에 저장됨", String.valueOf(orderData.getFoodName()));
                 }
             }
 
