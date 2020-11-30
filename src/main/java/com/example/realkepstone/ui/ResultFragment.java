@@ -70,7 +70,6 @@ public class ResultFragment extends Fragment {
         ArrayList<Food> OrderList = new ArrayList<>();
         ArrayList<Food> OrderBack = new ArrayList<>();
 
-
         Log.d("TedPark", "json 받아오기");
         Bundle bundle=getArguments();
         if (bundle!=null) {
@@ -127,6 +126,7 @@ public class ResultFragment extends Fragment {
         });
         return rootView;
     }
+
     private void getData(FoodAfter foodAfter) {
 
         int number=foodAfter.getFoodKorName().size();

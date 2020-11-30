@@ -21,9 +21,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.realkepstone.FoodListActivity;
 import com.example.realkepstone.MainActivity;
+import com.example.realkepstone.MenuRecogActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
+import com.example.realkepstone.data.Food;
 import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
@@ -51,29 +54,16 @@ import retrofit2.Response;
 import static android.widget.Toast.makeText;
 
 public class MenuGalleryFragment extends Fragment {
-    private final int GET_GALLERY_IMAGE = 200;
-    private ImageView imageview;
     public static final int PICK_IMAGE = 100;
-    private TextView text;
-    private ImageView menu;
-    private ImageView ganpan;
-    Response<FoodAfter> response;
-    Context context;
-    ApiInterface apiInterface;
-    private Boolean isPermission = true;
-    String token;
+    private final int GET_GALLERY_IMAGE = 200;
+
+    private MainActivity activity;
     private SharedViewModel model;
-    /* @Override
-     public void onCreate(@Nullable Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         getParentFragmentManager().setFragmentResultListener("requestKey", this, new androidx.fragment.app.FragmentResultListener() {
-             @Override
-             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                 String result = bundle.getString("bundleKey");
-                 assert result != null;
-             }
-         });
-     }*/
+    private ImageView imageview;
+    private ApiInterface apiInterface;
+    private Boolean isPermission = true;
+    private String token;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menugallery, container, false);
@@ -81,7 +71,7 @@ public class MenuGalleryFragment extends Fragment {
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         token=model.getToken();
-        Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(token));
+        Log.d("MenuGallergyFrag_token", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -90,10 +80,6 @@ public class MenuGalleryFragment extends Fragment {
                 .writeTimeout(1000000, TimeUnit.SECONDS).build();
 
         tedPermission();
-
-
-
-
 
         apiInterface = HttpClient.getRetrofit().create( ApiInterface.class );
         imageview = (ImageView) root.findViewById(R.id.imageView);
@@ -132,7 +118,7 @@ public class MenuGalleryFragment extends Fragment {
 
 
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
-            MainActivity activity = (MainActivity) getActivity();
+            activity = (MainActivity) getActivity();
             String filePath=activity.getRealPathFromURI(selectedImage);
             File file = new File(filePath);
             Log.d("TedPark", filePath);
@@ -144,7 +130,7 @@ public class MenuGalleryFragment extends Fragment {
 
 //            Log.d("THIS", data.getData().getPath());
             retrofit2.Call<FoodAfter> req = apiInterface.postImage(token, body, name);
-            Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(token));
+            Log.d("MenuGallergyFrag_token", String.valueOf(token));
             req.enqueue(new Callback<FoodAfter>() {
                 @Override
                 public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
@@ -162,48 +148,41 @@ public class MenuGalleryFragment extends Fragment {
                         Log.e("list" , response.body().getCookies()+"cookies");
 
 
-
-
-
                         //Put the value
+                        change(response.body());
 
-
-
-
-
-                        FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-                        ResultFragment mfragment=new ResultFragment();
-
-                        Bundle bundle=new Bundle();
-                        bundle.putSerializable("json", response.body());
-
-                        bundle.putSerializable("json", response.body());
-
-                        mfragment.setArguments(bundle); //data being send to SecondFragment
-                        transaction.replace(R.id.Main_Frame, mfragment,"not");
-                        transaction.commit();
+//                        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+//                        ResultFragment mfragment = new ResultFragment();
+//
+//                        Bundle bundle=new Bundle();
+//                        bundle.putSerializable("json", response.body());
+//
+//                        bundle.putSerializable("json", response.body());
+//
+//                        mfragment.setArguments(bundle); //data being send to SecondFragment
+//                        transaction.replace(R.id.Main_Frame, mfragment,"not");
+//                        transaction.commit();
                         Log.d("TedPark", String.valueOf(response.code()));
-
-
-                        //  MainActivity activity = (MainActivity) getActivity();
-                        // activity.setFrag(4);
                     }
-
                     Log.d("TedPark", String.valueOf(response.code()));
-
                 }
                 @Override
                 public void onFailure(Call<FoodAfter> call, Throwable t) {
                     t.printStackTrace();
                     Log.d("TedPark", "ㄹ");
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
-
                 }
             });
-
         }
-
     }
+
+    public void change(FoodAfter res_body) {
+        Intent intent = new Intent(activity, MenuRecogActivity.class);
+        intent.putExtra("json", res_body);
+        startActivity(intent);
+        activity.overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
+    }
+
     private void tedPermission() {
         PermissionListener permissionListener = new PermissionListener() {
             @Override
@@ -218,6 +197,6 @@ public class MenuGalleryFragment extends Fragment {
                 .setPermissionListener(permissionListener)
                 .setDeniedMessage(getResources().getString(R.string.menu_gallery))
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-                .check(); }
-
+                .check();
+    }
 }

@@ -58,11 +58,11 @@ import static android.widget.Toast.makeText;
 
 public class MenuSlideFragment extends Fragment {
     private static final int PICK_FROM_CAMERA = 2;
-    ImageView imageView; // 이미지 미리보기\
+    private ImageView imageView; // 이미지 미리보기\
     private Boolean isPermission = true;
     private File tempFile; // 보낼 사진 File의 껍데기, 앨범 또는 카메라에서 가져온 이미지를 저장할 변수.
-    ApiInterface apiInterface;
-    String token;
+    private ApiInterface apiInterface;
+    private String token;
     private SharedViewModel model;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class MenuSlideFragment extends Fragment {
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         token=model.getToken();
-        Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(token));
+        Log.d("MenuSlideFrag_token", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

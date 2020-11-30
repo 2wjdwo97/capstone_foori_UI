@@ -1,34 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    android:id="@+id/activity_food_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".FoodListActivity"
-    tools:openDrawer="start">
+    android:weightSum="11">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_rightview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="hello world"
-        android:textSize="30sp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/tb_foodlist"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="?attr/colorPrimary"-->
-<!--        android:minHeight="?attr/actionBarSize"-->
-<!--        android:theme="?attr/actionBarTheme"-->
-<!--        android:elevation="5dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:titleTextColor="@color/colorPrimaryDark">-->
-<!--    </androidx.appcompat.widget.Toolbar>-->
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <LinearLayout
+        android:id="@+id/li"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/grayline"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grayline"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/highest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textColor="@drawable/selector_textcolor"
+                    android:layout_weight="1"
+                    android:text="Highest\nRated"
+                    android:background="@drawable/selector_button">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                </Button>
+
+                <Button
+                    android:text="Most\nReviewed"
+                    android:textColor="@drawable/selector_textcolor"
+
+                    android:id="@+id/most"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button">
+
+                </Button>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/subFrame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/li" />
+
+</LinearLayout>

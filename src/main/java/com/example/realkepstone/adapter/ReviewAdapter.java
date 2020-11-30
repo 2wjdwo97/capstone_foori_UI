@@ -118,7 +118,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ItemViewHo
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(food);
-            Log.e("urlsex",data.getUrl());
+            Log.e("ReviewAdaptor_url",data.getUrl());
         }
     }
 }

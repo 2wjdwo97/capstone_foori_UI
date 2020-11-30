@@ -72,14 +72,14 @@ public class ChangePWFragment extends Fragment {
             public void onResponse(Call<PasswordChangeData> call, Response<PasswordChangeData> response) {
                 if(response.code()==200){
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.successchange), Toast.LENGTH_LONG).show();
-                    Log.e("sex", String.valueOf(response.code()));
+                    Log.e("ChangePW", String.valueOf(response.code()));
                 }else if(response.code()==401){
-                    Log.e("sex", String.valueOf(response.code()));
+                    Log.e("ChangePW", String.valueOf(response.code()));
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
 
                 }
                 else if(response.code()==402){
-                    Log.e("sex", String.valueOf(response.code()));
+                    Log.e("ChangePW", String.valueOf(response.code()));
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.confirmfail), Toast.LENGTH_LONG).show();
                 }
                 else{

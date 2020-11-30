@@ -146,7 +146,7 @@ public class ChangeTagFragment extends Fragment {
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         user_no=model.getUser_no();
-        Log.d("sexxxxxxxxxxxxxxxxx", String.valueOf(user_no));
+        Log.d("ChangeTagFrag_userNo", String.valueOf(user_no));
 
         foodClass = new ArrayList<Integer>();
         Tag = new ArrayList<Integer>();

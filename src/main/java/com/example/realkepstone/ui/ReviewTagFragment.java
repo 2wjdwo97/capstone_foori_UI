@@ -1,6 +1,5 @@
 package com.example.realkepstone.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,22 +17,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.realkepstone.FrontActivity;
-import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
-import com.example.realkepstone.data.Food;
-import com.example.realkepstone.data.OrderData;
 import com.example.realkepstone.data.ReviewSaveData;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
-import com.example.realkepstone.server.JoinData;
-import com.example.realkepstone.server.ReqLoginData;
-import com.example.realkepstone.server.ResLoginData;
-import com.example.realkepstone.ui.home.RightFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

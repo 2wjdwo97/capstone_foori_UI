@@ -160,7 +160,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(imageView1);
-            Log.e("urlsex",data.getUrl());
+            Log.e("url",data.getUrl());
 
             changeVisibility(selectedItems.get(position));
 

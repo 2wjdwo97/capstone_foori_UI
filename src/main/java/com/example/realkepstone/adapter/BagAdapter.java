@@ -110,8 +110,7 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(img_food);
-
-            Log.e("urlsex",data.getUrl());*/
+*/
             //changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
