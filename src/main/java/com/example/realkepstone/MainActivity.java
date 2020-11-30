@@ -87,12 +87,9 @@ public class MainActivity extends AppCompatActivity {
             frag5 = (ResultFragment) getSupportFragmentManager().getFragment(savedInstanceState, "Result");
         }
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar2);
+        toolbar = (Toolbar)findViewById(R.id.tb_main);
         bottomNavigationView = findViewById(R.id.bottomNavi);
         setSupportActionBar(toolbar);
-
-        img_toolbar = findViewById(R.id.img_toolbar);
-        img_toolbar.setImageResource(R.drawable.title);
 
         frag1=new HomeFragment();
         frag2=new SlideshowFragment();

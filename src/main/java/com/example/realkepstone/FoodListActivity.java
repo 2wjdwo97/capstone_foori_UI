@@ -38,6 +38,8 @@ public class FoodListActivity extends AppCompatActivity {
         user_no = bundle.getInt("user_no");
         button_no = bundle.getInt("button_no");
 
+        Toolbar toolbar = (Toolbar)findViewById(R.id.tb_rightview);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tb_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

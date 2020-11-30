@@ -103,10 +103,7 @@ public class HomeFragment extends Fragment {
         });
         h4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                change("Stir-Fried", 4);
-
-            }
+            public void onClick(View view) { change("Stir-Fried", 4); }
         });
         h5.setOnClickListener(new View.OnClickListener() {
             @Override

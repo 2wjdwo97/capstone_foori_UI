@@ -13,15 +13,17 @@
     android:background="#FFFFFF">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/tb_main"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="#FFFFFF"
+        android:elevation="5dp"
         android:minHeight="?attr/actionBarSize"
-        app:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="@color/colorPrimaryDark"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="5dp">
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/img_toolbar"
             android:layout_width="match_parent"
@@ -39,7 +41,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintTop_toBottomOf="@+id/tb_main"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -27,7 +27,8 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".FoodListActivity">
+            android:name=".FoodListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".MainActivity"
