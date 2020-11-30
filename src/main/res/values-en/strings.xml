@@ -10,16 +10,17 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="message_progress">0</string>
+
     <string name="passchange">Password Change</string>
     <string name="findidtitle">Find ID</string>
     <string name="pw">Find PW</string>
-    <string name="findid">We will send your ID through your email!!!</string>
-    <string name="findpw">We will send your new PW through your email!!!</string>
+    <string name="findid">We will send your ID through your email.</string>
+    <string name="findpw">We will send new PW through your email.</string>
 
     <string name="pwConfirm">PW confirm</string>
     <string name="name">Name</string>
     <string name="birth">birth</string>
-    <string name="spicy">Spicy(1~5)</string>
+    <string name="spicyRate">Spicy(1~5)</string>
     <string name="pick">Pick Date</string>
     <string name="allegry">Allergies</string>
     <string name="sign">Sign board</string>
@@ -29,7 +30,7 @@
     <string name="ChangePw">Change Password</string>
     <string name="DeleteAccount">Delete Account</string>
     <string name="Kor">Korean Name</string>
-    <string name="OrderFinished">Order Finished!!</string>
+    <string name="OrderFinished">Order Finished!</string>
     <string name="Enjoy">Enjoy your meal!!</string>
 
     <string name="date">Date</string>
@@ -97,7 +98,6 @@
     <string name="b29">Pickles</string>
     <string name="b30">Etc.</string>
 
-    <string name="tagplz">Review maekes your tag more correct!!</string>
     <string name="amount">Amount</string>
     <string name="change">Change Language</string>
 
@@ -107,6 +107,7 @@
     <string name="mypage">Mypage</string>
     <string name="review">Review</string>
     <string name="explain">Your Explaination</string>
+
     <string name="allergy1">Egg</string>
     <string name="allergy2">Milk</string>
     <string name="allergy3">BuckWheat</string>
@@ -125,7 +126,8 @@
     <string name="allergy16">Squid</string>
     <string name="allergy17">Selfish</string>
     <string name="allergy18">Nuts</string>
-    <string name="idsend">Your ID has been sent to that email address. You will be taken to the login screen.</string>
+
+    <string name="idsend">An ID has been sent to that email address. You will be taken to the login screen.</string>
     <string name="noid">This ID does not exist.</string>
     <string name="network">Please check the network connection.</string>
     <string name="notexist">The username or email does not match.</string>
@@ -133,16 +135,95 @@
     <string name="success">Submitted successfully.</string>
     <string name="joinsucess">Membership registration success. You can log in after authentication with the registered email.</string>
     <string name="duplicate">Duplicate ID or email.</string>
-    <string name="notexistid">ID does not exist.</string>
+    <string name="notexistid">&quot;This ID does not exist.</string>
     <string name="incorrectpw">Your account is inactive or your password is incorrect.</string>
     <string name="wrong">Invalid ID or password.</string>
     <string name="incorrect">This is incorrect information.</string>
     <string name="pwsend">A temporary password has been sent to that email.</string>
+
     <string name="successchange">It has been changed normally.</string>
     <string name="modifysuccess">Modification success!!</string>
     <string name="quit">Your account has been deleted. Return to main..</string>
     <string name="error">An error has occurred. Please try again in a few minutes</string>
     <string name="cancel">Canceled.</string>
     <string name="autho">Check camera and gallery access rights</string>
+
+    <string name="eatAlone">eat alone</string>
+    <string name="bitter">bitter</string>
+    <string name="watery">watery</string>
+    <string name="buttery">buttery</string>
+    <string name="tasteless">tasteless</string>
+    <string name="chewy">chewy</string>
+    <string name="plain">plain</string>
+    <string name="crispy">crispy</string>
+    <string name="dry">dry</string>
+    <string name="alcohol">with alcohol</string>
+    <string name="fermented">fermented</string>
+    <string name="savory">savory</string>
+    <string name="fresh">fresh</string>
+    <string name="Fresh">Fresh</string>
+    <string name="fruity">fruity</string>
+    <string name="garlic">garlic flavor</string>
+    <string name="hangover">hangover</string>
+    <string name="healthy">healthy</string>
+    <string name="meaty">meaty</string>
+    <string name="midnight">midnight snack</string>
+    <string name="meek">meek</string>
+    <string name="moist">moist</string>
+    <string name="fat">fat</string>
+    <string name="cool">cool</string>
+    <string name="salty">salty</string>
+    <string name="snack">snack</string>
+    <string name="sour">sour</string>
+    <string name="spicy">spicy</string>
+    <string name="sticky">sticky</string>
+    <string name="full">full</string>
+    <string name="sweety">sweety</string>
+
+    <string name="rice">rice</string>
+    <string name="sushi">sushi</string>
+    <string name="porridge">porridge</string>
+    <string name="noodles">noodles</string>
+    <string name="riceCake">rice cake</string>
+    <string name="bread">bread</string>
+    <string name="burger">burger</string>
+    <string name="pizza">pizza</string>
+    <string name="chicken">chicken</string>
+    <string name="sandwich">sandwich</string>
+    <string name="beverage">beverage</string>
+    <string name="soup">soup</string>
+    <string name="coldSoup">cold soup</string>
+    <string name="stew">stew</string>
+    <string name="steamed">steamed</string>
+    <string name="grilled">grilled</string>
+    <string name="stir">stir-fried</string>
+    <string name="boiled">boiled</string>
+    <string name="fried">fried</string>
+    <string name="Kimchi">Kimchi</string>
+    <string name="salad">salad</string>
+    <string name="cookedHerb">cooked herbs</string>
+    <string name="seasonedHerb">seasoned herbs</string>
+    <string name="raisins">raisins</string>
+    <string name="Kpancake">Korean pancake</string>
+    <string name="Kfish">Korean salted fish</string>
+    <string name="sashimi">sashimi</string>
+    <string name="pickles">pickles</string>
+    <string name="etc">Etc.</string>
+
+    <string name="tagplz">Review makes better recommendations.</string>
+    <string name="confirm">Confirm</string>
+    <string name="submit">Submit</string>
+    <string name="findpwtitle">Find PW</string>
+    <string name="today">Today's special</string>
+    <string name="country">Country</string>
+    <string name="checkPreference">Check Your Preference.</string>
+    <string name="checkAllergy">Check Allergy</string>
+    <string name="canReview">You can now write a review of the food you ordered.</string>
+    <string name="delete">Delete</string>
+    <string name="addToCart">Add To Cart</string>
+    <string name="lost">Lost</string>
+    <string name="skip">Skip</string>
+    <string name="signUp">Sign Up</string>
+    <string name="signIn">Sign In</string>
 
 </resources>

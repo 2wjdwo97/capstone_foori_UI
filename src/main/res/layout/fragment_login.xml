@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/jua"
-            android:text="Sign in"
+            android:text="@string/signIn"
             android:textColor="#F7D182"
             android:textSize="25sp" />
 
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/jua"
-            android:text="Sign up"
+            android:text="@string/signUp"
             android:textColor="#F7D182"
             android:textSize="25sp" />
     </RelativeLayout>
@@ -100,7 +100,7 @@
         android:id="@+id/findId3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lost"
+        android:text="@string/lost"
         android:fontFamily="@font/jua"
         android:textColor="#000000"
         android:textSize="24dp"

@@ -10,14 +10,15 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:background="#F0F0F0"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="#F0F0F0">
 
         <LinearLayout
-            android:descendantFocusability="blocksDescendants"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -52,7 +53,7 @@
                         android:layout_below="@id/button__rice"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="rice"
+                        android:text="@string/rice"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -80,7 +81,7 @@
                         android:layout_below="@id/button_soup"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="soup"
+                        android:text="@string/soup"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -109,7 +110,7 @@
                         android:layout_below="@id/button_stir_fried"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="stir-fried"
+                        android:text="@string/stir"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -137,7 +138,7 @@
                         android:layout_below="@id/button_noodle"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="noodle"
+                        android:text="@string/noodles"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -168,7 +169,7 @@
                         android:layout_below="@id/button_fried"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="fried"
+                        android:text="@string/fried"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -196,7 +197,7 @@
                         android:layout_below="@id/button_grilled"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="grilled"
+                        android:text="@string/grilled"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -224,7 +225,7 @@
                         android:layout_below="@id/button_bread"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="bread"
+                        android:text="@string/bread"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -254,7 +255,7 @@
                         android:layout_centerInParent="true"
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/jua"
-                        android:text="boiled in\nseasoning"
+                        android:text="@string/boiled"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
@@ -286,7 +287,7 @@
                         android:layout_below="@id/button_steamed"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="steamed"
+                        android:text="@string/steamed"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -315,7 +316,7 @@
                         android:layout_below="@id/button_baverage"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/jua"
-                        android:text="beverage"
+                        android:text="@string/beverage"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
                 </RelativeLayout>
@@ -336,7 +337,7 @@
                 <RelativeLayout
                     android:id="@+id/relativeLayout_dummy2"
                     android:layout_width="58dp"
-                    android:layout_height="58dp"
+                    android:layout_height="75dp"
                     android:layout_marginEnd="30dp"
                     android:layout_marginBottom="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -348,39 +349,42 @@
                 </RelativeLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/boarder_main"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/txt_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/jua"
-                    android:text="Today's Special"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="16dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/today"
+                    android:textColor="@android:color/black"
                     android:textSize="28sp" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp" />
+
                     <ImageView
                         android:id="@+id/hidden"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_centerInParent="true"
                         android:background="@drawable/loading_1"
-                        android:visibility="gone"
-                        android:layout_centerInParent="true">
-                    </ImageView>
+                        android:visibility="gone"></ImageView>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

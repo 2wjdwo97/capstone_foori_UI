@@ -1,26 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">foori</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">ナビゲーションドロワーを開く</string>
+    <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="nav_header_desc">ナビゲーションヘッダー</string>
+    <string name="action_settings">設定</string>
+    <string name="menu_home">ホーム</string>
+    <string name="menu_gallery">ギャラリー</string>
+    <string name="menu_slideshow">スライドショー</string>
     <string name="message_progress">0</string>
+
     <string name="passchange">パスワードの変更</string>
     <string name="findidtitle">IDを探す</string>
     <string name="pw">PWを探す</string>
-    <string name="findid">私たちはあなたの電子メールを通してあなたのIDを送ります!!!</string>
-    <string name="findpw">私たちはあなたの新しいPWをあなたの電子メールを通して送ります!!!</string>
+    <string name="findid">私たちはあなたの電子メールを通してあなたのIDを送ります。</string>
+    <string name="findpw">私たちはあなたの電子メールを通して新しいPWを送ります。</string>
 
     <string name="pwConfirm">PW確認</string>
     <string name="name">名前</string>
     <string name="birth">誕生</string>
-    <string name="spicy">辛い（1〜5）</string>
+    <string name="spicyRate">辛い（1〜5）</string>
     <string name="pick">ピック日</string>
     <string name="allegry">アレルギー</string>
     <string name="sign">看板</string>
@@ -30,7 +30,7 @@
     <string name="ChangePw">パスワードを変更する</string>
     <string name="DeleteAccount">アカウントを削除する</string>
     <string name="Kor">韓国名</string>
-    <string name="OrderFinished">注文終了!!</string>
+    <string name="OrderFinished">注文が完了しました！</string>
     <string name="Enjoy">どうぞお召し上がりください！！</string>
 
     <string name="date">日付</string>
@@ -47,26 +47,25 @@
     <string name="a11">発酵</string>
     <string name="a12">セイボリー</string>
     <string name="a13">新鮮な</string>
-    <string name="a14">アルコールで</string>
-    <string name="a15">新鮮な</string>
-    <string name="a16">フルーティー</string>
-    <string name="a17">にんにくフラボ</string>
-    <string name="a18">二日酔い</string>
-    <string name="a19">元気</string>
-    <string name="a20">肉</string>
-    <string name="a21">夜食</string>
-    <string name="a22">おとなしい</string>
-    <string name="a23">しっとり</string>
-    <string name="a24">太い</string>
-    <string name="a25">涼しい</string>
-    <string name="a26">塩辛い</string>
-    <string name="a27">涼しい</string>
-    <string name="a28">スナック</string>
-    <string name="a29">サワー</string>
-    <string name="a30">スパイシー</string>
-    <string name="a31">粘着性</string>
-    <string name="a32">フル</string>
-
+    <string name="a14">新鮮な</string>
+    <string name="a15">フルーティー</string>
+    <string name="a16">にんにくフラボ</string>
+    <string name="a17">二日酔い</string>
+    <string name="a18">元気</string>
+    <string name="a19">肉</string>
+    <string name="a20">夜食</string>
+    <string name="a21">おとなしい</string>
+    <string name="a22">しっとり</string>
+    <string name="a23">太い</string>
+    <string name="a24">涼しい</string>
+    <string name="a25">塩辛い</string>
+    <string name="a26">スナック</string>
+    <string name="a27">サワー</string>
+    <string name="a28">スパイシー</string>
+    <string name="a29">粘着性</string>
+    <string name="a30">フル</string>
+    <string name="a31">甘い</string>
+    <string name="a32">水っぽい</string>
 
     <string name="b1">ご飯</string>
     <string name="b2">キンバップ/寿司</string>
@@ -99,7 +98,6 @@
     <string name="b29">漬物</string>
     <string name="b30">等。</string>
 
-    <string name="tagplz">タグをより正確に確認してください!!</string>
     <string name="amount">量</string>
     <string name="change">言語を変えてください</string>
 
@@ -109,6 +107,7 @@
     <string name="mypage">マイページ</string>
     <string name="review">レビュー</string>
     <string name="explain">あなたの説明</string>
+
     <string name="allergy1">卵</string>
     <string name="allergy2">牛乳</string>
     <string name="allergy3">そば</string>
@@ -127,23 +126,103 @@
     <string name="allergy16">いか</string>
     <string name="allergy17">わがまま</string>
     <string name="allergy18">ナッツ</string>
-    <string name="idsend">あなたのIDはそのメールアドレスに送信されました。ログイン画面が表示されます。</string>
-    <string name="noid">このIDは存在しません。</string>
+
+    <string name="idsend">そのメールアドレスにIDが送信されました。ログイン画面に移動します。</string>
+    <string name="noid">存在しないIDです。</string>
     <string name="network">ネットワーク接続を確認してください。</string>
     <string name="notexist">存在しないユーザ名、または電子メールが一致しません。</string>
     <string name="confirmfail">パスワードがパスワードの再入力と一致しません。</string>
     <string name="success">正常に送信されました。</string>
     <string name="joinsucess">会員登録成功です。登録された電子メールで認証後にログインが可能です。</string>
     <string name="duplicate">ユーザ名または電子メールの重複です。</string>
-    <string name="notexistid">IDが存在しません。</string>
-    <string name="incorrectpw">アカウントがアクティブでないか、パスワードが間違っていた。</string>
-    <string name="wrong">IDまたはパスワードが無効です。</string>
+    <string name="notexistid">「存在しないIDです。</string>
+    <string name="incorrectpw">アカウントがアクティブでないか、パスワードが間違っています</string>
+    <string name="wrong">不適切名またはパスワードです。</string>
     <string name="incorrect">誤った情報です。</string>
-    <string name="pwsend">そのメールに一時的なパスワードが送信されました。</string>
+    <string name="pwsend">そのメールで仮パスワードが送信されました。</string>
+
     <string name="successchange">正常に変更されました。</string>
     <string name="modifysuccess">修正に成功！</string>
     <string name="quit">アカウントが削除されました。メインに戻る。</string>
     <string name="error">エラーが発生しました。しばらくして、もう一度やり直してください</string>
     <string name="cancel">キャンセルされました。</string>
     <string name="autho">カメラとギャラリーアクセス権限の確認</string>
+
+    <string name="eatAlone">一人で食べる</string>
+    <string name="bitter">苦い</string>
+    <string name="watery">水っぽい</string>
+    <string name="buttery">バター</string>
+    <string name="tasteless">無味</string>
+    <string name="chewy">歯ごたえ</string>
+    <string name="plain">プレーン</string>
+    <string name="crispy">サクサク</string>
+    <string name="dry">ドライ</string>
+    <string name="alcohol">アルコールで</string>
+    <string name="fermented">発酵</string>
+    <string name="savory">おいしい</string>
+    <string name="fresh">新鮮な</string>
+    <string name="Fresh">新鮮な</string>
+    <string name="fruity">フルーティー</string>
+    <string name="garlic">にんにく味</string>
+    <string name="hangover">二日酔い</string>
+    <string name="healthy">元気</string>
+    <string name="meaty">肉っぽい</string>
+    <string name="midnight">夜食</string>
+    <string name="meek">おとなしい</string>
+    <string name="moist">しっとり</string>
+    <string name="fat">太い</string>
+    <string name="cool">涼しい</string>
+    <string name="salty">塩辛い</string>
+    <string name="snack">スナック</string>
+    <string name="sour">サワー</string>
+    <string name="spicy">辛い</string>
+    <string name="sticky">ねばねば</string>
+    <string name="full">フル</string>
+    <string name="sweety">甘い</string>
+
+    <string name="rice">ご飯</string>
+    <string name="sushi">寿司</string>
+    <string name="porridge">おかゆ</string>
+    <string name="noodles">麺</string>
+    <string name="riceCake">おもち</string>
+    <string name="bread">パン</string>
+    <string name="burger">バーガー</string>
+    <string name="pizza">ピザ</string>
+    <string name="chicken">チキン</string>
+    <string name="sandwich">サンドイッチ</string>
+    <string name="beverage">飲料</string>
+    <string name="soup">スープ</string>
+    <string name="coldSoup">冷たいスープ</string>
+    <string name="stew">シチュー</string>
+    <string name="steamed">蒸し</string>
+    <string name="grilled">グリル</string>
+    <string name="stir">炒め物</string>
+    <string name="boiled">茹で</string>
+    <string name="fried">揚げ物</string>
+    <string name="Kimchi">キムチ</string>
+    <string name="salad">サラダ</string>
+    <string name="cookedHerb">調理されたハーブ</string>
+    <string name="seasonedHerb">味付けハーブ</string>
+    <string name="raisins">レーズン</string>
+    <string name="Kpancake">チヂミ</string>
+    <string name="Kfish">韓国の塩漬け魚</string>
+    <string name="sashimi">刺身</string>
+    <string name="pickles">漬物</string>
+    <string name="etc">等。</string>
+
+    <string name="tagplz">レビューはより良い推奨を行います。</string>
+    <string name="confirm">確認</string>
+    <string name="submit">参加する</string>
+    <string name="findpwtitle">PWを探す</string>
+    <string name="today">本日のおすすめ</string>
+    <string name="country">国</string>
+    <string name="checkPreference">あなたの好みを確認してください。</string>
+    <string name="checkAllergy">アレルギーをチェックする</string>
+    <string name="canReview">これで、注文した料理のレビューを書くことができます。</string>
+    <string name="delete">削除</string>
+    <string name="addToCart">カートに追加</string>
+    <string name="lost">失われた</string>
+    <string name="skip">スキップ</string>
+    <string name="signUp">サインアップ</string>
+    <string name="signIn">サインイン</string>
 </resources>
