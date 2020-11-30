@@ -42,24 +42,24 @@ public class MostFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_most, container, false);
+
         api = HttpClient.getRetrofit().create( ApiInterface.class );
         adapter = new HighestAdapter();
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
-        user_no=model.getUser_no();
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-
         recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
-        Bundle bundle=getArguments();
-        assert getArguments() != null;
-        button_no = (getArguments().getInt("json"));
-        Log.e("button_no", String.valueOf(button_no));
+
+        Bundle bundle = getArguments();
+        assert bundle != null;
+        user_no = bundle.getInt("user_no");
+        button_no = bundle.getInt("button_no");
+//        Log.d("mostFrg_user_no", String.valueOf(user_no));
+//        Log.d("mostFrg_button_no", String.valueOf(button_no));
 
         requestPost(user_no,button_no);
-
 
         return root;
     }

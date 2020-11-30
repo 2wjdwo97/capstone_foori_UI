@@ -8,6 +8,7 @@
     android:paddingVertical="8dp"
     android:paddingHorizontal="10dp"
     android:background="@drawable/boarder_result">
+
     <RelativeLayout
         android:id="@+id/layout_food"
         android:orientation="vertical"

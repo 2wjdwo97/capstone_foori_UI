@@ -108,7 +108,12 @@ public class MyReviewAdapter extends RecyclerView.Adapter<MyReviewAdapter.ItemVi
             content.setText(data.getContent());
             when.setText(data.getWhen());
 
-
+            Glide
+                    .with(imageview.getContext())
+                    .load(data.getUrl())
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(imageview);
         }
     }
 }

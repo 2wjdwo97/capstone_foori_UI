@@ -193,7 +193,7 @@ public class ResultFragment extends Fragment {
         List <Integer> listAmount = new ArrayList<>();
 
         for(int i=0; i<getSize; i++){
-            if(adapter.listData.get(i).isSelect()){
+            if(adapter.listData.get(i).getAmount()>0){
                 passSize++;
                 listKor.add(adapter.listData.get(i).getKor());
                 listEng.add(adapter.listData.get(i).getEng());

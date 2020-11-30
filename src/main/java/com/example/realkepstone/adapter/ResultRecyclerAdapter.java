@@ -214,7 +214,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
 
                     break;
                 case R.id.order:
-                    if (data.isSelect()==false){
+                    if (data.getAmount()>0){
                         data.setSelect(true);
                         changeColor();
                         Log.d("TedPark", data.getKor()+"이게 노랑");

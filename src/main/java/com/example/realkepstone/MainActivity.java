@@ -1,5 +1,7 @@
 package com.example.realkepstone;
 
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -7,46 +9,43 @@ import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.ui.BagFragment;
 import com.example.realkepstone.ui.OrderFragment;
 import com.example.realkepstone.ui.ResultFragment;
 import com.example.realkepstone.ui.ReviewFragment;
 import com.example.realkepstone.ui.ReviewTagFragment;
 import com.example.realkepstone.ui.gallery.GalleryFragment;
+import com.example.realkepstone.ui.gallery.MenuGalleryFragment;
 import com.example.realkepstone.ui.mypage.ChangePWFragment;
 import com.example.realkepstone.ui.mypage.ChangeTagFragment;
 import com.example.realkepstone.ui.mypage.LanguageFragment;
 import com.example.realkepstone.ui.mypage.QuitFragment;
 import com.example.realkepstone.ui.mypage.ReviewsFragment;
+import com.example.realkepstone.ui.slideshow.MenuSlideFragment;
 import com.example.realkepstone.ui.slideshow.SlideshowFragment;
 import com.example.realkepstone.ui.home.HomeFragment;
 import com.example.realkepstone.ui.mypage.MypageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class    MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
+    private ImageView img_toolbar;
+    private Toolbar toolbar;
+    private BottomNavigationView bottomNavigationView;
 
-
-    private AppBarConfiguration mAppBarConfiguration;
-    private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰
     private FragmentManager fm;
     private FragmentTransaction ft;
+
     private HomeFragment frag1;
     private SlideshowFragment frag2;
     private GalleryFragment frag3;
@@ -61,11 +60,8 @@ public class    MainActivity extends AppCompatActivity {
     private QuitFragment frag12;
     private ReviewsFragment frag13;
     private LanguageFragment frag14;
-    Bundle mBundle; //main bundle
-    private ViewPager viewPager;
-    MenuItem previousMenuItem;
-    FoodAfter foodafter;
-    int user_no;
+    private MenuSlideFragment frag15;
+    private MenuGalleryFragment frag16;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -83,33 +79,21 @@ public class    MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
         int user_no  = intent.getIntExtra("user_no", 0);
         String token = intent.getStringExtra("token");
-        SharedViewModel model = new ViewModelProvider(this).get(SharedViewModel.class);
 
+        SharedViewModel model = new ViewModelProvider(this).get(SharedViewModel.class);
         model.setUser_no(user_no);
         model.setToken(token);
         Log.d("세팅", String.valueOf(model.getUser_no()));
         Log.d("세팅", String.valueOf(model.getToken()));
-
-
-        FoodAfter foodafter = new FoodAfter();
 
         if (savedInstanceState != null) {
             //Restore the fragment's instance
             frag5 = (ResultFragment) getSupportFragmentManager().getFragment(savedInstanceState, "Result");
         }
 
-
-
-
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-
+        toolbar = (Toolbar)findViewById(R.id.tb_main);
         bottomNavigationView = findViewById(R.id.bottomNavi);
-
-        //     viewPager = findViewById(R.id.viewPager);
+        setSupportActionBar(toolbar);
 
         frag1=new HomeFragment();
         frag2=new SlideshowFragment();
@@ -125,64 +109,8 @@ public class    MainActivity extends AppCompatActivity {
         frag12=new QuitFragment();
         frag13=new ReviewsFragment();
         frag14=new LanguageFragment();
-
-
-
-        /*
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        viewPager.setCurrentItem(0);
-                        break;
-                    case R.id.camera:
-                        viewPager.setCurrentItem(1);
-                        break;
-                    case R.id.gallery:
-                        viewPager.setCurrentItem(2);
-                        break;
-                    case R.id.mypage:
-                        viewPager.setCurrentItem(3);
-                        break;
-                    case R.id.review:
-                        viewPager.setCurrentItem(4);
-                        break;
-                }
-                return true;
-            }
-
-        });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == 0) {
-                    bottomNavigationView.setSelectedItemId(R.id.home);
-                } else if (position == 1) {
-                    bottomNavigationView.setSelectedItemId(R.id.camera);
-                } else if (position == 2) {
-                    bottomNavigationView.setSelectedItemId(R.id.gallery);
-                }else if (position == 3) {
-                    bottomNavigationView.setSelectedItemId(R.id.mypage);
-                }
-                else if (position == 4) {
-                    bottomNavigationView.setSelectedItemId(R.id.review);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-*/
+        frag15=new MenuSlideFragment();
+        frag16=new MenuGalleryFragment();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId())
@@ -191,13 +119,13 @@ public class    MainActivity extends AppCompatActivity {
                     setFrag(0);
                     break;
                 case R.id.camera:
-                    setFrag(1);
+                    setFrag(14);
                     break;
                 case R.id.mypage :
                     setFrag(3);
                     break;
                 case R.id.gallery:
-                    setFrag(2);
+                    setFrag(15);
                     break;
                 case R.id.review:
                     setFrag(7);
@@ -205,21 +133,8 @@ public class    MainActivity extends AppCompatActivity {
             }
             return true;
         });
-
-
-
-
-
-
         setFrag(0); // 첫 프래그먼트 화면 지정
-
-
-
-
-
     }
-
-
 
     // 프레그먼트 교체
     public void setFrag(int n)
@@ -229,7 +144,6 @@ public class    MainActivity extends AppCompatActivity {
         switch (n)
         {
             case 0:
-
                 ft.replace(R.id.Main_Frame,frag1,"not");
                 ft.commit();
                 break;
@@ -296,6 +210,14 @@ public class    MainActivity extends AppCompatActivity {
                 ft.replace(R.id.Main_Frame,frag14,"not");
                 ft.commit();
                 break;
+            case 14:
+                ft.replace(R.id.Main_Frame,frag15,"not");
+                ft.commit();
+                break;
+            case 15:
+                ft.replace(R.id.Main_Frame,frag16,"not");
+                ft.commit();
+                break;
         }
     }
 
@@ -342,4 +264,26 @@ public class    MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ // toolbar의 back키 눌렀을 때 동작
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.xx, R.id.Main_Frame, "not");
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.exit_to_right, R.anim.exit_to_right);
+    }
+
+    public ImageView getImgToolbar(){
+         return this.img_toolbar;
+    }
 }

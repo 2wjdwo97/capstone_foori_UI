@@ -63,17 +63,7 @@ public class MenuGalleryFragment extends Fragment {
     private Boolean isPermission = true;
     String token;
     private SharedViewModel model;
-    /* @Override
-     public void onCreate(@Nullable Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         getParentFragmentManager().setFragmentResultListener("requestKey", this, new androidx.fragment.app.FragmentResultListener() {
-             @Override
-             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                 String result = bundle.getString("bundleKey");
-                 assert result != null;
-             }
-         });
-     }*/
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menugallery, container, false);
