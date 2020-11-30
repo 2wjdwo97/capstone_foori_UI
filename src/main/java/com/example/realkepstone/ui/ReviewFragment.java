@@ -68,6 +68,7 @@ public class    ReviewFragment extends Fragment {
     ArrayList<String> Eng;
 
     ImageView hidden;
+    TextView txt_hidden;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -79,7 +80,7 @@ public class    ReviewFragment extends Fragment {
         Eng= new ArrayList<String>();
         Url= new ArrayList<String>();
         hidden = (ImageView) rootView.findViewById(R.id.hidden);
-
+        txt_hidden = (TextView) rootView.findViewById(R.id.txt_hidden);
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView3);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),3);
@@ -116,8 +117,10 @@ public class    ReviewFragment extends Fragment {
 
                     if(response.body().size()==0){
                         hidden.clearAnimation();
+                        hidden.getLayoutParams().height = 166;
+                        hidden.getLayoutParams().width = 100;
                         hidden.setBackgroundResource(R.drawable.no_data);
-
+                        txt_hidden.setVisibility(View.VISIBLE);
                     }else{
                         Log.e("review_frag", "size>0");
                         hidden.clearAnimation();
