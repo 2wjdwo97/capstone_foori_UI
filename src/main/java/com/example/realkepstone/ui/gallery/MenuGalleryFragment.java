@@ -1,10 +1,9 @@
 package com.example.realkepstone.ui.gallery;
 //
+
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -14,34 +13,24 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.realkepstone.FoodListActivity;
 import com.example.realkepstone.MainActivity;
 import com.example.realkepstone.MenuRecogActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
-import com.example.realkepstone.data.Food;
 import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
-import com.example.realkepstone.ui.ResultFragment;
-import com.google.gson.JsonObject;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
@@ -69,10 +58,8 @@ public class MenuGalleryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menugallery, container, false);
-
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-
-        token=model.getToken();
+        token = model.getToken();
         Log.d("MenuGallergyFrag_token", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -82,30 +69,27 @@ public class MenuGalleryFragment extends Fragment {
                 .writeTimeout(1000000, TimeUnit.SECONDS).build();
 
         tedPermission();
-
-        apiInterface = HttpClient.getRetrofit().create( ApiInterface.class );
+        apiInterface = HttpClient.getRetrofit().create(ApiInterface.class);
         imageview = (ImageView) root.findViewById(R.id.imageView);
 
-        if(isPermission){
+        if (isPermission) {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE);
-        }
-        else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
+        } else
+            makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
         imageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(isPermission){
+                if (isPermission) {
                     Intent intent = new Intent();
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE);
-                }
-                else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
-
-
+                } else
+                    makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -126,7 +110,7 @@ public class MenuGalleryFragment extends Fragment {
 
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
             activity = (MainActivity) getActivity();
-            String filePath=activity.getRealPathFromURI(selectedImage);
+            String filePath = activity.getRealPathFromURI(selectedImage);
             File file = new File(filePath);
             Log.d("TedPark", filePath);
 
@@ -141,17 +125,8 @@ public class MenuGalleryFragment extends Fragment {
             req.enqueue(new Callback<FoodAfter>() {
                 @Override
                 public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
-                    if(response.code()==201) {
-
+                    if (response.code() == 201) {
                         imageview.clearAnimation();
-
-
-                        response.body(); // have your all data
-                        Log.e("list" , response.body().getFoodKorName()+"Kor");
-                        Log.e("list" , response.body().getCookies()+"cookies");
-
-
-                        //Put the value
                         change(response.body());
 
 //                        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
@@ -167,18 +142,17 @@ public class MenuGalleryFragment extends Fragment {
 //                        transaction.commit();
                         Log.d("TedPark", String.valueOf(response.code()));
 
-                    }else{
+                    } else {
                         imageview.clearAnimation();
                         imageview.setImageResource(R.drawable.no_data);
                     }
                     Log.d("TedPark", String.valueOf(response.code()));
                 }
+
                 @Override
                 public void onFailure(Call<FoodAfter> call, Throwable t) {
-
                     imageview.clearAnimation();
                     imageview.setImageResource(R.drawable.no_data);
-
                     t.printStackTrace();
                     Log.d("TedPark", "ㄹ");
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
@@ -199,6 +173,7 @@ public class MenuGalleryFragment extends Fragment {
             @Override
             public void onPermissionGranted() {
             }
+
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
                 makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패

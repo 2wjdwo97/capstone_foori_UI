@@ -21,26 +21,21 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.realkepstone.MainActivity;
+import com.example.realkepstone.MenuRecogActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
-import com.example.realkepstone.ui.ResultFragment;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -59,19 +54,21 @@ import retrofit2.Response;
 import static android.widget.Toast.makeText;
 
 public class MenuSlideFragment extends Fragment {
+
     private static final int PICK_FROM_CAMERA = 2;
-    private ImageView imageView; // 이미지 미리보기\
     private Boolean isPermission = true;
-    private File tempFile; // 보낼 사진 File의 껍데기, 앨범 또는 카메라에서 가져온 이미지를 저장할 변수.
+
+    private SharedViewModel model;
+    private ImageView imageView;    // 이미지 미리보기
+    private File tempFile;          // 보낼 사진 File의 껍데기, 앨범 또는 카메라에서 가져온 이미지를 저장할 변수.
     private ApiInterface apiInterface;
     private String token;
-    private SharedViewModel model;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_menuslide, container, false);
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-
-        token=model.getToken();
+        token = model.getToken();
         Log.d("MenuSlideFrag_token", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -80,26 +77,29 @@ public class MenuSlideFragment extends Fragment {
                 .readTimeout(1000000, TimeUnit.SECONDS)
                 .writeTimeout(1000000, TimeUnit.SECONDS).build();
 
-        apiInterface = HttpClient.getRetrofit().create( ApiInterface.class );
-
         tedPermission();
+        apiInterface = HttpClient.getRetrofit().create(ApiInterface.class);
         imageView = root.findViewById(R.id.iv2);
 
-        if(isPermission)
+        if (isPermission)
             takePhoto();
-        else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
+        else
+            makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
 
         imageView.setOnClickListener(new Button.OnClickListener() { // 버튼 onClick 리스너 처리부분
-            @Override public void onClick( View v ) {
-                if(isPermission)
+            @Override
+            public void onClick(View v) {
+                if (isPermission)
                     takePhoto();
-                else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
+                else
+                    makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
             }
         }); // 사진 가져오기 버튼에 리스너 추가
 
 
         return root;
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         /* 카메라를 켰다 사진을 안찍거나, 앨범에 가서 사진을 안 골라 온 경우의 예외 처리 */
@@ -121,8 +121,6 @@ public class MenuSlideFragment extends Fragment {
         }
         /* 카메라를 켰다 사진을 안찍거나, 앨범에 가서 사진을 안 골라 온 경우의 예외 처리 */ /* onActivityResult의 requestCode 값에 따라 로직이 실행됨 */
 
-
-
         RequestBody reqFile = RequestBody.create(MediaType.parse("multipart/form-file"), tempFile);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", tempFile.getName(), reqFile);
         RequestBody name = RequestBody.create(MediaType.parse("image/jpeg"), "file");
@@ -132,44 +130,33 @@ public class MenuSlideFragment extends Fragment {
         req.enqueue(new Callback<FoodAfter>() {
             @Override
             public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
-                if(response.code()==201) {
-
+                if (response.code() == 201) {
                     imageView.clearAnimation();
+                    change(response.body());
 
-
-                    response.body(); // have your all data
-                       /* List<String> id = response.body().getFoodKorName();
-                        List<String> engName = response.body().getFoodEngName();
-                        List<String> descreption = response.body().getFoodDescription();
-                        List<List<String>> ingredients = response.body().getFoodIngredients();
-                        List<List<String>> allergy = response.body().getFoodAllergy();
-                        text.setText(id+"+"+engName+"+"+descreption);*/
-                    //Put the value
-                    FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
-                    ResultFragment mfragment=new ResultFragment();
-
-                    Bundle bundle=new Bundle();
-                    //  bundle.putSerializable("json", response.body());
-
-                    bundle.putSerializable("json", response.body());
-
-                    mfragment.setArguments(bundle); //data being send to SecondFragment
-                    transaction.replace(R.id.Main_Frame, mfragment,"not");
-                    transaction.commit();
-                    //  MainActivity activity = (MainActivity) getActivity()
-                    // activity.setFrag(4);
-                }
-                else{
+//                    FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
+//                    ResultFragment mfragment=new ResultFragment();
+//
+//                    Bundle bundle=new Bundle();
+//                    //  bundle.putSerializable("json", response.body());
+//
+//                    bundle.putSerializable("json", response.body());
+//
+//                    mfragment.setArguments(bundle); //data being send to SecondFragment
+//                    transaction.replace(R.id.Main_Frame, mfragment,"not");
+//                    transaction.commit();
+//                    //  MainActivity activity = (MainActivity) getActivity()
+//                    // activity.setFrag(4);
+                } else {
                     imageView.clearAnimation();
-
                     imageView.setImageResource(R.drawable.no_data);
                 }
                 Log.d("TedPark", String.valueOf(response.code()));
             }
+
             @Override
             public void onFailure(Call<FoodAfter> call, Throwable t) {
                 imageView.clearAnimation();
-
                 imageView.setImageResource(R.drawable.no_data);
                 t.printStackTrace();
                 Log.d("TedPark", "ㄹ");
@@ -177,19 +164,22 @@ public class MenuSlideFragment extends Fragment {
 
             }
         });
-
-
-
-
     }
 
-
+    public void change(FoodAfter res_body) {
+        MainActivity activity = (MainActivity) getActivity();
+        Intent intent = new Intent(activity, MenuRecogActivity.class);
+        intent.putExtra("json", res_body);
+        startActivity(intent);
+        activity.overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
+    }
 
     private void tedPermission() {
         PermissionListener permissionListener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
             }
+
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
                 makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패
@@ -199,7 +189,8 @@ public class MenuSlideFragment extends Fragment {
                 .setPermissionListener(permissionListener)
                 .setDeniedMessage(getResources().getString(R.string.menu_gallery))
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-                .check(); }
+                .check();
+    }
 
     private void takePhoto() { // Intent를 이용해 Camera로 이동함.
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -215,8 +206,7 @@ public class MenuSlideFragment extends Fragment {
                 Uri photoUri = FileProvider.getUriForFile(getContext(), "com.example.realkepstone", tempFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(intent, PICK_FROM_CAMERA);
-            }
-            else {
+            } else {
                 Uri photoUri = Uri.fromFile(tempFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(intent, PICK_FROM_CAMERA);
@@ -231,15 +221,17 @@ public class MenuSlideFragment extends Fragment {
         Bitmap originalBm = BitmapFactory.decodeFile(tempFile.getAbsolutePath(), options);
         imageView.setImageBitmap(originalBm);
     }
+
     private File createImageFile() throws IOException {
         // 이미지 파일 이름 ( Yummy_{시간}_ )
         @SuppressLint("SimpleDateFormat") String timeStamp = new SimpleDateFormat("HHmmss").format(new Date());
         String imageFileName = "Yummy_" + timeStamp + "_";
         // 이미지가 저장될 폴더 이름
         File storageDir = new File(Environment.getExternalStorageDirectory() + "/DCIM/Camera/");
-        if (!storageDir.exists()) { storageDir.mkdirs();
+        if (!storageDir.exists()) {
+            storageDir.mkdirs();
         } // 빈 파일 생성
-        return File.createTempFile( imageFileName, /* prefix */ ".jpg", /* suffix */ storageDir /* directory*/ );
+        return File.createTempFile(imageFileName, /* prefix */ ".jpg", /* suffix */ storageDir /* directory*/);
     } /* 카메라에서 찍어온 사진을 저장할 파일 만들기 */
 
 

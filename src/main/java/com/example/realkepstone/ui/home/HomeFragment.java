@@ -189,9 +189,7 @@ public class HomeFragment extends Fragment {
 
 
                     if(response.body().size()==0){
-                        Log.e("homefrag", "body_size=0");
-                        hidden.setBackgroundResource(R.drawable.no_data);
-                        hidden.clearAnimation();
+
                     }else{
                         Log.e("homefrag", "body_size>0");
                         hidden.clearAnimation();
@@ -207,6 +205,11 @@ public class HomeFragment extends Fragment {
                         adapter.addItem(response.body().get(i));
                         adapter.notifyDataSetChanged();
                     }
+                }
+                if (response.code()==201){
+                    Log.e("homefrag", "body_size=0");
+                    hidden.setBackgroundResource(R.drawable.no_data);
+                    hidden.clearAnimation();
                 }
                 else{
                     Log.e("homeerror", String.valueOf(response.code()));

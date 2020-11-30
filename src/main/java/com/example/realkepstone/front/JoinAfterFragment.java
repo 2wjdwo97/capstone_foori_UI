@@ -14,11 +14,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.realkepstone.FrontActivity;
 import com.example.realkepstone.MainActivity;
+import com.example.realkepstone.MyPage_ReviewActivity;
 import com.example.realkepstone.R;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.FindIdData;
@@ -1315,12 +1317,17 @@ public class JoinAfterFragment extends Fragment {
             @Override
             public void onResponse(Call<TagData> call, Response<TagData> response) {
                 if(response.code()==200){
+                    ((FrontActivity) getActivity()).joinafterfragmentChange();
+
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.success), Toast.LENGTH_LONG).show();
+
 
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     intent.putExtra("user_no",user_no);
 
                     startActivity(intent);
+
+
                 }
                 else{
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();

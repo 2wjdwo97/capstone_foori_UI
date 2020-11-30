@@ -168,7 +168,7 @@ public class LoginFragment extends Fragment {
                 else if(response.code()==401){
                     Toast.makeText(getContext().getApplicationContext(),getResources().getString(R.string.noid), Toast.LENGTH_LONG).show();
                 }
-                else if(response.code()==402){
+                else if(response.code()==403){
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrectpw), Toast.LENGTH_LONG).show();
 
                 }
