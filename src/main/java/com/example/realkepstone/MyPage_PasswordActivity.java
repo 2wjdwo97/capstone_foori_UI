@@ -58,7 +58,8 @@ public class MyPage_PasswordActivity extends AppCompatActivity {
         confirm=findViewById(R.id.new_confirm);
 
         send=findViewById(R.id.send);
-        Log.d("loginusedfdsfsdfrno", String.valueOf(user_no));
+
+        Log.e("user_no", String.valueOf(user_no));
         api = HttpClient.getRetrofit().create( ApiInterface.class );
 
 

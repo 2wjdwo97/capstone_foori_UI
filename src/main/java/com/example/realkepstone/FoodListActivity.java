@@ -91,9 +91,7 @@ public class FoodListActivity extends AppCompatActivity {
 
             }
         });
-
         highest.callOnClick();
-
     }
 
     @Override

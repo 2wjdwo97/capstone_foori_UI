@@ -82,10 +82,6 @@ public class MenuRecogActivity extends AppCompatActivity {
                 }
             }
         }
-
-
-
-
     }
 
     // Fires when a configuration change occurs and fragment needs to save state

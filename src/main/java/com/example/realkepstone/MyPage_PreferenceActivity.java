@@ -140,6 +140,8 @@ public class MyPage_PreferenceActivity extends AppCompatActivity {
         spicybar= findViewById(R.id.spicy);
         spicy=3;
 
+        Log.e("ChangeTagFrag_userNo", String.valueOf(user_no));
+
         foodClass = new ArrayList<Integer>();
         Tag = new ArrayList<Integer>();
         allergy = new ArrayList<Integer>();
@@ -1304,7 +1306,7 @@ public class MyPage_PreferenceActivity extends AppCompatActivity {
                     country_no=11;
                 }
                 requestPost(user_no, spicy, country_no, foodClass, Tag, allergy);
-                Log.d("user_no", String.valueOf(user_no));
+                Log.e("user_no", String.valueOf(user_no));
 
                 Log.d("TedPark", String.valueOf(foodClass));
                 Log.d("TedPark", String.valueOf(Tag));
@@ -1326,18 +1328,18 @@ public class MyPage_PreferenceActivity extends AppCompatActivity {
             public void onResponse(Call<ChangeTagData> call, Response<ChangeTagData> response) {
                 if(response.code()==200){
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.modifysuccess), Toast.LENGTH_LONG).show();
-                    Log.d("hoooo", String.valueOf(response.code()));
+                    Log.d("수정 성공", String.valueOf(response.code()));
 
                 }
                 else{
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
-                    Log.d("hoooo", String.valueOf(response.code()));
+                    Log.d("수정 실패", String.valueOf(response.code()));
                 }
             }
 
             @Override
             public void onFailure(Call<ChangeTagData> call, Throwable t) {
-                Log.d("TedPark", "실패"+String.valueOf(t));
+                Log.d("네트워크", "실패"+String.valueOf(t));
                 Toast.makeText(getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );

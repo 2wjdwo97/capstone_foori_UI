@@ -74,7 +74,8 @@ public class MyPage_LanguageActivity extends AppCompatActivity {
         japan=findViewById(R.id.Japan);
         germany=findViewById(R.id.German);
 
-        Log.d("loginusedfdsfsdfrno", String.valueOf(user_no));
+        Log.e("user_no", String.valueOf(user_no));
+
         api = HttpClient.getRetrofit().create( ApiInterface.class );
 
 

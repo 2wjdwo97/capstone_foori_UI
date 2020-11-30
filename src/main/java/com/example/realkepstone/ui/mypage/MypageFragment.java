@@ -43,7 +43,7 @@ public class MypageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_mypage, container, false);
-
+        activity = (MainActivity) getActivity();
         review=root.findViewById(R.id.review);
         pwchange=root.findViewById(R.id.pwchange);
         changepref=root.findViewById(R.id.tagchange);

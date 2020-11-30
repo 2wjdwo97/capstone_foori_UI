@@ -33,6 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginFragment extends Fragment {
+    ViewGroup root;
     ImageButton login = null;
     ImageButton join = null;
     ImageButton without = null;
@@ -45,7 +46,7 @@ public class LoginFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_login, container, false);
+        root = (ViewGroup) inflater.inflate(R.layout.fragment_login, container, false);
         EditText mEmailView;
         EditText mPasswordView;
 
@@ -163,12 +164,16 @@ public class LoginFragment extends Fragment {
                     FrontActivity activity = (FrontActivity) getActivity();
                     activity.joinfragmentChange(bundle);
 
+                    EditText mIdView = (EditText) root.findViewById(R.id.id);
+                    mIdView.setText("");
+                    EditText mPasswordView = (EditText) root.findViewById(R.id.pw);
+                    mPasswordView.setText("");
 
                 }
                 else if(response.code()==401){
                     Toast.makeText(getContext().getApplicationContext(),getResources().getString(R.string.noid), Toast.LENGTH_LONG).show();
                 }
-                else if(response.code()==402){
+                else if(response.code()==403){
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrectpw), Toast.LENGTH_LONG).show();
 
                 }
