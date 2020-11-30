@@ -64,7 +64,6 @@ public class ResultFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new ResultRecyclerAdapter();
         recyclerView.setAdapter(adapter);
-        bag = (ImageView) rootView.findViewById(R.id.bag);
         id = (TextView) rootView.findViewById(R.id.id);
         ArrayList<Food> data = new ArrayList<>();
         ArrayList<Food> OrderList = new ArrayList<>();
@@ -100,7 +99,7 @@ public class ResultFragment extends Fragment {
         }
 
 
-        bag.setOnClickListener(new View.OnClickListener() {
+/*        bag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int passSize;
@@ -124,7 +123,7 @@ public class ResultFragment extends Fragment {
                 transaction.replace(R.id.Main_Frame, mfragment,"not");
                 transaction.commit();
             }
-        });
+        });*/
         return rootView;
     }
 

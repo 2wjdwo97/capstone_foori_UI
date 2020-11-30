@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Submit"
+            android:text="@string/submit"
             android:fontFamily="@font/jua"
             android:textColor="#FFFFFF"
             android:textSize="25sp"/>
@@ -119,7 +119,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="밥류"
+                    android:text="@string/rice"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -132,7 +132,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="김밥/초밥류"
+                    android:text="@string/sushi"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -145,7 +145,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="죽/스프류"
+                    android:text="@string/porridge"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -158,7 +158,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="면/만두류"
+                    android:text="@string/noodles"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -179,7 +179,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="떡류"
+                    android:text="@string/riceCake"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -192,7 +192,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="빵류"
+                    android:text="@string/bread"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -205,7 +205,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="버거류"
+                    android:text="@string/burger"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -218,7 +218,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="피자류"
+                    android:text="@string/pizza"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -239,7 +239,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="치킨류"
+                    android:text="@string/chicken"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -252,7 +252,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="샌드위치류"
+                    android:text="@string/sandwich"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -265,7 +265,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="한과류"
+                    android:text="@string/snack"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -278,7 +278,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="음료/차류"
+                    android:text="@string/beverage"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -299,7 +299,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="국/탕류"
+                    android:text="@string/soup"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -310,7 +310,8 @@
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="냉국류"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/coldSoup"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -321,7 +322,8 @@
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="찌개/전골류"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/stew"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -334,7 +336,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="찜류"
+                    android:text="@string/steamed"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -355,7 +357,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="구이류"
+                    android:text="@string/grilled"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -368,7 +370,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="볶음류"
+                    android:text="@string/stir"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -381,7 +383,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="조림류"
+                    android:text="@string/boiled"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -394,7 +396,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="튀김류"
+                    android:text="@string/fried"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -415,7 +417,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="김치"
+                    android:text="@string/Kimchi"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -428,7 +430,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="샐러드"
+                    android:text="@string/salad"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -441,7 +443,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="나물/숙채류"
+                    android:text="@string/cookedHerb"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -454,7 +456,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="생채/무침류"
+                    android:text="@string/seasonedHerb"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -475,7 +477,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="건포류"
+                    android:text="@string/raisins"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -488,7 +490,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="전/적/부침류"
+                    android:text="@string/Kpancake"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -501,7 +503,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="젓갈류"
+                    android:text="@string/Kfish"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -514,7 +516,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="회류"
+                    android:text="@string/sashimi"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -536,7 +538,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="장아찌/절임류"
+                    android:text="@string/pickles"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -549,7 +551,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="기타"
+                    android:text="@string/etc"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -581,7 +583,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="혼밥용"
+                    android:text="@string/eatAlone"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -594,7 +596,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="쓴"
+                    android:text="@string/bitter"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -607,7 +609,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="싱거운"
+                    android:text="@string/watery"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -620,7 +622,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="버터맛의"
+                    android:text="@string/buttery"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -641,7 +643,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="텁텁한"
+                    android:text="@string/tasteless"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -654,7 +656,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="쫄깃한"
+                    android:text="@string/chewy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -667,7 +669,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="담백한"
+                    android:text="@string/plain"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -680,7 +682,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="바삭한"
+                    android:text="@string/crispy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -701,7 +703,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="마른, 퍽퍽한"
+                    android:text="@string/dry"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -714,7 +716,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="술 안주"
+                    android:text="@string/alcohol"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -727,7 +729,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="발효된"
+                    android:text="@string/fermented"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -740,7 +742,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="풍미있는"
+                    android:text="@string/savory"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -761,7 +763,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="신선한"
+                    android:text="@string/fresh"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -774,7 +776,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="과일 맛의"
+                    android:text="@string/fruity"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -787,7 +789,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="마늘 맛의"
+                    android:text="@string/garlic"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -800,7 +802,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="해장용"
+                    android:text="@string/hangover"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -821,7 +823,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="건강한"
+                    android:text="@string/healthy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -834,7 +836,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="든든한"
+                    android:text="@string/full"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -847,7 +849,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="고기 맛이 강한"
+                    android:text="@string/meaty"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -859,7 +861,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="야식"
+                    android:text="@string/midnight"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -880,7 +882,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="순한"
+                    android:text="@string/meek"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -893,7 +895,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="촉촉한"
+                    android:text="@string/moist"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -906,7 +908,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="기름진"
+                    android:text="@string/fat"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -919,7 +921,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="시원한"
+                    android:text="@string/cool"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -940,7 +942,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="짠"
+                    android:text="@string/salty"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -953,7 +955,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="간식"
+                    android:text="@string/snack"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -966,7 +968,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="신"
+                    android:text="@string/sour"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -979,7 +981,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="매운"
+                    android:text="@string/spicy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -1000,7 +1002,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="끈적한"
+                    android:text="@string/sticky"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -1013,7 +1015,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="속이 꽉 찬"
+                    android:text="@string/full"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -1026,7 +1028,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="달달한"
+                    android:text="@string/sweety"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
@@ -1039,7 +1041,7 @@
                     android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
                     android:fontFamily="@font/jua"
-                    android:text="물이 많은"
+                    android:text="@string/watery"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>

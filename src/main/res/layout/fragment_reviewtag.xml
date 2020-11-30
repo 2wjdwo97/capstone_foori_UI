@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,67 +9,72 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1">
+        android:layout_below="@id/foodname">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/tag1"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:fontFamily="@font/jua"
+                    android:layout_marginHorizontal="4dp"
 
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a1"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/eatAlone"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag2"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a2"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/bitter"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag3"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a3"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/watery"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag4"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a4"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/buttery"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -77,50 +82,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/tag5"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a5"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/tasteless"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag6"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a6"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/chewy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag7"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a7"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/plain"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag8"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a8"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/crispy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -128,50 +142,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/tag9"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:fontFamily="@font/jua"
+                    android:layout_marginHorizontal="4dp"
 
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a9"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/dry"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag10"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a10"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/alcohol"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag11"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:fontFamily="@font/jua"
+                    android:layout_marginHorizontal="4dp"
 
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a11"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/fermented"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag12"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a12"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/savory"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -179,50 +202,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/tag13"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a13"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/fresh"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag14"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a14"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/fruity"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag15"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:fontFamily="@font/jua"
+                    android:layout_marginHorizontal="4dp"
 
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a15"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/garlic"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag16"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a16"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/hangover"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -230,49 +262,58 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/tag17"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a17"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/healthy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag18"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a18"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/full"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag19"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a19"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/meaty"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag20"
-                    android:layout_width="100dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:fontFamily="@font/jua"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a20"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/midnight"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -280,50 +321,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/tag21"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a21"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/meek"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag22"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a22"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/moist"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag23"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a23"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/fat"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag24"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a24"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/cool"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -331,50 +381,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/tag25"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a25"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/salty"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag26"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a26"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/snack"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag27"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a27"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/sour"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag28"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a28"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/spicy"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -382,50 +441,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/tag29"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a29"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/sticky"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag30"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a30"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/full"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag31"
-                    android:layout_width="100dp"
-                    android:fontFamily="@font/jua"
-
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
+
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a31"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/sweety"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
 
                 <Button
                     android:id="@+id/tag32"
-                    android:fontFamily="@font/jua"
+                    android:layout_width="80dp"
 
-                    android:layout_width="100dp"
                     android:layout_height="50dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="10dp"
                     android:background="@drawable/imgbtn_states"
-                    android:text="@string/a32"
+                    android:fontFamily="@font/jua"
+                    android:text="@string/watery"
                     android:textColor="#000000"
                     app:srcCompat="@drawable/brown" />
             </LinearLayout>
@@ -435,87 +503,65 @@
 
     <TextView
         android:id="@+id/foodname"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="25dp"
         android:layout_weight="1"
         android:text="@string/tagplz"
         android:fontFamily="@font/jua"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/explain"
         />
 
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        style="@style/star"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:isIndicator="false"
-        android:numStars="5"
-        android:orientation="horizontal"
-        android:rating="3.5"
-        android:stepSize="0.5"
-        android:theme="@style/Widget.AppCompat.RatingBar.Small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.869" />
-
-    <RatingBar
-        android:id="@+id/spicy"
-        style="@style/spicy"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:gravity="center_vertical"
-        android:isIndicator="false"
-        android:numStars="5"
-        android:orientation="horizontal"
-        android:rating="3.5"
-        android:stepSize="0.5"
-        android:theme="@style/Widget.AppCompat.RatingBar.Small"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.769" />
-
-    <ImageButton
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/orderb"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
+        android:background="@drawable/boarder_main"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="15dp"
+        android:id="@+id/layout_top">
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/star"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:orientation="horizontal"
+            android:rating="3.5"
+            android:stepSize="0.5"
+            android:theme="@style/Widget.AppCompat.RatingBar.Small" />
+
+        <RatingBar
+            android:id="@+id/spicy"
+            style="@style/spicy"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_below="@id/ratingBar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="10dp"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:orientation="horizontal"
+            android:rating="3.5"
+            android:stepSize="0.5"
+            android:theme="@style/Widget.AppCompat.RatingBar.Small" />
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/explain"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/jua"
         android:hint="@string/explain"
         android:inputType="textMultiLine"
         android:lines="8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.583"
-        android:textColor="#0FDAED"/>
+        android:textColor="#000000"
+        android:layout_below="@id/layout_top"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

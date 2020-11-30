@@ -1,26 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">foori</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">打开导航抽屉</string>
+    <string name="navigation_drawer_close">关闭导航抽屉</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="nav_header_desc">导航标题</string>
+    <string name="action_settings">设定值</string>
+    <string name="menu_home">家</string>
+    <string name="menu_gallery">画廊</string>
+    <string name="menu_slideshow">幻灯片放映</string>
     <string name="message_progress">0</string>
+
     <string name="passchange">密码变更</string>
     <string name="findidtitle">查找ID</string>
     <string name="pw">查找密码</string>
-    <string name="findid">我们将通过您的电子邮件发送您的ID！</string>
-    <string name="findpw">我们将通过您的电子邮件发送您的新PW ！！！</string>
+    <string name="findid">我们将通过您的电子邮件发送您的ID。</string>
+    <string name="findpw">我们将通过您的电子邮件发送新的PW。</string>
 
     <string name="pwConfirm">PW确认</string>
     <string name="name">名称</string>
     <string name="birth">出生</string>
-    <string name="spicy">麻辣（1〜5）</string>
+    <string name="spicyRate">麻辣（1〜5）</string>
     <string name="pick">选择日期</string>
     <string name="allegry">过敏症</string>
     <string name="sign">标牌</string>
@@ -47,26 +47,25 @@
     <string name="a11">发酵的</string>
     <string name="a12">美味的</string>
     <string name="a13">新鲜</string>
-    <string name="a14">与酒精</string>
-    <string name="a15">新鲜</string>
-    <string name="a16">果味的</string>
-    <string name="a17">大蒜黄酮</string>
-    <string name="a18">宿醉</string>
-    <string name="a19">健康</string>
-    <string name="a20">多肉的</string>
-    <string name="a21">午夜小吃</string>
-    <string name="a22">温顺</string>
-    <string name="a23">湿</string>
-    <string name="a24">脂肪</string>
-    <string name="a25">凉</string>
-    <string name="a26">咸</string>
-    <string name="a27">凉</string>
-    <string name="a28">小吃</string>
-    <string name="a29">酸</string>
-    <string name="a30">麻辣</string>
-    <string name="a31">黏</string>
-    <string name="a32">充分</string>
-
+    <string name="a14">新鲜</string>
+    <string name="a15">果味的</string>
+    <string name="a16">大蒜黄酮</string>
+    <string name="a17">宿醉</string>
+    <string name="a18">健康</string>
+    <string name="a19">多肉的</string>
+    <string name="a20">午夜小吃</string>
+    <string name="a21">温顺</string>
+    <string name="a22">湿</string>
+    <string name="a23">脂肪</string>
+    <string name="a24">凉</string>
+    <string name="a25">咸</string>
+    <string name="a26">小吃</string>
+    <string name="a27">酸</string>
+    <string name="a28">麻辣</string>
+    <string name="a29">黏</string>
+    <string name="a30">充分</string>
+    <string name="a31">甜</string>
+    <string name="a32">水汪汪的</string>
 
     <string name="b1">白饭</string>
     <string name="b2">泡菜/寿司</string>
@@ -99,7 +98,6 @@
     <string name="b29">泡菜</string>
     <string name="b30">等等。</string>
 
-    <string name="tagplz">评论一下您的标签更正确！</string>
     <string name="amount">量</string>
     <string name="change">改变语言</string>
 
@@ -109,6 +107,7 @@
     <string name="mypage">我的页面</string>
     <string name="review">评论</string>
     <string name="explain">您的解释</string>
+
     <string name="allergy1">蛋</string>
     <string name="allergy2">牛奶</string>
     <string name="allergy3">荞麦</string>
@@ -127,7 +126,8 @@
     <string name="allergy16">乌贼</string>
     <string name="allergy17">自私</string>
     <string name="allergy18">坚果类</string>
-    <string name="idsend">您的ID已发送到该电子邮件地址。您将被带到登录屏幕。</string>
+
+    <string name="idsend">ID已发送到该电子邮件地址。您将被带到登录屏幕。</string>
     <string name="noid">该ID不存在。</string>
     <string name="network">请检查网络连接。</string>
     <string name="notexist">用户名或电子邮件不匹配。</string>
@@ -135,15 +135,93 @@
     <string name="success">提交成功。</string>
     <string name="joinsucess">会员注册成功。身份验证后，您可以使用注册的电子邮件登录。</string>
     <string name="duplicate">身份证或电子邮件重复。</string>
-    <string name="notexistid">ID不存在。</string>
+    <string name="notexistid">“此ID不存在。</string>
     <string name="incorrectpw">您的帐户无效或密码错误。</string>
     <string name="wrong">无效的ID或密码。</string>
     <string name="incorrect">这是不正确的信息。</string>
-    <string name="pwsend">临时密码已发送到该电子邮件。</string>
+    <string name="pwsend">临时密码已发送至该电子邮件。</string>
+
     <string name="successchange">它已正常更改。</string>
     <string name="modifysuccess">改装成功！！</string>
     <string name="quit">您的帐户已被删除。返回主目录</string>
     <string name="error">发生了错误。请在几分钟后再试一次</string>
     <string name="cancel">取消。</string>
     <string name="autho">检查相机和图库的访问权限</string>
-</resources>
+
+    <string name="eatAlone">独自吃饭</string>
+    <string name="bitter">苦</string>
+    <string name="watery">水汪汪的</string>
+    <string name="buttery">黄油的</string>
+    <string name="tasteless">无味的</string>
+    <string name="chewy">耐嚼的</string>
+    <string name="plain">平淡</string>
+    <string name="crispy">脆皮</string>
+    <string name="dry">干燥</string>
+    <string name="alcohol">与酒精</string>
+    <string name="fermented">发酵的</string>
+    <string name="savory">美味的</string>
+    <string name="fresh">新鲜</string>
+    <string name="Fresh">新鲜</string>
+    <string name="fruity">果味的</string>
+    <string name="garlic">大蒜味</string>
+    <string name="hangover">宿醉</string>
+    <string name="healthy">健康</string>
+    <string name="meaty">多肉的</string>
+    <string name="midnight">午夜小吃</string>
+    <string name="meek">温顺</string>
+    <string name="moist">湿</string>
+    <string name="fat">脂肪</string>
+    <string name="cool">凉</string>
+    <string name="salty">咸</string>
+    <string name="snack">小吃</string>
+    <string name="sour">酸</string>
+    <string name="spicy">辣的</string>
+    <string name="sticky">黏</string>
+    <string name="full">充分</string>
+    <string name="sweety">甜</string>
+
+    <string name="rice">白饭</string>
+    <string name="sushi">寿司</string>
+    <string name="porridge">稀饭</string>
+    <string name="noodles">面条</string>
+    <string name="riceCake">年糕</string>
+    <string name="bread">面包</string>
+    <string name="burger">汉堡包</string>
+    <string name="pizza">比萨</string>
+    <string name="chicken">鸡</string>
+    <string name="sandwich">三明治</string>
+    <string name="beverage">饮料</string>
+    <string name="soup">汤</string>
+    <string name="coldSoup">冷汤</string>
+    <string name="stew">炖</string>
+    <string name="steamed">蒸熟</string>
+    <string name="grilled">烤</string>
+    <string name="stir">煸炒</string>
+    <string name="boiled">煮沸</string>
+    <string name="fried">油炸</string>
+    <string name="Kimchi">泡菜</string>
+    <string name="salad">沙拉</string>
+    <string name="cookedHerb">煮熟的草药</string>
+    <string name="seasonedHerb">调味草药</string>
+    <string name="raisins">葡萄干</string>
+    <string name="Kpancake">韩国煎饼</string>
+    <string name="Kfish">韩国咸鱼</string>
+    <string name="sashimi">生鱼片</string>
+    <string name="pickles">泡菜</string>
+    <string name="etc">等等。</string>
+
+    <string name="tagplz">审查提出更好的建议。</string>
+    <string name="confirm">确认</string>
+    <string name="submit">提交</string>
+    <string name="findpwtitle">查找密码</string>
+    <string name="today">今日特辑</string>
+    <string name="country">国家</string>
+    <string name="checkPreference">检查您的偏好。</string>
+    <string name="checkAllergy">检查过敏</string>
+    <string name="canReview">现在，您可以对订购的食物进行评论。</string>
+    <string name="delete">删除</string>
+    <string name="addToCart">添加到购物车</string>
+    <string name="lost">丢失</string>
+    <string name="skip">跳跃</string>
+    <string name="signUp">注册</string>
+    <string name="signIn">登入</string></resources>

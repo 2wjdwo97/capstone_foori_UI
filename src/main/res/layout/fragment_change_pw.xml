@@ -41,7 +41,7 @@
             android:layout_height="50dp"
             android:ems="10"
             android:fontFamily="@font/jua"
-            android:hint="new_password"
+            android:hint="new password"
             android:inputType="textPersonName"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -75,8 +75,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jua"
-        android:text="Password Change!!"
-        android:textSize="20dp"
+        android:text="@string/passchange"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/jua"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textColor="#F7D182"
             android:textSize="30sp" />
     </RelativeLayout>

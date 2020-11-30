@@ -41,9 +41,8 @@ import java.util.List;
 
 public class BagFragment extends Fragment {
 
-
-    ImageButton order = null;
     ImageButton back = null;
+    ImageButton order = null;
     private RecyclerView recyclerView;
     private BagAdapter adapter;
     Context contex;
@@ -60,8 +59,7 @@ public class BagFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView3);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        back = (ImageButton) rootView.findViewById(R.id.back);
-        order = (ImageButton) rootView.findViewById(R.id.order);
+        order = (ImageButton) rootView.findViewById(R.id.txt_order);
         mHandler = new Handler();
 
         adapter = new BagAdapter();

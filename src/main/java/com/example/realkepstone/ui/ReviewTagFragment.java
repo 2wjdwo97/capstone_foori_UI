@@ -77,7 +77,7 @@ public class ReviewTagFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_reviewtag, container, false);
-        submit = (ImageButton) root.findViewById(R.id.submit);
+        //submit = (ImageButton) root.findViewById(R.id.submit);
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         user_no=model.getUser_no();
         Log.d("loginusedfdsfsdfrno", String.valueOf(user_no));
@@ -561,7 +561,7 @@ public class ReviewTagFragment extends Fragment {
             }
         });
 
-        submit.setOnClickListener(new View.OnClickListener() {
+/*        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String cont;
@@ -580,7 +580,7 @@ public class ReviewTagFragment extends Fragment {
 
 
             }
-        });
+        });*/
 
 
 

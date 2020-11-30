@@ -1,26 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">foori</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="app_name">semáforos</string>
+    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
+    <string name="nav_header_title">Estudio de Android</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="menu_home">Hogar</string>
+    <string name="menu_gallery">Galería</string>
+    <string name="menu_slideshow">Diapositivas</string>
     <string name="message_progress">0</string>
+
     <string name="passchange">Cambio de contraseña</string>
     <string name="findidtitle">Encontrar Identificación</string>
     <string name="pw">Encuentra PW</string>
-    <string name="findid">Le enviaremos su DNI a través de su correo electrónico !!!</string>
-    <string name="findpw">Le enviaremos su nuevo PW a través de su correo electrónico !!!</string>
+    <string name="findid">Le enviaremos su DNI a través de su correo electrónico.</string>
+    <string name="findpw">Enviaremos nuevos PW a través de su correo electrónico.</string>
 
     <string name="pwConfirm">Confirmar PW</string>
     <string name="name">Nombre</string>
     <string name="birth">nacimiento</string>
-    <string name="spicy">Picante (1 ~ 5)</string>
+    <string name="spicyRate">Picante (1 ~ 5)</string>
     <string name="pick">Fecha de elección</string>
     <string name="allegry">Alergias</string>
     <string name="sign">Tablero de la muestra</string>
@@ -47,26 +47,25 @@
     <string name="a11">Fermentado</string>
     <string name="a12">Sabroso</string>
     <string name="a13">Fresco</string>
-    <string name="a14">Con alcohol</string>
-    <string name="a15">Fresco</string>
-    <string name="a16">Sabroso</string>
-    <string name="a17">Flavot de ajo</string>
-    <string name="a18">Resaca</string>
-    <string name="a19">Saludable</string>
-    <string name="a20">Carnoso</string>
-    <string name="a21">Bocadillo de medianoche</string>
-    <string name="a22">Manso</string>
-    <string name="a23">Húmedo</string>
-    <string name="a24">gordo</string>
-    <string name="a25">Frio</string>
-    <string name="a26">Salado</string>
-    <string name="a27">Frio</string>
-    <string name="a28">Bocadillo</string>
-    <string name="a29">Agrio</string>
-    <string name="a30">Picante</string>
-    <string name="a31">Pegajoso</string>
-    <string name="a32">Lleno</string>
-
+    <string name="a14">Fresco</string>
+    <string name="a15">Sabroso</string>
+    <string name="a16">Flavot de ajo</string>
+    <string name="a17">Resaca</string>
+    <string name="a18">Saludable</string>
+    <string name="a19">Carnoso</string>
+    <string name="a20">Bocadillo de medianoche</string>
+    <string name="a21">Manso</string>
+    <string name="a22">Húmedo</string>
+    <string name="a23">gordo</string>
+    <string name="a24">Frio</string>
+    <string name="a25">Salado</string>
+    <string name="a26">Bocadillo</string>
+    <string name="a27">Agrio</string>
+    <string name="a28">Picante</string>
+    <string name="a29">Pegajoso</string>
+    <string name="a30">Lleno</string>
+    <string name="a31">Cariño</string>
+    <string name="a32">Acuoso</string>
 
     <string name="b1">Arroz</string>
     <string name="b2">Kimbap / Sushi</string>
@@ -99,7 +98,6 @@
     <string name="b29">Pepinillos</string>
     <string name="b30">Etc.</string>
 
-    <string name="tagplz">¡La revisión hace que su etiqueta sea más correcta!</string>
     <string name="amount">Cantidad</string>
     <string name="change">Cambiar idioma</string>
 
@@ -109,6 +107,7 @@
     <string name="mypage">Mi página</string>
     <string name="review">revisión</string>
     <string name="explain">Tu explicación</string>
+
     <string name="allergy1">Huevo</string>
     <string name="allergy2">Leche</string>
     <string name="allergy3">Alforfón</string>
@@ -127,7 +126,8 @@
     <string name="allergy16">Calamar</string>
     <string name="allergy17">Egoísta</string>
     <string name="allergy18">Nueces</string>
-    <string name="idsend">Su identificación ha sido enviada a esa dirección de correo electrónico. Serás llevado a la pantalla de inicio de sesión.</string>
+
+    <string name="idsend">Se ha enviado una identificación a esa dirección de correo electrónico. Serás llevado a la pantalla de inicio de sesión.</string>
     <string name="noid">Esta identificación no existe.</string>
     <string name="network">Comprueba la conexión de red.</string>
     <string name="notexist">El nombre de usuario o el correo electrónico no coinciden.</string>
@@ -135,15 +135,94 @@
     <string name="success">Enviado satisfactoriamente.</string>
     <string name="joinsucess">Éxito en el registro de membresía. Puede iniciar sesión después de la autenticación con el correo electrónico registrado.</string>
     <string name="duplicate">ID o correo electrónico duplicado.</string>
-    <string name="notexistid">ID no existe.</string>
+    <string name="notexistid">&quot;Esta identificación no existe.</string>
     <string name="incorrectpw">Su cuenta está inactiva o su contraseña es incorrecta.</string>
     <string name="wrong">ID o contraseña incorrecta.</string>
     <string name="incorrect">Ésta es información incorrecta.</string>
     <string name="pwsend">Se ha enviado una contraseña temporal a ese correo electrónico.</string>
+
     <string name="successchange">Se ha cambiado normalmente.</string>
     <string name="modifysuccess">¡¡Modificación exitosa !!</string>
     <string name="quit">Tu cuenta ha sido eliminada. Volver al menú principal..</string>
     <string name="error">Se ha producido un error. Vuelve a intentarlo en unos minutos.</string>
     <string name="cancel">Cancelado.</string>
     <string name="autho">Verifique los derechos de acceso a la cámara y la galería</string>
+
+    <string name="eatAlone">comer solo</string>
+    <string name="bitter">amargo</string>
+    <string name="watery">acuoso</string>
+    <string name="buttery">mantecoso</string>
+    <string name="tasteless">insípido</string>
+    <string name="chewy">correoso</string>
+    <string name="plain">llanura</string>
+    <string name="crispy">crujiente</string>
+    <string name="dry">seco</string>
+    <string name="alcohol">con alcohol</string>
+    <string name="fermented">fermentado</string>
+    <string name="savory">sabroso</string>
+    <string name="fresh">Fresco</string>
+    <string name="Fresh">Fresco</string>
+    <string name="fruity">sabroso</string>
+    <string name="garlic">sabor a ajo</string>
+    <string name="hangover">resaca</string>
+    <string name="healthy">saludable</string>
+    <string name="meaty">carnoso</string>
+    <string name="midnight">bocadillo de medianoche</string>
+    <string name="meek">manso</string>
+    <string name="moist">húmedo</string>
+    <string name="fat">grasa</string>
+    <string name="cool">frio</string>
+    <string name="salty">salado</string>
+    <string name="snack">bocadillo</string>
+    <string name="sour">agrio</string>
+    <string name="spicy">picante</string>
+    <string name="sticky">pegajoso</string>
+    <string name="full">lleno</string>
+    <string name="sweety">cariño</string>
+
+    <string name="rice">arroz</string>
+    <string name="sushi">Sushi</string>
+    <string name="porridge">gachas de avena</string>
+    <string name="noodles">tallarines</string>
+    <string name="riceCake">tarta de arroz</string>
+    <string name="bread">un pan</string>
+    <string name="burger">hamburguesa</string>
+    <string name="pizza">Pizza</string>
+    <string name="chicken">pollo</string>
+    <string name="sandwich">emparedado</string>
+    <string name="beverage">bebida</string>
+    <string name="soup">sopa</string>
+    <string name="coldSoup">sopa fría</string>
+    <string name="stew">estofado</string>
+    <string name="steamed">al vapor</string>
+    <string name="grilled">A la parrilla</string>
+    <string name="stir">salteado</string>
+    <string name="boiled">hervido</string>
+    <string name="fried">frito</string>
+    <string name="Kimchi">kimchi</string>
+    <string name="salad">ensalada</string>
+    <string name="cookedHerb">hierbas cocidas</string>
+    <string name="seasonedHerb">hierbas sazonadas</string>
+    <string name="raisins">Pasas</string>
+    <string name="Kpancake">Panqueque coreano</string>
+    <string name="Kfish">Pescado salado coreano</string>
+    <string name="sashimi">sashimi</string>
+    <string name="pickles">pepinillos</string>
+    <string name="etc">Etc.</string>
+
+    <string name="tagplz">La revisión hace mejores recomendaciones.</string>
+    <string name="confirm">Confirmar</string>
+    <string name="submit">Enviar</string>
+    <string name="findpwtitle">Encuentra PW</string>
+    <string name="today">Hoy es especial</string>
+    <string name="country">País</string>
+    <string name="checkPreference">Verifique su preferencia.</string>
+    <string name="checkAllergy">Compruebe la alergia</string>
+    <string name="canReview">Ahora puede escribir una reseña de la comida que pidió.</string>
+    <string name="delete">Eliminar</string>
+    <string name="addToCart">Añadir al carrito</string>
+    <string name="lost">Perdió</string>
+    <string name="skip">Omitir</string>
+    <string name="signUp">Regístrate</string>
+    <string name="signIn">Registrarse</string>
 </resources>
