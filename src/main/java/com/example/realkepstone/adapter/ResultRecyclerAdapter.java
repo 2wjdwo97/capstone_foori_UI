@@ -133,6 +133,8 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             textView2.setText(data.getKor());
             content.setText(data.getDes());
 
+            prnumber.setText(String.valueOf(data.getAmount()));
+
             star.setText(String.valueOf(data.getStar()));
 
             allergy.setText(String.valueOf(data.getAllergy()));
