@@ -78,6 +78,7 @@ public class ReviewsFragment extends Fragment {
                     List<Float> listRed = new ArrayList<>();
                     List<String> listWhen = new ArrayList<>();
                     List<String> listContent = new ArrayList<>();
+                    List<String> listUrl=new ArrayList<>();
 
                     for (int i = 0; i < response.body().size(); i++) {
                         listTitle.add(response.body().get(i).getFoodName());
@@ -85,6 +86,8 @@ public class ReviewsFragment extends Fragment {
                         listRed.add(response.body().get(i).getRevSpicy());
                         listWhen.add(response.body().get(i).getRevDate());
                         listContent.add(response.body().get(i).getRevContents());
+                        listUrl.add(response.body().get(i).getUrl());
+
                     }
                     for (int i = 0; i < response.body().size(); i++) {
                         // 각 List의 값들을 data 객체에 set 해줍니다.
@@ -94,6 +97,9 @@ public class ReviewsFragment extends Fragment {
                         data.setStar(listStar.get(i));
                         data.setContent(listContent.get(i));
                         data.setWhen(listWhen.get(i));
+                        data.setUrl(listUrl.get(i));
+
+                        Log.e("urlgood", data.getUrl());
                         // 각 값이 들어간 data를 adapter에 추가합니다.
                         adapter.addItem(data);
                         adapter.notifyDataSetChanged();
@@ -101,6 +107,7 @@ public class ReviewsFragment extends Fragment {
                     }
                 }
                 else{
+                    Log.e("myreview",String.valueOf(response.code()));
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.incorrect), Toast.LENGTH_LONG).show();
                 }
             }

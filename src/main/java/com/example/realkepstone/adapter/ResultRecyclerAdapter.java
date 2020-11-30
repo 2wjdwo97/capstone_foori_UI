@@ -132,6 +132,8 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             textView2.setText(data.getKor());
             content.setText(data.getDes());
 
+            prnumber.setText(String.valueOf(data.getAmount()));
+
             star.setText(String.valueOf(data.getStar()));
 
             allergy.setText(String.valueOf(data.getAllergy()));
@@ -210,7 +212,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     prnumber.setText(String.valueOf(data.getAmount()));
                     break;
                 case R.id.order:
-                    if (data.isSelect()==false){
+                    if (data.getAmount()>0){
                         data.setSelect(true);
                         changeColor();
                         Log.d("TedPark", data.getKor()+"이게 노랑");

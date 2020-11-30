@@ -86,6 +86,7 @@ public class ResultFragment extends Fragment {
                     for(int j=0; j<OrderBack.size(); j++){
                         if(data.get(i).getKor()==OrderBack.get(j).getKor()){
                             data.get(i).setSelect(false);
+                            data.get(i).setAmount(OrderBack.get(j).getAmount());
                             Log.d("TedPark", OrderBack.get(j).isSelect()+"뭐가지워졌냐");
 
                         }
@@ -143,6 +144,7 @@ public class ResultFragment extends Fragment {
         List <Integer> listRecommend = new ArrayList<Integer>();
         List <Float> listStar =new ArrayList<Float>();
 
+
         for(int i=0; i<number; i++){
             listKor.add(foodAfter.getFoodKorName().get(i));
             listEng.add(foodAfter.getFoodEngName().get(i));
@@ -154,6 +156,7 @@ public class ResultFragment extends Fragment {
             listTag.add(foodAfter.getFood_tags().get(i).toString());
             listRecommend.add(foodAfter.getRecommendFood().get(i));
             listStar.add(foodAfter.getStar().get(i));
+
         }
 
         for (int i = 0; i < number; i++) {
@@ -186,15 +189,18 @@ public class ResultFragment extends Fragment {
         List <String> listAller = new ArrayList<String>();
         List <String> listUrl = new ArrayList<String>();
         List <Float> listStar = new ArrayList<Float>();
+        List <Integer> listAmount = new ArrayList<>();
 
         for(int i=0; i<getSize; i++){
-            if(adapter.listData.get(i).isSelect()){
+            if(adapter.listData.get(i).getAmount()>0){
                 passSize++;
                 listKor.add(adapter.listData.get(i).getKor());
                 listEng.add(adapter.listData.get(i).getEng());
                 listDes.add(adapter.listData.get(i).getDes());
                 listUrl.add(adapter.listData.get(i).getUrl());
                 listStar.add(adapter.listData.get(i).getStar());
+                listAmount.add(adapter.listData.get(i).getAmount());
+
             }
         }
 
@@ -206,7 +212,9 @@ public class ResultFragment extends Fragment {
             food.setDes(listDes.get(i));
             food.setUrl(listUrl.get(i));
             food.setStar(listStar.get(i));
+            food.setAmount(listAmount.get(i));
 
+            Log.e("doing?", "yes");
             // 각 값이 들어간 data를 adapter에 추가합니다.
             OrderList.add(food);
         }

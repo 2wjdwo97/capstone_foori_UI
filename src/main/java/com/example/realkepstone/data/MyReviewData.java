@@ -24,9 +24,21 @@ public class MyReviewData {
     @SerializedName("rev_spicy")
     @Expose
     private Float revSpicy;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @SerializedName("rev_contents")
     @Expose
     private String revContents;
+    @SerializedName("food_img_url")
+    @Expose
+    private String url;
     @SerializedName("food_name")
     @Expose
     private String foodName;

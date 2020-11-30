@@ -28,11 +28,13 @@ import com.example.realkepstone.ui.ResultFragment;
 import com.example.realkepstone.ui.ReviewFragment;
 import com.example.realkepstone.ui.ReviewTagFragment;
 import com.example.realkepstone.ui.gallery.GalleryFragment;
+import com.example.realkepstone.ui.gallery.MenuGalleryFragment;
 import com.example.realkepstone.ui.mypage.ChangePWFragment;
 import com.example.realkepstone.ui.mypage.ChangeTagFragment;
 import com.example.realkepstone.ui.mypage.LanguageFragment;
 import com.example.realkepstone.ui.mypage.QuitFragment;
 import com.example.realkepstone.ui.mypage.ReviewsFragment;
+import com.example.realkepstone.ui.slideshow.MenuSlideFragment;
 import com.example.realkepstone.ui.slideshow.SlideshowFragment;
 import com.example.realkepstone.ui.home.HomeFragment;
 import com.example.realkepstone.ui.mypage.MypageFragment;
@@ -67,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     private QuitFragment frag12;
     private ReviewsFragment frag13;
     private LanguageFragment frag14;
+    private MenuSlideFragment frag15;
+    private MenuGalleryFragment frag16;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -125,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
         frag12=new QuitFragment();
         frag13=new ReviewsFragment();
         frag14=new LanguageFragment();
+        frag15=new MenuSlideFragment();
+        frag16=new MenuGalleryFragment();
 
         img_review.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                 img_myPage.setImageResource(R.drawable.my_page_05);
                 img_home.setImageResource(R.drawable.home_03);
                 img_gallery.setImageResource(R.drawable.gallery_sel_gallery);
-                setFrag(2);
+                setFrag(15);
             }
         });
         img_camera.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 img_myPage.setImageResource(R.drawable.my_page_05);
                 img_home.setImageResource(R.drawable.home_03);
                 img_gallery.setImageResource(R.drawable.gallery_gallery);
-                setFrag(1);
+                setFrag(14);
             }
         });
 
@@ -253,6 +259,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 13:
                 ft.replace(R.id.Main_Frame,frag14,"not");
+                ft.commit();
+                break;
+            case 14:
+                ft.replace(R.id.Main_Frame,frag15,"not");
+                ft.commit();
+                break;
+            case 15:
+                ft.replace(R.id.Main_Frame,frag16,"not");
                 ft.commit();
                 break;
         }

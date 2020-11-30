@@ -113,14 +113,14 @@ public class BagFragment extends Fragment {
 
         int size=OrderList.size();
 
-        for(int i=0; i<size; i++){
-            if(listAmount.get(i)>0) {
-                listKor.add(OrderList.get(i).getKor());
-                listEng.add(OrderList.get(i).getEng());
-                listDes.add(OrderList.get(i).getDes());
-                listAmount.add(OrderList.get(i).getAmount());
-                listUrl.add(OrderList.get(i).getUrl());
-            }
+        for(int i=0; i< size; i++){
+
+            listKor.add(OrderList.get(i).getKor());
+            listEng.add(OrderList.get(i).getEng());
+            listDes.add(OrderList.get(i).getDes());
+            listAmount.add(OrderList.get(i).getAmount());
+            listUrl.add(OrderList.get(i).getUrl());
+
         }
         for (int i = 0; i < size; i++) {
         // 각 List의 값들을 data 객체에 set 해줍니다.
