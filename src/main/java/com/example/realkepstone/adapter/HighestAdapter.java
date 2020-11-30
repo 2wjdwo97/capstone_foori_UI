@@ -68,7 +68,6 @@ public class HighestAdapter extends RecyclerView.Adapter<HighestAdapter.ItemView
             KorName = itemView.findViewById(R.id.korName);
             star = itemView.findViewById(R.id.starpoint);
             content = itemView.findViewById(R.id.content);
-            tag = itemView.findViewById(R.id.tag);
             alllergy = itemView.findViewById(R.id.Allergy);
             imageView = itemView.findViewById(R.id.imageView1);
         }

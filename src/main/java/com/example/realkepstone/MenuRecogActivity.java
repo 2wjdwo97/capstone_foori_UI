@@ -51,8 +51,6 @@ public class MenuRecogActivity extends AppCompatActivity {
         adapter = new ResultRecyclerAdapter();
         recyclerView.setAdapter(adapter);
 
-        bag = (ImageView) findViewById(R.id.bag);
-        id = (TextView) findViewById(R.id.id);
 
         OrderList = new ArrayList<>();
         getData(res_result);
