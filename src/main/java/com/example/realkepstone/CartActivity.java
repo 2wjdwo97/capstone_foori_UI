@@ -119,7 +119,7 @@ public class CartActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                finish();
+                finish(); 
                 overridePendingTransition(R.anim.exit_to_right, R.anim.exit_to_right);
                 return true;
             }
