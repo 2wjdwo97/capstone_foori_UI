@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -94,11 +95,16 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         private Food data;
         private int position;
         private TextView allergy;
+        private RelativeLayout linear;
+        private LinearLayout linearItem2;
         private TextView content;
         private ImageView medal;
-        private RelativeLayout linear;
         private RelativeLayout linearItem;
-        private LinearLayout linearItem2;
+
+        CardView less;
+        CardView more;
+        TextView prnumber;
+        int number;
 
         ItemViewHolder(View itemView) {
             super(itemView);
@@ -108,13 +114,16 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             textView2 = itemView.findViewById(R.id.Kor);
             imageView1 = itemView.findViewById(R.id.imageView1);
             star = itemView.findViewById(R.id.starpoint);
+            linear=itemView.findViewById(R.id.Linear);
+            linearItem2=itemView.findViewById(R.id.linearItem2);
             content = itemView.findViewById(R.id.content);
             allergy = itemView.findViewById(R.id.Allergy);
             medal = itemView.findViewById(R.id.medal);
-            linear=itemView.findViewById(R.id.Linear);
-            linearItem = itemView.findViewById(R.id.linearItem);
-            linearItem2=itemView.findViewById(R.id.linearItem2);
-
+            linearItem2 = itemView.findViewById(R.id.linearItem2);
+            more=itemView.findViewById(R.id.more);
+            less=itemView.findViewById(R.id.less);
+            prnumber=itemView.findViewById(R.id.prnumber);
+            number=0;
         }
 
         void onBind(Food data, int position) {
@@ -128,7 +137,7 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             star.setText(String.valueOf(data.getStar()));
 
             allergy.setText(String.valueOf(data.getAllergy()));
-           // star.setText(data.get());
+            // star.setText(data.get());
 //            textView1.setText(data.getEng());
             if(data.getRecommed()==1){
                 Log.e("image", String.valueOf(data.getRecommed()));
@@ -158,15 +167,20 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
-            linearItem.setOnClickListener(this);
+            linearItem2.setOnClickListener(this);
+            textView1.setOnClickListener(this);
+            textView2.setOnClickListener(this);
+            //    imageView1.setOnClickListener(this);
             order.setOnClickListener(this);
+            less.setOnClickListener(this);
+            more.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.linearItem:
+                case R.id.linearItem2:
                     if (selectedItems.get(position)) {
                         // 펼쳐진 Item을 클릭 시
                         changeColor();
@@ -186,6 +200,13 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     // 클릭된 position 저장
                     prePosition = position;
                     break;
+                case R.id.less:
+                    number--;
+                    prnumber.setText(number+1);
+                case R.id.more:
+                    number++;
+                    prnumber.setText(number+1);
+                    break;
                 case R.id.order:
                     if (data.isSelect()==false){
                         data.setSelect(true);
@@ -200,15 +221,18 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     break;
             }
         }
-
+        /**
+         * 클릭된 Item의 상태 변경
+         * @param isExpanded Item을 펼칠 것인지 여부
+         */
         private void changeColor(){
             if (data.isSelect()==true){
                 linear.setBackgroundColor(Color.parseColor("#dac896"));
-                linearItem.setBackgroundColor(Color.parseColor("#dac896"));
+                linearItem2.setBackgroundColor(Color.parseColor("#dac896"));
             }
             else {
                 linear.setBackgroundColor(Color.WHITE);
-                linearItem.setBackgroundColor(Color.WHITE);
+                linearItem2.setBackgroundColor(Color.WHITE);
             }
         }
 
