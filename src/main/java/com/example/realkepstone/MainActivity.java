@@ -10,6 +10,10 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
@@ -41,7 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView img_toolbar;
     private Toolbar toolbar;
-    private BottomNavigationView bottomNavigationView;
+
+    private ImageView img_home;
+    private ImageView img_review;
+    private ImageView img_camera;
+    private ImageView img_gallery;
+    private ImageView img_myPage;
 
     private FragmentManager fm;
     private FragmentTransaction ft;
@@ -92,8 +101,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         toolbar = (Toolbar)findViewById(R.id.tb_main);
-        bottomNavigationView = findViewById(R.id.bottomNavi);
         setSupportActionBar(toolbar);
+
+
+
+        //bottomNavigationView = findViewById(R.id.bottomNavi);
+
+        img_camera = findViewById(R.id.img_camera);
+        img_gallery = findViewById(R.id.img_gallery);
+        img_home = findViewById(R.id.img_home);
+        img_myPage = findViewById(R.id.img_myPage);
+        img_review = findViewById(R.id.img_review);
+
+        //     viewPager = findViewById(R.id.viewPager);
 
         frag1=new HomeFragment();
         frag2=new SlideshowFragment();
@@ -112,27 +132,58 @@ public class MainActivity extends AppCompatActivity {
         frag15=new MenuSlideFragment();
         frag16=new MenuGalleryFragment();
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-            switch (menuItem.getItemId())
-            {
-                case R.id.home:
-                    setFrag(0);
-                    break;
-                case R.id.camera:
-                    setFrag(14);
-                    break;
-                case R.id.mypage :
-                    setFrag(3);
-                    break;
-                case R.id.gallery:
-                    setFrag(15);
-                    break;
-                case R.id.review:
-                    setFrag(7);
-                    break;
+        img_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_sel_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(7);
             }
-            return true;
         });
+        img_myPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_sel_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(3);
+            }
+        });
+        img_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_sel_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(0);
+
+            }
+        });
+        img_gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_sel_gallery);
+                setFrag(15);
+            }
+        });
+        img_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(14);
+            }
+        });
+
         setFrag(0); // 첫 프래그먼트 화면 지정
     }
 

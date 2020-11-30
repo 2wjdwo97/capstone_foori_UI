@@ -38,21 +38,77 @@
         android:id="@+id/Main_Frame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_main"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tb_main" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemBackground="@android:color/white"
-        app:itemIconTint="@drawable/menu_select_color"
-        app:itemTextColor="@drawable/menu_select_color"
+        android:layout_height="70dp"
+        android:id="@+id/bottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/bottomNavi"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#F2F2F2"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/img_home"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="17dp"
+                android:background="@drawable/home_sel_03" />
+
+            <ImageView
+                android:id="@+id/img_review"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_toEndOf="@id/img_home"
+                android:background="@drawable/review_04" />
+
+            <ImageView
+                android:id="@+id/img_gallery"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_toStartOf="@id/img_myPage"
+                android:background="@drawable/gallery_gallery" />
+
+            <ImageView
+                android:id="@+id/img_myPage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="17dp"
+                android:background="@drawable/my_page_05" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_camera"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/camera_camera" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

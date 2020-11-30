@@ -105,7 +105,6 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         CardView more;
         TextView prnumber;
 
-
         ItemViewHolder(View itemView) {
             super(itemView);
 
@@ -211,7 +210,6 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                 case R.id.more:
                     data.setAmount(data.getAmount()+1);
                     prnumber.setText(String.valueOf(data.getAmount()));
-
                     break;
                 case R.id.order:
                     if (data.getAmount()>0){

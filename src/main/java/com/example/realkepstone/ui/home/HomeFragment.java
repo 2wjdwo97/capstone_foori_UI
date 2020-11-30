@@ -190,7 +190,7 @@ public class HomeFragment extends Fragment {
 
                     if(response.body().size()==0){
                         Log.e("loginusedfdsfsdfrno", "sex");
-                        hidden.setBackgroundResource(R.drawable.german);
+                        hidden.setBackgroundResource(R.drawable.no_data);
                         hidden.clearAnimation();
                     }else{
                         Log.e("loginusedfdsfsdfrno", "sex!E@!RAFA");
@@ -199,9 +199,7 @@ public class HomeFragment extends Fragment {
                         hidden.setVisibility(View.GONE);
                     }
 
-                    if(response.body().size()==0){
-                        hidden.setBackgroundResource(R.drawable.german);
-                    }
+
 
                     for(int i=0; i<response.body().size(); i++){
                         hidden.setVisibility(View.GONE);

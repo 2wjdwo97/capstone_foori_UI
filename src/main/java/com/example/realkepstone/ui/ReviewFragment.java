@@ -116,8 +116,9 @@ public class    ReviewFragment extends Fragment {
 
                     if(response.body().size()==0){
                         Log.e("loginusedfdsfsdfrno", "sex");
-                        hidden.setBackgroundResource(R.drawable.german);
                         hidden.clearAnimation();
+                        hidden.setBackgroundResource(R.drawable.no_data);
+
                     }else{
                         Log.e("loginusedfdsfsdfrno", "sex!E@!RAFA");
                         hidden.clearAnimation();
