@@ -45,6 +45,7 @@ public class MyPage_PasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_page__password);
 
         Intent intent = getIntent();
+        user_no = intent.getIntExtra("user_no", 0);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.tb_password);
         setSupportActionBar(toolbar);
@@ -55,9 +56,8 @@ public class MyPage_PasswordActivity extends AppCompatActivity {
         password=findViewById(R.id.password);
         new_password=findViewById(R.id.new_password);
         confirm=findViewById(R.id.new_confirm);
+
         send=findViewById(R.id.send);
-        model = new ViewModelProvider(this).get(SharedViewModel.class);
-        user_no=model.getUser_no();
         Log.d("loginusedfdsfsdfrno", String.valueOf(user_no));
         api = HttpClient.getRetrofit().create( ApiInterface.class );
 
@@ -66,6 +66,7 @@ public class MyPage_PasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 requestPost(user_no, password.getText().toString(),new_password.getText().toString(), confirm.getText().toString());
+                finish();
             }
         });
 //((MainActivity) getActivity()) -> this

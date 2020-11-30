@@ -60,6 +60,7 @@ public class MyPage_LanguageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_page__language);
 
         Intent intent = getIntent();
+        user_no = intent.getIntExtra("user_no", 0);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.tb_language);
         setSupportActionBar(toolbar);
@@ -73,8 +74,6 @@ public class MyPage_LanguageActivity extends AppCompatActivity {
         japan=findViewById(R.id.Japan);
         germany=findViewById(R.id.German);
 
-        model = new ViewModelProvider(this).get(SharedViewModel.class);
-        user_no=model.getUser_no();
         Log.d("loginusedfdsfsdfrno", String.valueOf(user_no));
         api = HttpClient.getRetrofit().create( ApiInterface.class );
 

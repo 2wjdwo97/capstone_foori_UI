@@ -127,7 +127,9 @@ public class MyPage_PreferenceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page__preference);
+
         Intent intent = getIntent();
+        user_no = intent.getIntExtra("user_no", 0);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.tb_preference);
         setSupportActionBar(toolbar);
@@ -137,11 +139,6 @@ public class MyPage_PreferenceActivity extends AppCompatActivity {
         spinner = (Spinner)findViewById(R.id.spinner);
         spicybar= findViewById(R.id.spicy);
         spicy=3;
-
-        model = new ViewModelProvider(this).get(SharedViewModel.class);
-
-        user_no=model.getUser_no();
-        Log.d("ChangeTagFrag_userNo", String.valueOf(user_no));
 
         foodClass = new ArrayList<Integer>();
         Tag = new ArrayList<Integer>();

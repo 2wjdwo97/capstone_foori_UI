@@ -1,34 +1,21 @@
 package com.example.realkepstone;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.realkepstone.R;
-import com.example.realkepstone.SharedViewModel;
 import com.example.realkepstone.adapter.MyReviewAdapter;
-import com.example.realkepstone.adapter.RecyclerAdapter;
-import com.example.realkepstone.data.Food;
 import com.example.realkepstone.data.MyReview;
 import com.example.realkepstone.data.MyReviewData;
 import com.example.realkepstone.data.RevReqData;
-import com.example.realkepstone.data.RevResData;
 import com.example.realkepstone.server.ApiInterface;
 import com.example.realkepstone.server.HttpClient;
 
@@ -52,14 +39,12 @@ public class MyPage_ReviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_page__review);
 
         Intent intent = getIntent();
-
+        user_no = intent.getIntExtra("user_no", 0);
         Toolbar toolbar = (Toolbar)findViewById(R.id.tb_review);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("My Reviews");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //
-        model = new ViewModelProvider(this).get(SharedViewModel.class);
-        user_no=model.getUser_no();
 
         api = HttpClient.getRetrofit().create( ApiInterface.class );
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
