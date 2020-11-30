@@ -8,6 +8,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,7 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     private AppBarConfiguration mAppBarConfiguration;
-    private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰
+    //private BottomNavigationView bottomNavigationView; // 바텀 네비게이션 뷰
+    private ImageView img_home;
+    private ImageView img_review;
+    private ImageView img_camera;
+    private ImageView img_gallery;
+    private ImageView img_myPage;
+
     private FragmentManager fm;
     private FragmentTransaction ft;
     private HomeFragment frag1;
@@ -107,7 +115,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        bottomNavigationView = findViewById(R.id.bottomNavi);
+        //bottomNavigationView = findViewById(R.id.bottomNavi);
+
+        img_camera = findViewById(R.id.img_camera);
+        img_gallery = findViewById(R.id.img_gallery);
+        img_home = findViewById(R.id.img_home);
+        img_myPage = findViewById(R.id.img_myPage);
+        img_review = findViewById(R.id.img_review);
 
         //     viewPager = findViewById(R.id.viewPager);
 
@@ -126,64 +140,59 @@ public class MainActivity extends AppCompatActivity {
         frag13=new ReviewsFragment();
         frag14=new LanguageFragment();
 
-
-
-        /*
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        img_review.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        viewPager.setCurrentItem(0);
-                        break;
-                    case R.id.camera:
-                        viewPager.setCurrentItem(1);
-                        break;
-                    case R.id.gallery:
-                        viewPager.setCurrentItem(2);
-                        break;
-                    case R.id.mypage:
-                        viewPager.setCurrentItem(3);
-                        break;
-                    case R.id.review:
-                        viewPager.setCurrentItem(4);
-                        break;
-                }
-                return true;
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_sel_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(7);
             }
-
         });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        img_myPage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_sel_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(3);
             }
-
+        });
+        img_home.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageSelected(int position) {
-                if (position == 0) {
-                    bottomNavigationView.setSelectedItemId(R.id.home);
-                } else if (position == 1) {
-                    bottomNavigationView.setSelectedItemId(R.id.camera);
-                } else if (position == 2) {
-                    bottomNavigationView.setSelectedItemId(R.id.gallery);
-                }else if (position == 3) {
-                    bottomNavigationView.setSelectedItemId(R.id.mypage);
-                }
-                else if (position == 4) {
-                    bottomNavigationView.setSelectedItemId(R.id.review);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_sel_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(0);
 
             }
         });
+        img_gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_sel_gallery);
+                setFrag(2);
+            }
+        });
+        img_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                img_review.setImageResource(R.drawable.review_04);
+                img_myPage.setImageResource(R.drawable.my_page_05);
+                img_home.setImageResource(R.drawable.home_03);
+                img_gallery.setImageResource(R.drawable.gallery_gallery);
+                setFrag(1);
+            }
+        });
 
-*/
-
+/*
         bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
             switch (menuItem.getItemId())
             {
@@ -205,17 +214,8 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
-
-
-
-
-
-
+*/
         setFrag(0); // 첫 프래그먼트 화면 지정
-
-
-
-
 
     }
 
