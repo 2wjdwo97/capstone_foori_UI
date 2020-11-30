@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +85,14 @@ public class MenuGalleryFragment extends Fragment {
 
         apiInterface = HttpClient.getRetrofit().create( ApiInterface.class );
         imageview = (ImageView) root.findViewById(R.id.imageView);
+
+        if(isPermission){
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE);
+        }
+        else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
         imageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,17 +115,14 @@ public class MenuGalleryFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        imageview.setImageResource(R.drawable.loading_2);
+        Animation a = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
+        a.setDuration(1000);
+        imageview.startAnimation(a);
+
         if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
 
             android.net.Uri selectedImage = data.getData();
-
-            try {
-                Bitmap bm = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
-                imageview.setImageBitmap(bm);
-            } catch (FileNotFoundException e) {
-            } catch (IOException e) {
-            }
-
 
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
             activity = (MainActivity) getActivity();
@@ -135,6 +142,10 @@ public class MenuGalleryFragment extends Fragment {
                 @Override
                 public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
                     if(response.code()==201) {
+
+                        imageview.clearAnimation();
+
+
                         response.body(); // have your all data
                         Log.e("list" , response.body().getFoodKorName()+"Kor");
                         Log.e("list" , response.body().getFoodEngName()+"Eng");
@@ -163,11 +174,19 @@ public class MenuGalleryFragment extends Fragment {
 //                        transaction.replace(R.id.Main_Frame, mfragment,"not");
 //                        transaction.commit();
                         Log.d("TedPark", String.valueOf(response.code()));
+
+                    }else{
+                        imageview.clearAnimation();
+                        imageview.setImageResource(R.drawable.no_data);
                     }
                     Log.d("TedPark", String.valueOf(response.code()));
                 }
                 @Override
                 public void onFailure(Call<FoodAfter> call, Throwable t) {
+
+                    imageview.clearAnimation();
+                    imageview.setImageResource(R.drawable.no_data);
+
                     t.printStackTrace();
                     Log.d("TedPark", "ㄹ");
                     Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();

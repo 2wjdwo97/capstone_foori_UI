@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -83,6 +85,9 @@ public class MenuSlideFragment extends Fragment {
         tedPermission();
         imageView = root.findViewById(R.id.iv2);
 
+        if(isPermission)
+            takePhoto();
+        else makeText( getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
 
         imageView.setOnClickListener(new Button.OnClickListener() { // 버튼 onClick 리스너 처리부분
             @Override public void onClick( View v ) {
@@ -98,6 +103,11 @@ public class MenuSlideFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         /* 카메라를 켰다 사진을 안찍거나, 앨범에 가서 사진을 안 골라 온 경우의 예외 처리 */
+        imageView.setImageResource(R.drawable.loading_1);
+        Animation a = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
+        a.setDuration(1000);
+        imageView.startAnimation(a);
+
         if (resultCode != Activity.RESULT_OK) {
             makeText(getContext(), getResources().getString(R.string.cancel), Toast.LENGTH_SHORT).show();
             if (tempFile != null) {
@@ -111,7 +121,6 @@ public class MenuSlideFragment extends Fragment {
         }
         /* 카메라를 켰다 사진을 안찍거나, 앨범에 가서 사진을 안 골라 온 경우의 예외 처리 */ /* onActivityResult의 requestCode 값에 따라 로직이 실행됨 */
 
-        setImage();
 
 
         RequestBody reqFile = RequestBody.create(MediaType.parse("multipart/form-file"), tempFile);
@@ -124,6 +133,10 @@ public class MenuSlideFragment extends Fragment {
             @Override
             public void onResponse(Call<FoodAfter> call, Response<FoodAfter> response) {
                 if(response.code()==201) {
+
+                    imageView.clearAnimation();
+
+
                     response.body(); // have your all data
                        /* List<String> id = response.body().getFoodKorName();
                         List<String> engName = response.body().getFoodEngName();
@@ -143,13 +156,21 @@ public class MenuSlideFragment extends Fragment {
                     mfragment.setArguments(bundle); //data being send to SecondFragment
                     transaction.replace(R.id.Main_Frame, mfragment,"not");
                     transaction.commit();
-                    //  MainActivity activity = (MainActivity) getActivity();
+                    //  MainActivity activity = (MainActivity) getActivity()
                     // activity.setFrag(4);
+                }
+                else{
+                    imageView.clearAnimation();
+
+                    imageView.setImageResource(R.drawable.no_data);
                 }
                 Log.d("TedPark", String.valueOf(response.code()));
             }
             @Override
             public void onFailure(Call<FoodAfter> call, Throwable t) {
+                imageView.clearAnimation();
+
+                imageView.setImageResource(R.drawable.no_data);
                 t.printStackTrace();
                 Log.d("TedPark", "ㄹ");
                 Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();

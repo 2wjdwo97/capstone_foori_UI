@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -149,6 +151,13 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         hidden.setVisibility(View.VISIBLE);
+
+
+        Animation a = AnimationUtils.loadAnimation(getContext(), R.anim.progress_anim);
+        a.setDuration(1000);
+        hidden.startAnimation(a);
+
+
         requestPost(user_no);
 
         return rootView;
@@ -178,9 +187,19 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<List<TodayData>> call, Response<List<TodayData>> response) {
                 if(response.code()==200){
 
+
                     if(response.body().size()==0){
-                        hidden.setBackgroundResource(R.drawable.german);
+                        Log.e("loginusedfdsfsdfrno", "sex");
+                        hidden.setBackgroundResource(R.drawable.no_data);
+                        hidden.clearAnimation();
+                    }else{
+                        Log.e("loginusedfdsfsdfrno", "sex!E@!RAFA");
+                        hidden.clearAnimation();
+
+                        hidden.setVisibility(View.GONE);
                     }
+
+
 
                     for(int i=0; i<response.body().size(); i++){
                         hidden.setVisibility(View.GONE);

@@ -88,7 +88,7 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            txt_delete = itemView.findViewById(R.id.txt_Amount);
+            txt_Amount = itemView.findViewById(R.id.txt_Amount);
 
             txt_delete = itemView.findViewById(R.id.txt_delete);
             txt_engName = itemView.findViewById(R.id.txt_engName);
@@ -102,7 +102,8 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
             txt_engName.setText(data.getEng());
             txt_korName.setText(data.getKor());
 
-            txt_Amount.setText(data.getAmount());
+            txt_Amount.setText(String.valueOf(data.getAmount())
+            );
 
 /*            Glide
                     .with(img_food.getContext())
@@ -110,7 +111,9 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
                     .centerCrop()
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(img_food);
+
 */
+
             //changeVisibility(selectedItems.get(position));
 
             itemView.setOnClickListener(this);
@@ -123,7 +126,9 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
             switch (v.getId()) {
 
                 case R.id.txt_delete:
+                    data.setAmount(0);
                     trash.add(data);
+
                     deleteItem(data);
                     selectedItems.delete(position);
                     if (prePosition != -1) notifyItemChanged(prePosition);
@@ -137,7 +142,7 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
         }
 
 
- /*       *//**
+        /*       *//**
          * 클릭된 Item의 상태 변경
          * @param isExpanded Item을 펼칠 것인지 여부
          *//*
@@ -146,7 +151,6 @@ public class BagAdapter extends RecyclerView.Adapter<BagAdapter.ItemViewHolder> 
             int dpValue = 105;
             float d = context.getResources().getDisplayMetrics().density;
             int height = (int) (dpValue * d);
-
             // ValueAnimator.ofInt(int... values)는 View가 변할 값을 지정, 인자는 int 배열
             ValueAnimator va = isExpanded ? ValueAnimator.ofInt(0, height) : ValueAnimator.ofInt(height, 0);
             // Animation이 실행되는 시간, n/1000초

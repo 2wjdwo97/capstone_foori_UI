@@ -50,7 +50,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ReviewFragment extends Fragment {
+public class    ReviewFragment extends Fragment {
 
 
     ImageButton review = null;
@@ -112,13 +112,19 @@ public class ReviewFragment extends Fragment {
             @Override
             public void onResponse(Call<List<RevResData>> call, Response<List<RevResData>> response) {
                 if(response.code()==200){
+                    Log.e("loginusedfdsfsdfrno", String.valueOf(response.code()));
 
                     if(response.body().size()==0){
-                        Log.e("review_frag", "no result");
-                        hidden.setBackgroundResource(R.drawable.german);
+                        hidden.clearAnimation();
+                        hidden.setBackgroundResource(R.drawable.no_data);
+
+                    }else{
+                        Log.e("loginusedfdsfsdfrno", "sex!E@!RAFA");
                         hidden.clearAnimation();
 
+                        hidden.setVisibility(View.GONE);
                     }
+
                     for(int i = 0; i<response.body().size(); i++){
 
 
