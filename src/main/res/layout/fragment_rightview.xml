@@ -4,11 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:weightSum="10"
+    android:weightSum="11"
 
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_rightview"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <LinearLayout
         android:id="@+id/li"
@@ -39,14 +50,14 @@
                     android:layout_height="match_parent"
                     android:textColor="@drawable/selector_textcolor"
                     android:layout_weight="1"
-                    android:text="Highest Rated"
+                    android:text="Highest\nRated"
                     android:background="@drawable/selector_button">
 
 
                 </Button>
 
                 <Button
-                    android:text="Most Reviewed"
+                    android:text="Most\nReviewed"
                     android:textColor="@drawable/selector_textcolor"
 
                     android:id="@+id/most"

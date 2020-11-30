@@ -43,7 +43,7 @@
     <string name="a7">Plaine</string>
     <string name="a8">Croustillant</string>
     <string name="a9">Sec</string>
-    <string name="a10">Avec de l#39alcool</string>
+    <string name="a10">Avec de lalcool</string>
     <string name="a11">Fermenté</string>
     <string name="a12">Sarriette</string>
     <string name="a13">Frais</string>
@@ -66,8 +66,6 @@
     <string name="a30">Épicé</string>
     <string name="a31">Gluant</string>
     <string name="a32">Plein</string>
-    <string name="a33">Chérie</string>
-    <string name="a34">Aqueux</string>
 
     <string name="b1">Riz</string>
     <string name="b2">Kimbap / Sushi</string>

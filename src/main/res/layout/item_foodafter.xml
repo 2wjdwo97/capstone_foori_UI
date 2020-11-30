@@ -240,7 +240,6 @@
                 android:paddingHorizontal="15dp"
                 android:fontFamily="@font/jua"
                 android:textSize="16sp"
-                android:text="0"
                 android:textColor="@android:color/black" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/more"

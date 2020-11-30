@@ -80,7 +80,6 @@ public class LoginFragment extends Fragment {
 
         login = (ImageButton) root.findViewById(R.id.login);
         join = (ImageButton) root.findViewById(R.id.join);
-        without = (ImageButton) root.findViewById(R.id.without);
         findid = (TextView) root.findViewById(R.id.findId);
         findpw = (TextView) root.findViewById(R.id.findPw);
 
@@ -89,14 +88,6 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 FrontActivity activity = (FrontActivity) getActivity();
                 activity.loginfragmentChange();
-            }
-        });
-        without.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FrontActivity activity = (FrontActivity) getActivity();
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
             }
         });
 

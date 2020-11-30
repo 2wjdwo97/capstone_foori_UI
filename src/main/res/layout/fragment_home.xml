@@ -365,14 +365,24 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginStart="8dp"
                     android:textSize="28sp" />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="15dp"
-                    android:id="@+id/recyclerView"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp" />
+                    <ImageView
+                        android:id="@+id/hidden"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/loading_1"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true">
+                    </ImageView>
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-
 </RelativeLayout>

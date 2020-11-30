@@ -104,7 +104,6 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
         CardView less;
         CardView more;
         TextView prnumber;
-        int number;
 
         ItemViewHolder(View itemView) {
             super(itemView);
@@ -123,7 +122,6 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
             more=itemView.findViewById(R.id.more);
             less=itemView.findViewById(R.id.less);
             prnumber=itemView.findViewById(R.id.prnumber);
-            number=0;
         }
 
         void onBind(Food data, int position) {
@@ -201,11 +199,15 @@ public class ResultRecyclerAdapter extends RecyclerView.Adapter<ResultRecyclerAd
                     prePosition = position;
                     break;
                 case R.id.less:
-                    number--;
-                    prnumber.setText(number+1);
+                    if(data.getAmount()>0){
+                        data.setAmount(data.getAmount()-1);
+                    }
+                    prnumber.setText(String.valueOf(data.getAmount()));
+                    Log.d("ddddfdsf", String.valueOf(data.getAmount()));
+                    break;
                 case R.id.more:
-                    number++;
-                    prnumber.setText(number+1);
+                    data.setAmount(data.getAmount()+1);
+                    prnumber.setText(String.valueOf(data.getAmount()));
                     break;
                 case R.id.order:
                     if (data.isSelect()==false){

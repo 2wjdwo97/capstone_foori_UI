@@ -6,6 +6,7 @@ import com.example.realkepstone.data.ButtonData;
 import com.example.realkepstone.data.ChangeTagData;
 import com.example.realkepstone.data.FoodAfter;
 import com.example.realkepstone.data.HomeData;
+import com.example.realkepstone.data.LanguageData;
 import com.example.realkepstone.data.MyReviewData;
 import com.example.realkepstone.data.OrderData;
 import com.example.realkepstone.data.PasswordChangeData;
@@ -13,6 +14,7 @@ import com.example.realkepstone.data.RevReqData;
 import com.example.realkepstone.data.RevResData;
 import com.example.realkepstone.data.ReviewSaveData;
 import com.example.realkepstone.data.TodayData;
+import com.example.realkepstone.data.TodayReqData;
 
 import java.util.List;
 
@@ -81,8 +83,12 @@ public interface ApiInterface {
     Call<ReqLoginData> requestDelete(@Body ReqLoginData reqLoginData );   // @Body : request 파라미터
 
 
-    @GET("foods/get/order/today/")
-    Call<List<TodayData>> requestToday();   // @Body : request 파라미터
+    @POST("foods/get/order/today/")
+    Call<List<TodayData>> requestToday(@Body TodayReqData todayReqData );   // @Body : request 파라미터
+
+    @POST("users/modify/language/")
+    Call<LanguageData> requestLang(@Body LanguageData languageData );   // @Body : request 파라미터
+
 
 
 

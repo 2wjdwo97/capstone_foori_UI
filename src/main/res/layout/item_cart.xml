@@ -8,10 +8,12 @@
     android:paddingVertical="8dp"
     android:paddingHorizontal="10dp"
     android:background="@drawable/boarder_result">
+
     <RelativeLayout
         android:id="@+id/layout_food"
         android:orientation="vertical"
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
         android:paddingHorizontal="20dp"
         android:paddingVertical="13dp">
@@ -29,6 +31,7 @@
             android:id="@+id/txt_korName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:text="Korean"
             android:layout_alignStart="@id/txt_engName"
             android:layout_below="@id/txt_engName"
