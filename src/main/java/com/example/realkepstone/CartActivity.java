@@ -28,6 +28,7 @@ public class CartActivity extends AppCompatActivity {
     private ArrayList<Food> data;
     private ArrayList<Food> OrderList;
 
+    private int user_no;
     private ImageButton order = null;
     private BagAdapter adapter;
     private Handler mHandler;
@@ -52,6 +53,7 @@ public class CartActivity extends AppCompatActivity {
         order = (ImageButton) findViewById(R.id.txt_order);
 
         Intent intent = getIntent();
+        user_no = intent.getIntExtra("user_no", 0);
         OrderList = null;
         OrderList = (ArrayList<Food>) intent.getSerializableExtra("bag");
         data = (ArrayList<Food>) intent.getSerializableExtra("data");
@@ -65,7 +67,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mHandler.postDelayed(new Runnable() {
                     public void run() {
-                        //  createNotification();
+//                        createNotification();
                     }
                 }, 5000); // 0.5초후
 
@@ -78,6 +80,7 @@ public class CartActivity extends AppCompatActivity {
     private void changeFragment(Fragment fr){
         Bundle bundle = new Bundle();
         bundle.putSerializable("bag", OrderList);
+        bundle.putInt("user_no", user_no);
 
         FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
         fr.setArguments(bundle); //data being send to SecondFragment

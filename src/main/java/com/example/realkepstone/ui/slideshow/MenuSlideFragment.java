@@ -58,6 +58,7 @@ public class MenuSlideFragment extends Fragment {
     private static final int PICK_FROM_CAMERA = 2;
     private Boolean isPermission = true;
 
+    private int user_no;
     private SharedViewModel model;
     private ImageView imageView;    // 이미지 미리보기
     private File tempFile;          // 보낼 사진 File의 껍데기, 앨범 또는 카메라에서 가져온 이미지를 저장할 변수.
@@ -69,6 +70,7 @@ public class MenuSlideFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_menuslide, container, false);
         model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         token = model.getToken();
+        user_no = model.getUser_no();
         Log.d("MenuSlideFrag_token", String.valueOf(token));
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -133,6 +135,7 @@ public class MenuSlideFragment extends Fragment {
                 if (response.code() == 201) {
                     imageView.clearAnimation();
                     change(response.body());
+                    imageView.setImageResource(R.drawable.camera);
 
 //                    FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
 //                    ResultFragment mfragment=new ResultFragment();
@@ -170,6 +173,7 @@ public class MenuSlideFragment extends Fragment {
         MainActivity activity = (MainActivity) getActivity();
         Intent intent = new Intent(activity, MenuRecogActivity.class);
         intent.putExtra("json", res_body);
+        intent.putExtra("user_no", user_no);
         startActivity(intent);
         activity.overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
     }
@@ -183,6 +187,8 @@ public class MenuSlideFragment extends Fragment {
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
                 makeText(getActivity().getApplicationContext(), getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show(); // 권한 요청 실패
+                imageView.clearAnimation();
+                imageView.setImageResource(R.drawable.camera);
             }
         };
         TedPermission.with(getContext())
