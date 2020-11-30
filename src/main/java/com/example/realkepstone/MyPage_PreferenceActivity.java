@@ -1,31 +1,24 @@
-package com.example.realkepstone.front;
+package com.example.realkepstone;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import com.example.realkepstone.FrontActivity;
-import com.example.realkepstone.MainActivity;
-import com.example.realkepstone.MyPage_ReviewActivity;
-import com.example.realkepstone.R;
+import com.example.realkepstone.data.ChangeTagData;
 import com.example.realkepstone.server.ApiInterface;
-import com.example.realkepstone.server.FindIdData;
 import com.example.realkepstone.server.HttpClient;
-import com.example.realkepstone.server.TagData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +27,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class JoinAfterFragment extends Fragment {
+public class MyPage_PreferenceActivity extends AppCompatActivity {
     ImageButton submit = null;
-    ImageButton skip = null;
+    Spinner spinner = null;
+    private RatingBar spicybar;
+    float spicy;
 
+    int user_no;
+    private SharedViewModel model;
     ApiInterface api;
     Button class1 = null;
     Button class2 = null;
@@ -69,6 +66,7 @@ public class JoinAfterFragment extends Fragment {
     Button class28 = null;
     Button class29 = null;
     Button class30 = null;
+    Button class31 = null;
 
     Button Tag1 = null;
     Button Tag2 = null;
@@ -125,109 +123,125 @@ public class JoinAfterFragment extends Fragment {
     ArrayList<Integer> foodClass = null;
     ArrayList<Integer> Tag = null;
     ArrayList<Integer> allergy = null;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_page__preference);
+        Intent intent = getIntent();
 
-    int user_no;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_joinafter, container, false);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.tb_preference);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("My Preference");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         api = HttpClient.getRetrofit().create( ApiInterface.class );
+        spinner = (Spinner)findViewById(R.id.spinner);
+        spicybar= findViewById(R.id.spicy);
+        spicy=3;
 
-        user_no=getArguments().getInt("user_no");
+        model = new ViewModelProvider(this).get(SharedViewModel.class);
+
+        user_no=model.getUser_no();
+        Log.e("ChangeTagFrag_userNo", String.valueOf(user_no));
 
         foodClass = new ArrayList<Integer>();
         Tag = new ArrayList<Integer>();
         allergy = new ArrayList<Integer>();
 
-        submit = (ImageButton) root.findViewById(R.id.submit);
-        skip = (ImageButton) root.findViewById(R.id.skip);
+        submit = (ImageButton) findViewById(R.id.submit);
 
-        class1 = (Button) root.findViewById(R.id.class1);
-        class2 = (Button) root.findViewById(R.id.class2);
-        class3 = (Button) root.findViewById(R.id.class3);
-        class4 = (Button) root.findViewById(R.id.class4);
-        class5 = (Button) root.findViewById(R.id.class5);
-        class6 = (Button) root.findViewById(R.id.class6);
-        class7 = (Button) root.findViewById(R.id.class7);
-        class8 = (Button) root.findViewById(R.id.class8);
-        class9 = (Button) root.findViewById(R.id.class9);
-        class10 = (Button) root.findViewById(R.id.class10);
-        class11 = (Button) root.findViewById(R.id.class11);
-        class12 = (Button) root.findViewById(R.id.class12);
-        class13 = (Button) root.findViewById(R.id.class13);
-        class14= (Button) root.findViewById(R.id.class14);
-        class15 = (Button) root.findViewById(R.id.class15);
-        class16 = (Button) root.findViewById(R.id.class16);
-        class17 = (Button) root.findViewById(R.id.class17);
-        class18 = (Button) root.findViewById(R.id.class18);
-        class19 = (Button) root.findViewById(R.id.class19);
-        class20 = (Button) root.findViewById(R.id.class20);
-        class21 = (Button) root.findViewById(R.id.class21);
-        class22 = (Button) root.findViewById(R.id.class22);
-        class23 = (Button) root.findViewById(R.id.class23);
-        class24 = (Button) root.findViewById(R.id.class24);
-        class25= (Button) root.findViewById(R.id.class25);
-        class26 = (Button) root.findViewById(R.id.class26);
-        class27 = (Button) root.findViewById(R.id.class27);
-        class28= (Button) root.findViewById(R.id.class28);
-        class29= (Button) root.findViewById(R.id.class29);
-        class30 = (Button) root.findViewById(R.id.class30);
+        class1 = (Button) findViewById(R.id.class1);
+        class2 = (Button) findViewById(R.id.class2);
+        class3 = (Button) findViewById(R.id.class3);
+        class4 = (Button) findViewById(R.id.class4);
+        class5 = (Button) findViewById(R.id.class5);
+        class6 = (Button) findViewById(R.id.class6);
+        class7 = (Button) findViewById(R.id.class7);
+        class8 = (Button) findViewById(R.id.class8);
+        class9 = (Button) findViewById(R.id.class9);
+        class10 = (Button) findViewById(R.id.class10);
+        class11 = (Button) findViewById(R.id.class11);
+        class12 = (Button) findViewById(R.id.class12);
+        class13 = (Button) findViewById(R.id.class13);
+        class14= (Button) findViewById(R.id.class14);
+        class15 = (Button) findViewById(R.id.class15);
+        class16 = (Button) findViewById(R.id.class16);
+        class17 = (Button) findViewById(R.id.class17);
+        class18 = (Button) findViewById(R.id.class18);
+        class19 = (Button) findViewById(R.id.class19);
+        class20 = (Button) findViewById(R.id.class20);
+        class21 = (Button) findViewById(R.id.class21);
+        class22 = (Button) findViewById(R.id.class22);
+        class23 = (Button) findViewById(R.id.class23);
+        class24 = (Button) findViewById(R.id.class24);
+        class25= (Button) findViewById(R.id.class25);
+        class26 = (Button) findViewById(R.id.class26);
+        class27 = (Button) findViewById(R.id.class27);
+        class28= (Button) findViewById(R.id.class28);
+        class29= (Button) findViewById(R.id.class29);
+        class30 = (Button) findViewById(R.id.class30);
 
 
-        Tag1 = (Button) root.findViewById(R.id.tag1);
-        Tag2 = (Button) root.findViewById(R.id.tag2);
-        Tag3 = (Button) root.findViewById(R.id.tag3);
-        Tag4 = (Button) root.findViewById(R.id.tag4);
-        Tag5 = (Button) root.findViewById(R.id.tag5);
-        Tag6 = (Button) root.findViewById(R.id.tag6);
-        Tag7 = (Button) root.findViewById(R.id.tag7);
-        Tag8 = (Button) root.findViewById(R.id.tag8);
-        Tag9 = (Button) root.findViewById(R.id.tag9);
-        Tag10 = (Button) root.findViewById(R.id.tag10);
-        Tag11 = (Button) root.findViewById(R.id.tag11);
-        Tag12 = (Button) root.findViewById(R.id.tag12);
-        Tag13 = (Button) root.findViewById(R.id.tag13);
-        Tag14 = (Button) root.findViewById(R.id.tag14);
-        Tag15 = (Button) root.findViewById(R.id.tag15);
-        Tag16 = (Button) root.findViewById(R.id.tag16);
-        Tag17 = (Button) root.findViewById(R.id.tag17);
-        Tag18 = (Button) root.findViewById(R.id.tag18);
-        Tag19 = (Button) root.findViewById(R.id.tag19);
-        Tag20 = (Button) root.findViewById(R.id.tag20);
-        Tag21 = (Button) root.findViewById(R.id.tag21);
-        Tag22 = (Button) root.findViewById(R.id.tag22);
-        Tag23 = (Button) root.findViewById(R.id.tag23);
-        Tag24 = (Button) root.findViewById(R.id.tag24);
-        Tag25 = (Button) root.findViewById(R.id.tag25);
-        Tag26 = (Button) root.findViewById(R.id.tag26);
-        Tag27 = (Button) root.findViewById(R.id.tag27);
-        Tag28 = (Button) root.findViewById(R.id.tag28);
-        Tag29 = (Button) root.findViewById(R.id.tag29);
-        Tag30 = (Button) root.findViewById(R.id.tag30);
-        Tag31 = (Button) root.findViewById(R.id.tag31);
-        Tag32 = (Button) root.findViewById(R.id.tag32);
+        Tag1 = (Button) findViewById(R.id.tag1);
+        Tag2 = (Button) findViewById(R.id.tag2);
+        Tag3 = (Button) findViewById(R.id.tag3);
+        Tag4 = (Button) findViewById(R.id.tag4);
+        Tag5 = (Button) findViewById(R.id.tag5);
+        Tag6 = (Button) findViewById(R.id.tag6);
+        Tag7 = (Button) findViewById(R.id.tag7);
+        Tag8 = (Button) findViewById(R.id.tag8);
+        Tag9 = (Button) findViewById(R.id.tag9);
+        Tag10 = (Button) findViewById(R.id.tag10);
+        Tag11 = (Button) findViewById(R.id.tag11);
+        Tag12 = (Button) findViewById(R.id.tag12);
+        Tag13 = (Button) findViewById(R.id.tag13);
+        Tag14 = (Button) findViewById(R.id.tag14);
+        Tag15 = (Button) findViewById(R.id.tag15);
+        Tag16 = (Button) findViewById(R.id.tag16);
+        Tag17 = (Button) findViewById(R.id.tag17);
+        Tag18 = (Button) findViewById(R.id.tag18);
+        Tag19 = (Button) findViewById(R.id.tag19);
+        Tag20 = (Button) findViewById(R.id.tag20);
+        Tag21 = (Button) findViewById(R.id.tag21);
+        Tag22 = (Button) findViewById(R.id.tag22);
+        Tag23 = (Button) findViewById(R.id.tag23);
+        Tag24 = (Button) findViewById(R.id.tag24);
+        Tag25 = (Button) findViewById(R.id.tag25);
+        Tag26 = (Button) findViewById(R.id.tag26);
+        Tag27 = (Button) findViewById(R.id.tag27);
+        Tag28 = (Button) findViewById(R.id.tag28);
+        Tag29 = (Button) findViewById(R.id.tag29);
+        Tag30 = (Button) findViewById(R.id.tag30);
+        Tag31 = (Button) findViewById(R.id.tag31);
+        Tag32 = (Button) findViewById(R.id.tag32);
 
-        allergy1 = (ImageView) root.findViewById(R.id.allergy1);
-        allergy2 = (ImageView) root.findViewById(R.id.allergy2);
-        allergy3 = (ImageView) root.findViewById(R.id.allergy3);
-        allergy4 = (ImageView) root.findViewById(R.id.allergy4);
-        allergy5 = (ImageView) root.findViewById(R.id.allergy5);
-        allergy6= (ImageView) root.findViewById(R.id.allergy6);
-        allergy7 = (ImageView) root.findViewById(R.id.allergy7);
-        allergy8 = (ImageView) root.findViewById(R.id.allergy8);
-        allergy9 = (ImageView) root.findViewById(R.id.allergy9);
-        allergy10 = (ImageView) root.findViewById(R.id.allergy10);
-        allergy11 = (ImageView) root.findViewById(R.id.allergy11);
-        allergy12 = (ImageView) root.findViewById(R.id.allergy12);
-        allergy13 = (ImageView) root.findViewById(R.id.allergy13);
-        allergy14 = (ImageView) root.findViewById(R.id.allergy14);
-        allergy15 = (ImageView) root.findViewById(R.id.allergy15);
-        allergy16 = (ImageView) root.findViewById(R.id.allergy16);
-        allergy17 = (ImageView) root.findViewById(R.id.allergy17);
-
+        allergy1 = (ImageView) findViewById(R.id.allergy1);
+        allergy2 = (ImageView) findViewById(R.id.allergy2);
+        allergy3 = (ImageView) findViewById(R.id.allergy3);
+        allergy4 = (ImageView) findViewById(R.id.allergy4);
+        allergy5 = (ImageView) findViewById(R.id.allergy5);
+        allergy6= (ImageView) findViewById(R.id.allergy6);
+        allergy7 = (ImageView) findViewById(R.id.allergy7);
+        allergy8 = (ImageView) findViewById(R.id.allergy8);
+        allergy9 = (ImageView) findViewById(R.id.allergy9);
+        allergy10 = (ImageView) findViewById(R.id.allergy10);
+        allergy11 = (ImageView) findViewById(R.id.allergy11);
+        allergy12 = (ImageView) findViewById(R.id.allergy12);
+        allergy13 = (ImageView) findViewById(R.id.allergy13);
+        allergy14 = (ImageView) findViewById(R.id.allergy14);
+        allergy15 = (ImageView) findViewById(R.id.allergy15);
+        allergy16 = (ImageView) findViewById(R.id.allergy16);
+        allergy17 = (ImageView) findViewById(R.id.allergy17);
 
 
 
+        spicybar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                spicy = spicybar.getRating();
+                Log.d("rating:", String.valueOf(rating));
+
+            }
+        });
         allergy1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -372,7 +386,6 @@ public class JoinAfterFragment extends Fragment {
                 }
             }
         });
-
         allergy12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -386,7 +399,6 @@ public class JoinAfterFragment extends Fragment {
                 }
             }
         });
-
         allergy13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -400,7 +412,6 @@ public class JoinAfterFragment extends Fragment {
                 }
             }
         });
-
         allergy14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -414,7 +425,6 @@ public class JoinAfterFragment extends Fragment {
                 }
             }
         });
-
         allergy15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -428,7 +438,6 @@ public class JoinAfterFragment extends Fragment {
                 }
             }
         });
-
         allergy16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -442,7 +451,6 @@ public class JoinAfterFragment extends Fragment {
                 }
             }
         });
-
         allergy17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1273,82 +1281,80 @@ public class JoinAfterFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                requestPost(user_no, foodClass, Tag, allergy);
-                Log.d("user_no", String.valueOf(user_no));
+                int country_no = 11;
+                String country = spinner.getSelectedItem().toString();
+                if(country.equals("Canada")){
+                    country_no=1;
+                }else if(country.equals("China")){
+                    country_no=2;
+                }else if(country.equals("France")){
+                    country_no=3;
+                }else if(country.equals("Germany")){
+                    country_no=4;
+                }else if(country.equals("Italy")){
+                    country_no=5;
+                }else if(country.equals("Japan")){
+                    country_no=6;
+                }else if(country.equals("Spain")){
+                    country_no=7;
+                }else if(country.equals("Taiwan")){
+                    country_no=8;
+                }else if(country.equals("America")){
+                    country_no=9;
+                }else if(country.equals("Vietnam")){
+                    country_no=10;
+                }else if(country.equals("Korea")){
+                    country_no=11;
+                }
+                requestPost(user_no, spicy, country_no, foodClass, Tag, allergy);
+                Log.e("user_no", String.valueOf(user_no));
 
                 Log.d("TedPark", String.valueOf(foodClass));
                 Log.d("TedPark", String.valueOf(Tag));
                 Log.d("TedPark", String.valueOf(allergy));
-
-
-
             }
 
         });
 
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                intent.putExtra("user_no",user_no);
-                startActivity(intent);
-            }
-        });
-
-
-
-
-
-
-        return root;
     }
-
-
-    public void requestPost(int userNo, List<Integer> foodClassNo, List<Integer> tagNo, List<Integer> allergyNo) {
-        TagData tagData = new TagData(userNo, foodClassNo, tagNo, allergyNo);
-        Call<TagData> call = api.requestTag( tagData );
+    public void requestPost(int userNo, float user_spicy, int country_no, List<Integer> foodClassNo, List<Integer> tagNo, List<Integer> allergyNo) {
+        ChangeTagData changeTagData = new ChangeTagData(userNo, user_spicy, country_no, foodClassNo, tagNo, allergyNo);
+        Call<ChangeTagData> call = api.requestTagChange( changeTagData );
 
 /*
 - 저장 성공: JsonResponse({"message": "TASTE_SAVED"}, status=200)
  */
-        call.enqueue( new Callback<TagData>() {
+        call.enqueue( new Callback<ChangeTagData>() {
             @Override
-            public void onResponse(Call<TagData> call, Response<TagData> response) {
+            public void onResponse(Call<ChangeTagData> call, Response<ChangeTagData> response) {
                 if(response.code()==200){
-                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.success), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.modifysuccess), Toast.LENGTH_LONG).show();
+                    Log.d("수정 성공", String.valueOf(response.code()));
 
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    intent.putExtra("user_no",user_no);
-
-                    startActivity(intent);
-
-                    FragmentTransaction transaction = ((FrontActivity) getActivity()).getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frame_cart, new LoginFragment());
-                    transaction.commit();
                 }
                 else{
-                    Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
-                    Log.d("TedPark", String.valueOf(response.code()));
-                    Log.d("Message", "code..."+userNo);
-                    Log.d("Message", "foodclass..."+foodClassNo);
-                    Log.d("Message", "tag..."+ tagNo);
-                    Log.d("Message", "allergy"+allergyNo);
-
-
-
-
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
+                    Log.d("수정 실패", String.valueOf(response.code()));
                 }
             }
 
             @Override
-            public void onFailure(Call<TagData> call, Throwable t) {
-                Log.d("TedPark", "실패"+String.valueOf(t));
-                Toast.makeText(getContext().getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
+            public void onFailure(Call<ChangeTagData> call, Throwable t) {
+                Log.d("네트워크", "실패"+String.valueOf(t));
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.network), Toast.LENGTH_LONG).show();
             }
         } );
     }
 
-
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            // 뒤로가기 버튼
+            case android.R.id.home:{
+                finish();
+                overridePendingTransition(R.anim.exit_to_right, R.anim.exit_to_right);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -37,8 +37,15 @@ public class MenuRecogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_recog);
 
         Intent intent = getIntent();
-        FoodAfter res_result = (FoodAfter) intent.getSerializableExtra("json");
-        assert res_result != null;
+
+        OrderList = new ArrayList<>();
+
+        FoodAfter foodAfter = null;
+        ArrayList<Food> data = new ArrayList<>();
+        ArrayList<Food> OrderBack = new ArrayList<>();
+
+
+
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.tb_menu_recog);
         setSupportActionBar(toolbar);
@@ -51,9 +58,30 @@ public class MenuRecogActivity extends AppCompatActivity {
         adapter = new ResultRecyclerAdapter();
         recyclerView.setAdapter(adapter);
 
+        if(intent.getExtras().containsKey("json")) {
+            foodAfter = (FoodAfter) intent.getSerializableExtra("json");
+            getData(foodAfter);
+            Log.d("TedPark", "뭐가지워졌fasdfdsafasdf냐");
 
-        OrderList = new ArrayList<>();
-        getData(res_result);
+        }
+        else
+        {
+            data = (ArrayList<Food>) intent.getSerializableExtra("data");
+            adapter.listData=data;
+            OrderBack = (ArrayList<Food>) intent.getSerializableExtra("trash");
+
+            Log.d("adsgsdfads", String.valueOf(OrderBack.size()));
+
+            for(int i=0; i<data.size(); i++) {
+                for (int j = 0; j < OrderBack.size(); j++) {
+                    if (adapter.listData.get(i).getKor().equals( OrderBack.get(j).getKor())) {
+                        adapter.listData.get(i).setSelect(false);
+                        adapter.listData.get(i).setAmount(OrderBack.get(j).getAmount());
+                        Log.d("TedPark", OrderBack.get(j).isSelect() + "뭐가지워졌냐");
+                    }
+                }
+            }
+        }
     }
 
     // Fires when a configuration change occurs and fragment needs to save state
@@ -126,15 +154,18 @@ public class MenuRecogActivity extends AppCompatActivity {
         List<String> listAller = new ArrayList<String>();
         List<String> listUrl = new ArrayList<String>();
         List<Float> listStar = new ArrayList<Float>();
+        List<Integer> listAmount= new ArrayList<>();
 
         for (int i = 0; i < getSize; i++) {
-            if (adapter.listData.get(i).isSelect()) {
+            if (adapter.listData.get(i).getAmount()>0) {
                 passSize++;
                 listKor.add(adapter.listData.get(i).getKor());
                 listEng.add(adapter.listData.get(i).getEng());
                 listDes.add(adapter.listData.get(i).getDes());
                 listUrl.add(adapter.listData.get(i).getUrl());
                 listStar.add(adapter.listData.get(i).getStar());
+                listAmount.add(adapter.listData.get(i).getAmount());
+
             }
         }
 
@@ -146,6 +177,7 @@ public class MenuRecogActivity extends AppCompatActivity {
             food.setDes(listDes.get(i));
             food.setUrl(listUrl.get(i));
             food.setStar(listStar.get(i));
+            food.setAmount(listAmount.get(i));
 
             // 각 값이 들어간 data를 adapter에 추가합니다.
             OrderList.add(food);
@@ -173,13 +205,12 @@ public class MenuRecogActivity extends AppCompatActivity {
             // 장바구니 버튼
             case R.id.btn_bag:{
                 int passSize;
-                Log.e("result", String.valueOf(OrderList.size()));
-                passSize = passData(OrderList);
+                passSize=passData(OrderList);
 
+                finish();
                 Intent intent = new Intent(this, CartActivity.class);
 
                 intent.putExtra("bag", OrderList);
-                intent.putExtra("bagsize", passSize);
                 intent.putExtra("data", adapter.listData);
                 startActivity(intent);
                 overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);

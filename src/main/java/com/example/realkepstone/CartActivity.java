@@ -54,6 +54,8 @@ public class CartActivity extends AppCompatActivity {
         Intent intent = getIntent();
         OrderList = null;
         OrderList = (ArrayList<Food>) intent.getSerializableExtra("bag");
+        data = (ArrayList<Food>) intent.getSerializableExtra("data");
+
         if (OrderList != null) ;
         Log.e("orderlist", String.valueOf(OrderList.size()));
         getData(OrderList);
@@ -124,8 +126,22 @@ public class CartActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                finish(); 
-                overridePendingTransition(R.anim.exit_to_right, R.anim.exit_to_right);
+                Log.e("whaat","1111");
+
+                finish();
+                Log.e("whaat","fcfds");
+
+
+                Intent intent = new Intent(this, MenuRecogActivity.class);
+
+                intent.putExtra("data", data);
+                intent.putExtra("trash", adapter.trash);
+
+                startActivity(intent);
+                overridePendingTransition(R.anim.enter_from_right, R.anim.enter_from_right);
+
+
+
                 return true;
             }
         }
